@@ -75,10 +75,10 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
         ";
         // line 20
         $this->displayBlock('menu', $context, $blocks);
-        // line 44
+        // line 50
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 47
+        // line 53
         echo "    </body>
 </html>
 ";
@@ -123,6 +123,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
         echo "            <nav class=\"navbar navbar-light bg-light\">
                 <div class=\"container\">
                     <svg
+                        xlink:href=\"https://www.iesjoseplanes.es/\"
                         version=\"1.1\"
                         id=\"svg193\"
                         width=\"40\"
@@ -140,7 +141,19 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
                             id=\"path399\" />
                         </g>
                         </svg>
-                </div>
+                        ";
+        // line 42
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 43
+            echo "                            <a class=\"nav-link\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\">
+                                Cerrar sesión
+                            </a>
+                        ";
+        }
+        // line 47
+        echo "                </div>
             </nav>
         ";
         
@@ -151,7 +164,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
 
     }
 
-    // line 44
+    // line 50
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -161,7 +174,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 45
+        // line 51
         echo "            
         ";
         
@@ -184,7 +197,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
 
     public function getDebugInfo()
     {
-        return array (  165 => 45,  155 => 44,  123 => 21,  113 => 20,  94 => 5,  82 => 47,  79 => 44,  77 => 20,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
+        return array (  178 => 51,  168 => 50,  156 => 47,  148 => 43,  146 => 42,  123 => 21,  113 => 20,  94 => 5,  82 => 53,  79 => 50,  77 => 20,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -212,6 +225,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
             <nav class=\"navbar navbar-light bg-light\">
                 <div class=\"container\">
                     <svg
+                        xlink:href=\"https://www.iesjoseplanes.es/\"
                         version=\"1.1\"
                         id=\"svg193\"
                         width=\"40\"
@@ -229,6 +243,11 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
                             id=\"path399\" />
                         </g>
                         </svg>
+                        {% if is_granted(\"IS_AUTHENTICATED_REMEMBERED\") %}
+                            <a class=\"nav-link\" href=\"{{ path('app_logout') }}\">
+                                Cerrar sesión
+                            </a>
+                        {% endif %}
                 </div>
             </nav>
         {% endblock %}
@@ -237,6 +256,6 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
         {% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\xampp\\htdocs\\symfony\\TrabajoTFC\\TFC\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\base.html.twig");
     }
 }

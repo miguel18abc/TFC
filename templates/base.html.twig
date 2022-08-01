@@ -21,6 +21,7 @@
             <nav class="navbar navbar-light bg-light">
                 <div class="container">
                     <svg
+                        xlink:href="https://www.iesjoseplanes.es/"
                         version="1.1"
                         id="svg193"
                         width="40"
@@ -38,6 +39,11 @@
                             id="path399" />
                         </g>
                         </svg>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <a class="nav-link" href="{{ path('app_logout') }}">
+                                Cerrar sesión
+                            </a>
+                        {% endif %}
                 </div>
             </nav>
         {% endblock %}

@@ -1,6 +1,6 @@
 <?php return array (
   0 => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController',
-  1 => 'App\\Controller\\PruebaController',
+  1 => 'App\\Controller\\MainController',
   2 => 'Doctrine\\Bundle\\DoctrineBundle\\Controller\\ProfilerController',
   3 => 'Doctrine\\ORM\\Cache\\Persister\\Entity\\AbstractEntityPersister',
   4 => 'Doctrine\\ORM\\Cache\\Persister\\Entity\\CachedEntityPersister',
