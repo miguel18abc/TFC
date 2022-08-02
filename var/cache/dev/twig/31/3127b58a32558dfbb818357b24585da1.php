@@ -75,10 +75,10 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
         ";
         // line 20
         $this->displayBlock('menu', $context, $blocks);
-        // line 50
+        // line 52
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 53
+        // line 55
         echo "    </body>
 </html>
 ";
@@ -151,8 +151,14 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
                                 Cerrar sesión
                             </a>
                         ";
+        } else {
+            // line 47
+            echo "                            <a class=\"nav-link\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Iniciar sesión</a>
+                        ";
         }
-        // line 47
+        // line 49
         echo "                </div>
             </nav>
         ";
@@ -164,7 +170,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
 
     }
 
-    // line 50
+    // line 52
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -174,7 +180,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 51
+        // line 53
         echo "            
         ";
         
@@ -197,7 +203,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
 
     public function getDebugInfo()
     {
-        return array (  178 => 51,  168 => 50,  156 => 47,  148 => 43,  146 => 42,  123 => 21,  113 => 20,  94 => 5,  82 => 53,  79 => 50,  77 => 20,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
+        return array (  184 => 53,  174 => 52,  162 => 49,  156 => 47,  148 => 43,  146 => 42,  123 => 21,  113 => 20,  94 => 5,  82 => 55,  79 => 52,  77 => 20,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -247,6 +253,8 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
                             <a class=\"nav-link\" href=\"{{ path('app_logout') }}\">
                                 Cerrar sesión
                             </a>
+                        {% else %}
+                            <a class=\"nav-link\" href=\"{{ path('app_login') }}\">Iniciar sesión</a>
                         {% endif %}
                 </div>
             </nav>

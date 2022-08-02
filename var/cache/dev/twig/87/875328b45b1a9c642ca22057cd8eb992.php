@@ -108,9 +108,8 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
         <label for=\"password\">Password:</label>
         <input type=\"password\" id=\"password\" name=\"_password\"/>
 
-        ";
-        // line 20
-        echo "
+        <input type=\"hidden\" name=\"_target_path\" value=\"/main\"/>
+
         <button type=\"submit\">login</button>
     </form>
 ";
@@ -134,7 +133,7 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
 
     public function getDebugInfo()
     {
-        return array (  113 => 20,  105 => 13,  100 => 11,  97 => 10,  91 => 8,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
+        return array (  105 => 13,  100 => 11,  97 => 10,  91 => 8,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -156,8 +155,7 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
         <label for=\"password\">Password:</label>
         <input type=\"password\" id=\"password\" name=\"_password\"/>
 
-        {# If you want to control the URL the user is redirected to on success
-        <input type=\"hidden\" name=\"_target_path\" value=\"/account\"/> #}
+        <input type=\"hidden\" name=\"_target_path\" value=\"/main\"/>
 
         <button type=\"submit\">login</button>
     </form>
