@@ -15,7 +15,18 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="_password"/>
 
-        <input type="hidden" name="_target_path" value="/main"/>
+        {% if is_granted('ROLE_USER') %}
+            {# {{ render(controller('App\\Controller\\MainController::indexAlumnado')) }} #}
+            {{ render('.' ~ path('main') ~ path('alumnado'))}}
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+            {# {{ render(controller('App\\Controller\\MainController::indexTutor')) }} #}
+            {{path('tutor')}}
+        {% endif %}
+        {% if is_granted('ROLE_SEMIADMIN') %}
+            {# {{ render(controller('App\\Controller\\MainController::indexPlantilla')) }} #}
+            {{path('plantilla')}}
+        {% endif %}
 
         <button type="submit">login</button>
     </form>

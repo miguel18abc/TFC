@@ -5,6 +5,9 @@
 return [
     'app_login' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/login']], [], [], []],
     'main' => [[], ['_controller' => 'App\\Controller\\MainController::index'], [], [['text', '/main']], [], [], []],
+    'alumnado' => [[], ['_controller' => 'App\\Controller\\MainController::indexAlumnado'], [], [['text', '/alumnado']], [], [], []],
+    'plantilla' => [[], ['_controller' => 'App\\Controller\\MainController::indexPlantilla'], [], [['text', '/plantilla']], [], [], []],
+    'tutor' => [[], ['_controller' => 'App\\Controller\\MainController::indexTutor'], [], [['text', '/tutor']], [], [], []],
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
     'app_tutoria' => [[], ['_controller' => 'App\\Controller\\TutoriaController::index'], [], [['text', '/tutoria']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
