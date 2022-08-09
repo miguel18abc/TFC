@@ -91,13 +91,9 @@ class __TwigTemplate_15ddb8fb42cf695c70e5fe713515497f extends Template
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
             // line 7
             echo "            Has accedido a la página
-            ";
-            // line 8
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("plantilla");
-            echo "
     ";
         } else {
-            // line 10
+            // line 9
             echo "            No puedes acceder a la página , al no ser que seas admin.
     ";
         }
@@ -121,7 +117,7 @@ class __TwigTemplate_15ddb8fb42cf695c70e5fe713515497f extends Template
 
     public function getDebugInfo()
     {
-        return array (  101 => 10,  96 => 8,  93 => 7,  90 => 6,  80 => 5,  59 => 3,  36 => 1,);
+        return array (  97 => 9,  93 => 7,  90 => 6,  80 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -133,7 +129,6 @@ class __TwigTemplate_15ddb8fb42cf695c70e5fe713515497f extends Template
 {% block body %}
     {% if is_granted('ROLE_ADMIN') %}
             Has accedido a la página
-            {{ path('plantilla') }}
     {% else %}
             No puedes acceder a la página , al no ser que seas admin.
     {% endif %}

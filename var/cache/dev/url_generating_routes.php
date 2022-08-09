@@ -4,7 +4,7 @@
 
 return [
     'app_login' => [[], ['_controller' => 'App\\Controller\\LoginController::index'], [], [['text', '/login']], [], [], []],
-    'main' => [[], ['_controller' => 'App\\Controller\\MainController::index'], [], [['text', '/main']], [], [], []],
+    'main' => [[], ['_controller' => 'App\\Controller\\MainController::index'], [], [['text', '/']], [], [], []],
     'alumnado' => [[], ['_controller' => 'App\\Controller\\MainController::indexAlumnado'], [], [['text', '/alumnado']], [], [], []],
     'plantilla' => [[], ['_controller' => 'App\\Controller\\MainController::indexPlantilla'], [], [['text', '/plantilla']], [], [], []],
     'tutor' => [[], ['_controller' => 'App\\Controller\\MainController::indexTutor'], [], [['text', '/tutor']], [], [], []],

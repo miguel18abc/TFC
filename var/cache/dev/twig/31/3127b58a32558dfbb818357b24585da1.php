@@ -78,7 +78,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
         // line 52
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 55
+        // line 53
         echo "    </body>
 </html>
 ";
@@ -180,9 +180,6 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 53
-        echo "            
-        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -203,7 +200,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
 
     public function getDebugInfo()
     {
-        return array (  184 => 53,  174 => 52,  162 => 49,  156 => 47,  148 => 43,  146 => 42,  123 => 21,  113 => 20,  94 => 5,  82 => 55,  79 => 52,  77 => 20,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
+        return array (  174 => 52,  162 => 49,  156 => 47,  148 => 43,  146 => 42,  123 => 21,  113 => 20,  94 => 5,  82 => 53,  79 => 52,  77 => 20,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -259,9 +256,7 @@ class __TwigTemplate_f2621b132a82de59e293e01b6bcbd316 extends Template
                 </div>
             </nav>
         {% endblock %}
-        {% block body %}
-            
-        {% endblock %}
+        {% block body %}{% endblock %}
     </body>
 </html>
 ", "base.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\base.html.twig");

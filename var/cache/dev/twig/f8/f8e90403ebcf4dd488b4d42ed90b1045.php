@@ -85,29 +85,26 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+        echo "    <div class=\"card\" style=\"width: 18rem;\">
+        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        <div class=\"card-body\">
+            <p class=\"card-text\">Orientación</p>
+        </div>
+    </div>
 
-<div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
+    <div class=\"card\" style=\"width: 18rem;\">
+        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        <div class=\"card-body\">
+            <p class=\"card-text\">Secretaría</p>
+        </div>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/xampp/htdocs/symfony/TrabajoTFC/TFC/src/Controller/MainController.php", 0), "html", null, true);
-        echo "\">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href=\"";
-        // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/xampp/htdocs/symfony/TrabajoTFC/TFC/templates/main/index.html.twig", 0), "html", null, true);
-        echo "\">templates/main/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class=\"card\" style=\"width: 18rem;\">
+        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        <div class=\"card-body\">
+            <p class=\"card-text\">Tutoría</p>
+        </div>
+    </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -129,7 +126,7 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
 
     public function getDebugInfo()
     {
-        return array (  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -139,20 +136,26 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class=\"card\" style=\"width: 18rem;\">
+        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        <div class=\"card-body\">
+            <p class=\"card-text\">Orientación</p>
+        </div>
+    </div>
 
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class=\"card\" style=\"width: 18rem;\">
+        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        <div class=\"card-body\">
+            <p class=\"card-text\">Secretaría</p>
+        </div>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"{{ 'C:/xampp/htdocs/symfony/TrabajoTFC/TFC/src/Controller/MainController.php'|file_link(0) }}\">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ 'C:/xampp/htdocs/symfony/TrabajoTFC/TFC/templates/main/index.html.twig'|file_link(0) }}\">templates/main/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class=\"card\" style=\"width: 18rem;\">
+        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        <div class=\"card-body\">
+            <p class=\"card-text\">Tutoría</p>
+        </div>
+    </div>
 {% endblock %}
 ", "main/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\index.html.twig");
     }
