@@ -108,41 +108,6 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
         <label for=\"password\">Password:</label>
         <input type=\"password\" id=\"password\" name=\"_password\"/>
 
-        ";
-        // line 18
-        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
-            // line 19
-            echo "            ";
-            echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("App\\Controller\\MainController::indexAlumnado"));
-            echo "
-            ";
-            // line 21
-            echo "        ";
-        }
-        // line 22
-        echo "        ";
-        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-            // line 23
-            echo "            ";
-            echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("App\\Controller\\MainController::indexTutor"));
-            echo "
-            ";
-            // line 25
-            echo "        ";
-        }
-        // line 26
-        echo "        ";
-        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SEMIADMIN")) {
-            // line 27
-            echo "            ";
-            echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("App\\Controller\\MainController::indexPlantilla"));
-            echo "
-            ";
-            // line 29
-            echo "        ";
-        }
-        // line 30
-        echo "
         <button type=\"submit\">login</button>
     </form>
 ";
@@ -166,7 +131,7 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
 
     public function getDebugInfo()
     {
-        return array (  145 => 30,  142 => 29,  137 => 27,  134 => 26,  131 => 25,  126 => 23,  123 => 22,  120 => 21,  115 => 19,  113 => 18,  105 => 13,  100 => 11,  97 => 10,  91 => 8,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
+        return array (  105 => 13,  100 => 11,  97 => 10,  91 => 8,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
     }
 
     public function getSourceContext()
@@ -187,19 +152,6 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
 
         <label for=\"password\">Password:</label>
         <input type=\"password\" id=\"password\" name=\"_password\"/>
-
-        {% if is_granted('ROLE_USER') %}
-            {{ render(controller('App\\\\Controller\\\\MainController::indexAlumnado')) }}
-            {# {{ render()}} #}
-        {% endif %}
-        {% if is_granted('ROLE_ADMIN') %}
-            {{ render(controller('App\\\\Controller\\\\MainController::indexTutor')) }}
-            {# {{path('tutor')}} #}
-        {% endif %}
-        {% if is_granted('ROLE_SEMIADMIN') %}
-            {{ render(controller('App\\\\Controller\\\\MainController::indexPlantilla')) }}
-            {# {{path('plantilla')}} #}
-        {% endif %}
 
         <button type=\"submit\">login</button>
     </form>

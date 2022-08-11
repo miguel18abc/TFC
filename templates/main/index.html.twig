@@ -4,23 +4,29 @@
 
 {% block body %}
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <a href="{{path('tutor')}}">
+            <img src="..." class="card-img-top" alt="...">
+        </a>
         <div class="card-body">
             <p class="card-text">Tutoría</p>
         </div>
     </div>
 
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <a href="{{path('plantilla')}}">
+            <img src="..." class="card-img-top" alt="...">
+        </a>
         <div class="card-body">
-            <p class="card-text">Secretaría</p>
+            <p class="card-text">Plantilla</p>
         </div>
     </div>
 
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <a href="{{path('alumnado')}}">
+            <img src="..." class="card-img-top" alt="...">
+        </a>
         <div class="card-body">
-            <p class="card-text">Orientación</p>
+            <p class="card-text">Alumnado</p>
         </div>
     </div>
 {% endblock %}

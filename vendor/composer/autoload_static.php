@@ -606,8 +606,20 @@ class ComposerStaticInita53dc5275cdef4a5235705fbba6e9a30
     );
 
     public static $classMap = array (
+        'App\\Controller\\LoginController' => __DIR__ . '/../..' . '/src/Controller/LoginController.php',
         'App\\Controller\\MainController' => __DIR__ . '/../..' . '/src/Controller/MainController.php',
+        'App\\Controller\\RegistrationController' => __DIR__ . '/../..' . '/src/Controller/RegistrationController.php',
+        'App\\Controller\\TutoriaController' => __DIR__ . '/../..' . '/src/Controller/TutoriaController.php',
+        'App\\Entity\\Orientacion' => __DIR__ . '/../..' . '/src/Entity/Orientacion.php',
+        'App\\Entity\\Secretaria' => __DIR__ . '/../..' . '/src/Entity/Secretaria.php',
+        'App\\Entity\\Tutoria' => __DIR__ . '/../..' . '/src/Entity/Tutoria.php',
+        'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
+        'App\\Form\\RegistrationFormType' => __DIR__ . '/../..' . '/src/Form/RegistrationFormType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\OrientacionRepository' => __DIR__ . '/../..' . '/src/Repository/OrientacionRepository.php',
+        'App\\Repository\\SecretariaRepository' => __DIR__ . '/../..' . '/src/Repository/SecretariaRepository.php',
+        'App\\Repository\\TutoriaRepository' => __DIR__ . '/../..' . '/src/Repository/TutoriaRepository.php',
+        'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',

@@ -3,9 +3,9 @@
 {% block title %}Hello {{controller_name}}!{% endblock %}
 
 {% block body %}
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('ROLE_SEMIADMIN') %}
             Has accedido a la página
     {% else %}
-            No puedes acceder a la página , al no ser que seas admin.
+            No puedes acceder a la página , al no ser que tengas una cuenta de tutor.
     {% endif %}
 {% endblock %}

@@ -88,13 +88,13 @@ class __TwigTemplate_15ddb8fb42cf695c70e5fe713515497f extends Template
 
         // line 6
         echo "    ";
-        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SEMIADMIN")) {
             // line 7
             echo "            Has accedido a la página
     ";
         } else {
             // line 9
-            echo "            No puedes acceder a la página , al no ser que seas admin.
+            echo "            No puedes acceder a la página , al no ser que tengas una cuenta de tutor.
     ";
         }
         
@@ -127,10 +127,10 @@ class __TwigTemplate_15ddb8fb42cf695c70e5fe713515497f extends Template
 {% block title %}Hello {{controller_name}}!{% endblock %}
 
 {% block body %}
-    {% if is_granted('ROLE_ADMIN') %}
+    {% if is_granted('ROLE_SEMIADMIN') %}
             Has accedido a la página
     {% else %}
-            No puedes acceder a la página , al no ser que seas admin.
+            No puedes acceder a la página , al no ser que tengas una cuenta de tutor.
     {% endif %}
 {% endblock %}", "main/tutor.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\tutor.html.twig");
     }

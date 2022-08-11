@@ -86,23 +86,38 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
 
         // line 6
         echo "    <div class=\"card\" style=\"width: 18rem;\">
-        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        <div class=\"card-body\">
-            <p class=\"card-text\">Orientación</p>
-        </div>
-    </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        <div class=\"card-body\">
-            <p class=\"card-text\">Secretaría</p>
-        </div>
-    </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        <a href=\"";
+        // line 7
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tutor");
+        echo "\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
         <div class=\"card-body\">
             <p class=\"card-text\">Tutoría</p>
+        </div>
+    </div>
+
+    <div class=\"card\" style=\"width: 18rem;\">
+        <a href=\"";
+        // line 16
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("plantilla");
+        echo "\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
+        <div class=\"card-body\">
+            <p class=\"card-text\">Plantilla</p>
+        </div>
+    </div>
+
+    <div class=\"card\" style=\"width: 18rem;\">
+        <a href=\"";
+        // line 25
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("alumnado");
+        echo "\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
+        <div class=\"card-body\">
+            <p class=\"card-text\">Alumnado</p>
         </div>
     </div>
 ";
@@ -126,7 +141,7 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
 
     public function getDebugInfo()
     {
-        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  115 => 25,  103 => 16,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -137,23 +152,29 @@ class __TwigTemplate_cfec1514e7cd901e331a78ecf7bffccc extends Template
 
 {% block body %}
     <div class=\"card\" style=\"width: 18rem;\">
-        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        <div class=\"card-body\">
-            <p class=\"card-text\">Orientación</p>
-        </div>
-    </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        <div class=\"card-body\">
-            <p class=\"card-text\">Secretaría</p>
-        </div>
-    </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        <a href=\"{{path('tutor')}}\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
         <div class=\"card-body\">
             <p class=\"card-text\">Tutoría</p>
+        </div>
+    </div>
+
+    <div class=\"card\" style=\"width: 18rem;\">
+        <a href=\"{{path('plantilla')}}\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
+        <div class=\"card-body\">
+            <p class=\"card-text\">Plantilla</p>
+        </div>
+    </div>
+
+    <div class=\"card\" style=\"width: 18rem;\">
+        <a href=\"{{path('alumnado')}}\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
+        <div class=\"card-body\">
+            <p class=\"card-text\">Alumnado</p>
         </div>
     </div>
 {% endblock %}

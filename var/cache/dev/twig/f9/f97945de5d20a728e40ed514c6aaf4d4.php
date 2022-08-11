@@ -87,8 +87,16 @@ class __TwigTemplate_5bae9f047884367eb128c58f0b22d072 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    Bienvenido a la zona de Alumnado
-";
+        echo "    ";
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
+            // line 7
+            echo "            Has accedido a la página
+    ";
+        } else {
+            // line 9
+            echo "            No puedes acceder a la página , al no ser que tengas una cuenta usuario.
+    ";
+        }
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -109,7 +117,7 @@ class __TwigTemplate_5bae9f047884367eb128c58f0b22d072 extends Template
 
     public function getDebugInfo()
     {
-        return array (  90 => 6,  80 => 5,  59 => 3,  36 => 1,);
+        return array (  97 => 9,  93 => 7,  90 => 6,  80 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -119,7 +127,11 @@ class __TwigTemplate_5bae9f047884367eb128c58f0b22d072 extends Template
 {% block title %}Hello {{controller_name}}!{% endblock %}
 
 {% block body %}
-    Bienvenido a la zona de Alumnado
+    {% if is_granted('ROLE_USER') %}
+            Has accedido a la página
+    {% else %}
+            No puedes acceder a la página , al no ser que tengas una cuenta usuario.
+    {% endif %}
 {% endblock %}", "main/alumnado.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\alumnado.html.twig");
     }
 }
