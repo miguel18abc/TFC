@@ -32,7 +32,7 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
 
     protected function doGetParent(array $context)
     {
-        // line 2
+        // line 1
         return "base.html.twig";
     }
 
@@ -45,7 +45,7 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "login/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "login/index.html.twig", 2);
+        $this->parent = $this->loadTemplate("base.html.twig", "login/index.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -55,7 +55,7 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
 
     }
 
-    // line 4
+    // line 3
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -74,7 +74,7 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
 
     }
 
-    // line 6
+    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,25 +84,25 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 7
+        // line 6
         echo "    ";
-        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 7, $this->source); })())) {
-            // line 8
+        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 6, $this->source); })())) {
+            // line 7
             echo "        <div>";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 8, $this->source); })()), "messageKey", [], "any", false, false, false, 8), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 8, $this->source); })()), "messageData", [], "any", false, false, false, 8), "security"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 7, $this->source); })()), "messageKey", [], "any", false, false, false, 7), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 7, $this->source); })()), "messageData", [], "any", false, false, false, 7), "security"), "html", null, true);
             echo "</div>
     ";
         }
-        // line 10
+        // line 9
         echo "
     <form action=\"";
-        // line 11
+        // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\" method=\"post\">
         <label for=\"username\">Username:</label>
         <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
-        // line 13
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 13, $this->source); })()), "html", null, true);
+        // line 12
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 12, $this->source); })()), "html", null, true);
         echo "\"/>
 
         <label for=\"password\">Password:</label>
@@ -131,13 +131,12 @@ class __TwigTemplate_e583318a2445eb36348d0c7aa79b9c89 extends Template
 
     public function getDebugInfo()
     {
-        return array (  105 => 13,  100 => 11,  97 => 10,  91 => 8,  88 => 7,  78 => 6,  59 => 4,  36 => 2,);
+        return array (  105 => 12,  100 => 10,  97 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{# templates/login/index.html.twig #}
-{% extends 'base.html.twig' %}
+        return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}Hello LoginController!{% endblock %}
 

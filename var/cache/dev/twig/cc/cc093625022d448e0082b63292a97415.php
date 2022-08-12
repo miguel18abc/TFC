@@ -85,7 +85,7 @@ class __TwigTemplate_fbfe9a5c8c6204d0789ba25b9b9db5f6 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
-        echo "    Acceso Denegado!!
+        echo "    
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -118,7 +118,7 @@ class __TwigTemplate_fbfe9a5c8c6204d0789ba25b9b9db5f6 extends Template
 {% block title %}Access Denied!{% endblock %}
 
 {% block body %}
-    Acceso Denegado!!
+    
 {% endblock %}", "errores/AccessDenied.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\errores\\AccessDenied.html.twig");
     }
 }
