@@ -3,9 +3,5 @@
 {% block title %}Hello {{controller_name}}!{% endblock %}
 
 {% block body %}
-    {% if is_granted('ROLE_ADMIN') %}
-            Has accedido a la página
-    {% else %}
-            No puedes acceder a la página , al no ser que tengas una cuenta de administrador.
-    {% endif %}
+    
 {% endblock %}

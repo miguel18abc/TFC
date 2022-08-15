@@ -15,10 +15,10 @@ class Tutoria
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $fecha = null;
+    private ?\DateTimeInterface $Fecha = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
-    private ?\DateTimeInterface $hora = null;
+    private ?\DateTimeInterface $Hora = null;
 
     public function getId(): ?int
     {
@@ -27,24 +27,24 @@ class Tutoria
 
     public function getFecha(): ?\DateTimeInterface
     {
-        return $this->fecha;
+        return $this->Fecha;
     }
 
-    public function setFecha(\DateTimeInterface $fecha): self
+    public function setFecha(\DateTimeInterface $Fecha): self
     {
-        $this->fecha = $fecha;
+        $this->Fecha = $Fecha;
 
         return $this;
     }
 
     public function getHora(): ?\DateTimeInterface
     {
-        return $this->hora;
+        return $this->Hora;
     }
 
-    public function setHora(\DateTimeInterface $hora): self
+    public function setHora(\DateTimeInterface $Hora): self
     {
-        $this->hora = $hora;
+        $this->Hora = $Hora;
 
         return $this;
     }

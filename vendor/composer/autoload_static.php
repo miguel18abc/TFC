@@ -38,6 +38,7 @@ class ComposerStaticInita53dc5275cdef4a5235705fbba6e9a30
         'T' => 
         array (
             'Twig\\Extra\\TwigExtraBundle\\' => 27,
+            'Twig\\Extra\\String\\' => 18,
             'Twig\\' => 5,
         ),
         'S' => 
@@ -181,6 +182,10 @@ class ComposerStaticInita53dc5275cdef4a5235705fbba6e9a30
         'Twig\\Extra\\TwigExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/extra-bundle',
+        ),
+        'Twig\\Extra\\String\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/string-extra',
         ),
         'Twig\\' => 
         array (
@@ -609,16 +614,15 @@ class ComposerStaticInita53dc5275cdef4a5235705fbba6e9a30
         'App\\Controller\\LoginController' => __DIR__ . '/../..' . '/src/Controller/LoginController.php',
         'App\\Controller\\MainController' => __DIR__ . '/../..' . '/src/Controller/MainController.php',
         'App\\Controller\\RegistrationController' => __DIR__ . '/../..' . '/src/Controller/RegistrationController.php',
-        'App\\Controller\\TutoriaController' => __DIR__ . '/../..' . '/src/Controller/TutoriaController.php',
+        'App\\Entity\\Familia' => __DIR__ . '/../..' . '/src/Entity/Familia.php',
         'App\\Entity\\Orientacion' => __DIR__ . '/../..' . '/src/Entity/Orientacion.php',
         'App\\Entity\\Secretaria' => __DIR__ . '/../..' . '/src/Entity/Secretaria.php',
-        'App\\Entity\\Tutoria' => __DIR__ . '/../..' . '/src/Entity/Tutoria.php',
         'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
         'App\\Form\\RegistrationFormType' => __DIR__ . '/../..' . '/src/Form/RegistrationFormType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\FamiliaRepository' => __DIR__ . '/../..' . '/src/Repository/FamiliaRepository.php',
         'App\\Repository\\OrientacionRepository' => __DIR__ . '/../..' . '/src/Repository/OrientacionRepository.php',
         'App\\Repository\\SecretariaRepository' => __DIR__ . '/../..' . '/src/Repository/SecretariaRepository.php',
-        'App\\Repository\\TutoriaRepository' => __DIR__ . '/../..' . '/src/Repository/TutoriaRepository.php',
         'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/intl/Resources/stubs/Collator.php',
@@ -6311,6 +6315,7 @@ class ComposerStaticInita53dc5275cdef4a5235705fbba6e9a30
         'Twig\\Extension\\SandboxExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/SandboxExtension.php',
         'Twig\\Extension\\StagingExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/StagingExtension.php',
         'Twig\\Extension\\StringLoaderExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/StringLoaderExtension.php',
+        'Twig\\Extra\\String\\StringExtension' => __DIR__ . '/..' . '/twig/string-extra/StringExtension.php',
         'Twig\\Extra\\TwigExtraBundle\\DependencyInjection\\Compiler\\MissingExtensionSuggestorPass' => __DIR__ . '/..' . '/twig/extra-bundle/DependencyInjection/Compiler/MissingExtensionSuggestorPass.php',
         'Twig\\Extra\\TwigExtraBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/twig/extra-bundle/DependencyInjection/Configuration.php',
         'Twig\\Extra\\TwigExtraBundle\\DependencyInjection\\TwigExtraExtension' => __DIR__ . '/..' . '/twig/extra-bundle/DependencyInjection/TwigExtraExtension.php',

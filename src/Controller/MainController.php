@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Repository\OrientacionRepository;
 use App\Repository\SecretariaRepository;
-use App\Repository\TutoriaRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,21 +13,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     #[Route('/', name: 'main')]
-    public function index(ManagerRegistry $doctrine): Response
+    public function index(): Response
     {
-
-        $orientacionRepository = new OrientacionRepository($doctrine);
-        $orientaciones = $orientacionRepository->findAll();
-        $tutoriaRepository = new TutoriaRepository($doctrine);
-        $tutorias = $tutoriaRepository->findAll();
-        $secretariaRepository = new SecretariaRepository($doctrine);
-        $secretarias = $secretariaRepository->findAll();
-
-        return $this->render('main/index.html.twig', [
-            'orientaciones' => $orientaciones,
-            'tutorias' => $tutorias,
-            'secretarias' => $secretarias
-        ]);
+        return $this->render('main/index.html.twig');
     }
 
     #[Route('/alumnado', name: 'alumnado')]
@@ -47,10 +34,10 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/tutor', name: 'tutor')]
-    public function indexTutor(): Response
+    #[Route('/familia', name: 'familia')]
+    public function indexFamilia(): Response
     {
-        return $this->render('main/tutor.html.twig', [
+        return $this->render('main/familia.html.twig', [
             'controller_name' => 'MainController',
         ]);
     }

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{controller_name}}!{% endblock %}
+
+{% block body %}
+    <div class="card" style="width: 18rem;">
+        <a href="{{path('tutoria')}}">
+            <img src="..." class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+            <p class="card-text">Tutoría</p>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <a href="{{path('orientacion')}}">
+            <img src="..." class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+            <p class="card-text">Orientación</p>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <a href="{{path('secretaria')}}">
+            <img src="..." class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+            <p class="card-text">Secretaría</p>
+        </div>
+    </div>
+{% endblock %}
