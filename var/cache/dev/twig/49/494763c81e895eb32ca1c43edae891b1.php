@@ -25,7 +25,6 @@ class __TwigTemplate_894eb7b383f4f99ad12caa7bf9e8b156 extends Template
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -55,26 +54,7 @@ class __TwigTemplate_894eb7b383f4f99ad12caa7bf9e8b156 extends Template
 
     }
 
-    // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "Hello FamiliaController!";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 5
+    // line 2
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,31 +64,36 @@ class __TwigTemplate_894eb7b383f4f99ad12caa7bf9e8b156 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class=\"example-wrapper\">
-    <h1>Hello ";
+        // line 3
+        echo "\t<ul>
+\t\t";
+        // line 4
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["citas"]) || array_key_exists("citas", $context) ? $context["citas"] : (function () { throw new RuntimeError('Variable "citas" does not exist.', 4, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+            // line 5
+            echo "\t\t\t<li>";
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "fecha", [], "any", false, false, false, 5), "Y-m-d"), "html", null, true);
+            echo "
+\t\t\t\ta las
+\t\t\t\t<a href=\"";
+            // line 7
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("reserva", ["id" => twig_get_attribute($this->env, $this->source, $context["item"], "id", [], "any", false, false, false, 7)]), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "hora", [], "any", false, false, false, 7), "H:i"), "html", null, true);
+            echo "</a>
+\t\t\t</li>
+\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 10
+        echo "
+\t</ul>
+\t";
         // line 12
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/Users/migue/Desktop/TFC1/src/Controller/FamiliaController.php", 0), "html", null, true);
-        echo "\">src/Controller/FamiliaController.php</a></code></li>
-        <li>Your template at <code><a href=\"";
-        // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/Users/migue/Desktop/TFC1/templates/familia/index.html.twig", 0), "html", null, true);
-        echo "\">templates/familia/index.html.twig</a></code></li>
-    </ul>
-</div>
-";
+        $this->loadTemplate("familia/menu.html.twig", "familia/index.html.twig", 12)->display($context);
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -129,30 +114,23 @@ class __TwigTemplate_894eb7b383f4f99ad12caa7bf9e8b156 extends Template
 
     public function getDebugInfo()
     {
-        return array (  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  96 => 12,  92 => 10,  81 => 7,  75 => 5,  71 => 4,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
-
-{% block title %}Hello FamiliaController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+\t<ul>
+\t\t{% for item in citas %}
+\t\t\t<li>{{item.fecha|date('Y-m-d')}}
+\t\t\t\ta las
+\t\t\t\t<a href=\"{{path('reserva',{'id':item.id})}}\">{{item.hora|date('H:i')}}</a>
+\t\t\t</li>
+\t\t{% endfor %}
 
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href=\"{{ 'C:/Users/migue/Desktop/TFC1/src/Controller/FamiliaController.php'|file_link(0) }}\">src/Controller/FamiliaController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ 'C:/Users/migue/Desktop/TFC1/templates/familia/index.html.twig'|file_link(0) }}\">templates/familia/index.html.twig</a></code></li>
-    </ul>
-</div>
+\t</ul>
+\t{% include 'familia/menu.html.twig' %}
 {% endblock %}
 ", "familia/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\index.html.twig");
     }

@@ -1,0 +1,22 @@
+<h1>Reservas</h1>
+<ul>
+
+	{% if  reservas is empty   %}
+
+		No se han encontrado reservas
+	{% else %}
+		<ul>
+			{% for reserva in reservas %}
+				<il>
+					{{ reserva.cita.fecha |date('Y-m-d')}}
+					{{ reserva.cita.hora |date('H:i')}}
+					<a href="{{ path('anular', { 'id': reserva.id })}}">Anular
+					</a>
+				</il>
+				<br>
+
+			{% endfor %}
+
+		</ul>
+		{% include 'familia/menu.html.twig' %}
+	{% endif %}

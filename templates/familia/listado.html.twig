@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<ul>
+		{% for item in citas %}
+			<li>{{item.fecha|date('D-Y-m-d')}}
+				a las
+				<a href="{{path('reserva',{'id':item.id})}}">{{item.hora|date('H:i')}}</a>
+			</li>
+		{% endfor %}
+
+	</ul>
+	{% include 'familia/menu.html.twig' %}
+{% endblock %}

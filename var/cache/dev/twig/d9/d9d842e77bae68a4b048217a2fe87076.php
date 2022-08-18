@@ -99,30 +99,7 @@ class __TwigTemplate_bdb76337b04dc89fcc3c99c85ee8442d extends Template
         </div>
     </div>
 
-    <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"";
-        // line 16
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("orientacion");
-        echo "\">
-            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Orientación</p>
-        </div>
-    </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"";
-        // line 25
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("secretaria");
-        echo "\">
-            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Secretaría</p>
-        </div>
-    </div>
-";
+    ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -143,7 +120,7 @@ class __TwigTemplate_bdb76337b04dc89fcc3c99c85ee8442d extends Template
 
     public function getDebugInfo()
     {
-        return array (  117 => 25,  105 => 16,  93 => 7,  90 => 6,  80 => 5,  59 => 3,  36 => 1,);
+        return array (  93 => 7,  90 => 6,  80 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -162,7 +139,7 @@ class __TwigTemplate_bdb76337b04dc89fcc3c99c85ee8442d extends Template
         </div>
     </div>
 
-    <div class=\"card\" style=\"width: 18rem;\">
+    {# <div class=\"card\" style=\"width: 18rem;\">
         <a href=\"{{path('orientacion')}}\">
             <img src=\"...\" class=\"card-img-top\" alt=\"...\">
         </a>
@@ -178,7 +155,7 @@ class __TwigTemplate_bdb76337b04dc89fcc3c99c85ee8442d extends Template
         <div class=\"card-body\">
             <p class=\"card-text\">Secretaría</p>
         </div>
-    </div>
+    </div> #}
 {% endblock %}", "main/familia.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\familia.html.twig");
     }
 }
