@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Cita;
 use App\Entity\Reserva;
 use App\Form\ReservaType;
 use App\Repository\CitaRepository;
@@ -12,6 +13,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class FamiliaController extends AbstractController
 {
@@ -25,11 +28,41 @@ class FamiliaController extends AbstractController
         $this->requestStack = $requestStack;
     }
 
-    #[Route('/familia/tutoria/date', name: 'tutoria')]
+    #[Route('/familia/orientacion', name: 'orientacion')]
+    public function indexOrientacion(ManagerRegistry $doctrine): Response
+    {
+        $citaRepository = new CitaRepository($doctrine);
+        $citas = $citaRepository->findBy(['Servicio'=>1]);
+
+        if (!$citas) {
+            throw $this->createNotFoundException(
+                'No product found for id '
+            );
+        }
+
+        return $this->render('familia/index.html.twig', ['citas' => $citas]);
+    }
+
+    #[Route('/familia/secretaria', name: 'secretaria')]
+    public function indexSecretaria(ManagerRegistry $doctrine): Response
+    {
+        $citaRepository = new CitaRepository($doctrine);
+        $citas = $citaRepository->findBy(['Servicio'=>2]);
+
+        if (!$citas) {
+            throw $this->createNotFoundException(
+                'No product found for id '
+            );
+        }
+
+        return $this->render('familia/index.html.twig', ['citas' => $citas]);
+    }
+
+    #[Route('/familia/tutoria', name: 'tutoria')]
     public function indexTutoria(ManagerRegistry $doctrine): Response
     {
         $citaRepository = new CitaRepository($doctrine);
-        $citas = $citaRepository->findAll();
+        $citas = $citaRepository->findBy(['Servicio'=>3]);
 
         if (!$citas) {
             throw $this->createNotFoundException(
@@ -80,7 +113,7 @@ class FamiliaController extends AbstractController
         $form = $this->createFormBuilder()
             ->add('dni', TextType::class)
             ->add('telefono', TextType::class)
-            ->add('Send', TypeSubmitType::class)
+            ->add('Send', SubmitType::class)
             ->getForm();
 
 
