@@ -335,6 +335,13 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\CitaController" class="App\Controller\CitaController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\CitaController"/>
+      </call>
+    </service>
     <service id="App\Controller\FamiliaController" class="App\Controller\FamiliaController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -6305,6 +6312,9 @@
     <service id="framework_extra_bundle.argument_name_convertor" class="Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentNameConverter">
       <argument type="service" id="argument_metadata_factory"/>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CitaController" class="App\Controller\CitaController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CitaController" class="App\Controller\CitaController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CitaController" class="App\Controller\CitaController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\FamiliaController" class="App\Controller\FamiliaController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\FamiliaController" class="App\Controller\FamiliaController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\FamiliaController" class="App\Controller\FamiliaController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6678,9 +6688,13 @@
         <argument key="userPasswordHasher" type="service_closure" id="security.user_password_hasher"/>
       </argument>
     </service>
-    <service id=".service_locator.7E.6iz7" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator._41DGvT" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\CitaController::createAction" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\CitaController::deleteAction" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\CitaController::indexAction" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\CitaController::updateAction" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\FamiliaController::anular" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\FamiliaController::anular_cita" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\FamiliaController::indexOrientacion" type="service_closure" id=".service_locator.GQZbvNR"/>
@@ -6696,6 +6710,10 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.bRdave9"/>
+        <argument key="App\Controller\CitaController:createAction" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\CitaController:deleteAction" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\CitaController:indexAction" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\CitaController:updateAction" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\FamiliaController:anular" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\FamiliaController:anular_cita" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\FamiliaController:indexOrientacion" type="service_closure" id=".service_locator.GQZbvNR"/>
@@ -7135,6 +7153,12 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\CitaController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CitaController"/>
+      <argument>App\Controller\CitaController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
     <service id=".service_locator.mx0UMmY.App\Controller\FamiliaController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\FamiliaController"/>
       <argument>App\Controller\FamiliaController</argument>
@@ -7333,12 +7357,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.7E.6iz7"/>
+      <argument type="service" id=".service_locator._41DGvT"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.7E.6iz7"/>
+      <argument type="service" id=".service_locator._41DGvT"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8305,7 +8329,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.7E.6iz7"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator._41DGvT"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8330,7 +8354,7 @@
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.riGN6sa" alias=".service_locator.YU8H6ve"/>
-    <service id=".service_locator.tIwln6j" alias=".service_locator.7E.6iz7"/>
+    <service id=".service_locator._DiF6Um" alias=".service_locator._41DGvT"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.rGym1A9" alias=".service_locator.wbH20Jl"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
