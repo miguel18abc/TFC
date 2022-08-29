@@ -92,36 +92,41 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
             <th scope=\"col\">Fecha</th>
             <th scope=\"col\">Hora</th>
             <th scope=\"col\">Servicio</th>
+            <th scope=\"col\">Acciones</th>
         </tr>
     </thead>
     <tbody>
     ";
-        // line 16
+        // line 17
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["citas"]) || array_key_exists("citas", $context) ? $context["citas"] : (function () { throw new RuntimeError('Variable "citas" does not exist.', 16, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["citas"]) || array_key_exists("citas", $context) ? $context["citas"] : (function () { throw new RuntimeError('Variable "citas" does not exist.', 17, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["cita"]) {
-            // line 17
+            // line 18
             echo "        
         <tr>
             <td>";
-            // line 19
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "fecha", [], "any", false, false, false, 19), "d/m/Y"), "html", null, true);
-            echo "</td>
-            <td>";
             // line 20
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "hora", [], "any", false, false, false, 20), "H:m:s"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "fecha", [], "any", false, false, false, 20), "d/m/Y"), "html", null, true);
             echo "</td>
             <td>";
             // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "Servicio", [], "any", false, false, false, 21), "nombre", [], "any", false, false, false, 21), "html", null, true);
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "hora", [], "any", false, false, false, 21), "H:m:s"), "html", null, true);
             echo "</td>
+            <td>";
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "Servicio", [], "any", false, false, false, 22), "nombre", [], "any", false, false, false, 22), "html", null, true);
+            echo "</td>
+            <td><a href=\"/familia/tutoria/";
+            // line 23
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "id", [], "any", false, false, false, 23), "html", null, true);
+            echo "\" class=\"btn btn-primary\">Reservar</a></td>
         </tr>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cita'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 24
+        // line 26
         echo "    </tbody>
 </table>
 ";
@@ -145,7 +150,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
 
     public function getDebugInfo()
     {
-        return array (  125 => 24,  116 => 21,  112 => 20,  108 => 19,  104 => 17,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  130 => 26,  121 => 23,  117 => 22,  113 => 21,  109 => 20,  105 => 18,  101 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -162,6 +167,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
             <th scope=\"col\">Fecha</th>
             <th scope=\"col\">Hora</th>
             <th scope=\"col\">Servicio</th>
+            <th scope=\"col\">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -171,6 +177,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
             <td>{{cita.fecha|date(\"d/m/Y\")}}</td>
             <td>{{cita.hora|date(\"H:m:s\")}}</td>
             <td>{{cita.Servicio.nombre}}</td>
+            <td><a href=\"/familia/tutoria/{{cita.id}}\" class=\"btn btn-primary\">Reservar</a></td>
         </tr>
     {% endfor %}
     </tbody>

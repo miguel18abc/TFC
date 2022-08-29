@@ -56,10 +56,6 @@ class CitaRepository extends ServiceEntityRepository
 
         $query = $em->createNativeQuery('SELECT * FROM cita WHERE cita.id NOT IN ( SELECT cita_id FROM reserva ) order by fecha, hora', $rsm);
 
-
-
-
-
         $query->setParameter(1, $valor);
 
         $resultado = $query->getResult();

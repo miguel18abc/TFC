@@ -10,6 +10,7 @@
             <th scope="col">Fecha</th>
             <th scope="col">Hora</th>
             <th scope="col">Servicio</th>
+            <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
             <td>{{cita.fecha|date("d/m/Y")}}</td>
             <td>{{cita.hora|date("H:m:s")}}</td>
             <td>{{cita.Servicio.nombre}}</td>
+            <td><a href="/familia/tutoria/{{cita.id}}" class="btn btn-primary">Reservar</a></td>
         </tr>
     {% endfor %}
     </tbody>

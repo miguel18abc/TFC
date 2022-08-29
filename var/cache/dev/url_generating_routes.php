@@ -10,6 +10,7 @@ return [
     'orientacion' => [[], ['_controller' => 'App\\Controller\\FamiliaController::indexOrientacion'], [], [['text', '/familia/orientacion']], [], [], []],
     'secretaria' => [[], ['_controller' => 'App\\Controller\\FamiliaController::indexSecretaria'], [], [['text', '/familia/secretaria']], [], [], []],
     'tutoria' => [[], ['_controller' => 'App\\Controller\\FamiliaController::indexTutoria'], [], [['text', '/familia/tutoria']], [], [], []],
+    'tutoria_reserva' => [['id'], ['_controller' => 'App\\Controller\\FamiliaController::reservaTutoria'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/familia/tutoria']], [], [], []],
     'cita_listado' => [[], ['_controller' => 'App\\Controller\\FamiliaController::listado'], [], [['text', '/listado']], [], [], []],
     'reserva' => [['id'], ['_controller' => 'App\\Controller\\FamiliaController::reserva'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/reserva']], [], [], []],
     'cita_consulta' => [[], ['_controller' => 'App\\Controller\\FamiliaController::consulta'], [], [['text', '/consulta']], [], [], []],

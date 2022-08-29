@@ -73,6 +73,49 @@ class FamiliaController extends AbstractController
         return $this->render('familia/index.html.twig', ['citas' => $citas]);
     }
 
+    #[Route('/familia/tutoria/{id}', name: 'tutoria_reserva')]
+    public function reservaTutoria(ManagerRegistry $doctrine, Request $request, $id)
+    { {
+
+            $citaRepository = new CitaRepository($doctrine);
+            $reserva = new Reserva();
+            $form = $this->createForm(ReservaType::class, $reserva);
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $doctrine->getManager();
+                
+                $cita = $citaRepository->findOneBy(['id' => $id]);
+                $reserva->setCita($cita);
+                $em->persist($reserva);
+                $em->flush();
+
+                return $this->render('familia/exito.twig');
+            } else
+                return $this->render('familia/reserva.html.twig',['form' => $form->createView()]);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Fernando OK
+
     #[Route('/listado', name:'cita_listado')]
     public function listado(ManagerRegistry $doctrine)
     {
@@ -80,6 +123,8 @@ class FamiliaController extends AbstractController
         $citas = $citaRepository->findByDate();
         return $this->render('familia/listado.html.twig', ["citas" => $citas]);
     }
+
+    // Fernando OK
 
     #[Route('/reserva/{id}', name: 'reserva')]
     public function reserva(ManagerRegistry $doctrine, Request $request, $id)
@@ -94,7 +139,7 @@ class FamiliaController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $doctrine->getManager();
                 
-                $cita = $citaRepository->findOneById($id);
+                $cita = $citaRepository->findOneBy(['id'=>$id]);
                 $reserva->setCita($cita);
                 $em->persist($reserva);
                 $em->flush();
@@ -104,6 +149,8 @@ class FamiliaController extends AbstractController
                 return $this->render('familia/reserva.html.twig', array('form' => $form->createView(),));
         }
     }
+
+    // Fernando
 
     #[Route('/consulta', name:'cita_consulta')]
     public function consulta(Request $request)
@@ -133,6 +180,7 @@ class FamiliaController extends AbstractController
             return $this->render('familia/form.html.twig', array('form' => $form->createView(),));
     }
 
+    // Fernando
     
     #[Route('cita/anular/{id}', name:'anular_cita')]
     public function anular_cita(ManagerRegistry $doctrine, $id): Response
@@ -144,6 +192,8 @@ class FamiliaController extends AbstractController
         return $this->render('familia/anulaReserva.html.twig', ['reserva']);
     }
 
+    // Fernando
+
     #[Route('anular/{id}', name:'anular')]
     public function anular(ManagerRegistry $doctrine, $id)
     {
@@ -152,6 +202,8 @@ class FamiliaController extends AbstractController
         $reservaRepository->remove($reserva);
         return $this->render('familia/anulaReserva.html.twig', []);
     }
+
+    // Fernando
 
     #[Route('/anulacion/{id}', name:'cita_anulacion')]
     public function anulacion($id)
