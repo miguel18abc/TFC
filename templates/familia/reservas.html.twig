@@ -1,22 +1,26 @@
-<h1>Reservas</h1>
-<ul>
+{% extends 'base.html.twig' %}
 
-	{% if  reservas is empty   %}
+{% block title %}Hello FamiliaController!{% endblock %}
 
-		No se han encontrado reservas
-	{% else %}
-		<ul>
-			{% for reserva in reservas %}
-				<il>
-					{{ reserva.cita.fecha |date('Y-m-d')}}
-					{{ reserva.cita.hora |date('H:i')}}
-					<a href="{{ path('anular', { 'id': reserva.id })}}">Anular
-					</a>
-				</il>
-				<br>
+{% block body %}
 
-			{% endfor %}
-
-		</ul>
-		{% include 'familia/menu.html.twig' %}
-	{% endif %}
+	<h1>Reservas</h1>
+	<ul>
+		{% if citas is empty %}
+			No se han encontrado reservas
+		{% else %}
+			<ul>
+				{% for cita in citas %}
+					{% if cita.User.username %}
+						<il>
+							{{ cita.fecha |date('Y-m-d')}}
+							{{ cita.hora |date('H:i:s')}}
+							<a href="/anular">Anular</a>
+						</il>
+						<br>
+					{% endif %}
+				{% endfor %}
+			</ul>
+			{% include 'familia/menu.html.twig' %}
+		{% endif %}
+{% endblock %}

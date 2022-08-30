@@ -97,8 +97,15 @@ class FamiliaController extends AbstractController
         }
     }
 
+    #[Route('/consulta', name:'cita_consulta')]
+    public function consultas(ManagerRegistry $doctrine)
+    {
+        
+        $citaRepository = new CitaRepository($doctrine);
+        $citas = $citaRepository->findAll();
 
-
+        return $this->render('familia/reservas.html.twig', ['citas' => $citas]);
+    }
 
 
 
@@ -152,33 +159,33 @@ class FamiliaController extends AbstractController
 
     // Fernando
 
-    #[Route('/consulta', name:'cita_consulta')]
-    public function consulta(Request $request)
-    {
-        /* $reservaRepository = new ReservaRepository($doctrine); */
-        /* $requestStack = new RequestStack($doctrine); */
-        $form = $this->createFormBuilder()
-            ->add('dni', TextType::class)
-            ->add('telefono', TextType::class)
-            ->add('Send', SubmitType::class)
-            ->getForm();
+    // #[Route('/consulta', name:'cita_consulta')]
+    // public function consulta(Request $request)
+    // {
+    //     /* $reservaRepository = new ReservaRepository($doctrine); */
+    //     /* $requestStack = new RequestStack($doctrine); */
+    //     $form = $this->createFormBuilder()
+    //         ->add('dni', TextType::class)
+    //         ->add('telefono', TextType::class)
+    //         ->add('Send', SubmitType::class)
+    //         ->getForm();
 
 
-        $form->handleRequest($request);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $data = $form->getData();
 
-            $reservas = $this->reservaRepository->findAllDniTelefono($data['dni'], $data['telefono']);
-            if ($reservas) {
-                $session = $this->requestStack->getSession();
-                $session->set('dni', $data['dni']);
-                $session->set('telefono', $data['telefono']);
-            }
-            return $this->render('familia/reservas.html.twig', array('reservas' => $reservas));
-        } else
-            return $this->render('familia/form.html.twig', array('form' => $form->createView(),));
-    }
+    //         $reservas = $this->reservaRepository->findAllDniTelefono($data['dni'], $data['telefono']);
+    //         if ($reservas) {
+    //             $session = $this->requestStack->getSession();
+    //             $session->set('dni', $data['dni']);
+    //             $session->set('telefono', $data['telefono']);
+    //         }
+    //         return $this->render('familia/reservas.html.twig', array('reservas' => $reservas));
+    //     } else
+    //         return $this->render('familia/form.html.twig', array('form' => $form->createView(),));
+    // }
 
     // Fernando
     

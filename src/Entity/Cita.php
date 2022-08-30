@@ -37,6 +37,9 @@ class Cita
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $fecha_de_fin = null;
+
+    #[ORM\ManyToOne(inversedBy: 'citas')]
+    private ?User $User = null;
     
     public function getId(): ?int
     {
@@ -135,6 +138,18 @@ class Cita
     public function setFechaDeFin(?\DateTimeInterface $fecha_de_fin): self
     {
         $this->fecha_de_fin = $fecha_de_fin;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): self
+    {
+        $this->User = $User;
 
         return $this;
     }

@@ -54,6 +54,7 @@ class ReservaRepository extends ServiceEntityRepository
         $this->manager->remove($reserva);
         $this->manager->flush();
     }
+    
     public function findAllDniTelefono($dni, $telefono)
     {
         $em = $this->getEntityManager();
