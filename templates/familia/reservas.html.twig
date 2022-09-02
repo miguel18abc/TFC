@@ -9,18 +9,20 @@
 		{% if citas is empty %}
 			No se han encontrado reservas
 		{% else %}
-			<ul>
+			{# <ul>
 				{% for cita in citas %}
-					{% if cita.User.username %}
-						<il>
-							{{ cita.fecha |date('Y-m-d')}}
-							{{ cita.hora |date('H:i:s')}}
-							<a href="/anular">Anular</a>
-						</il>
-						<br>
-					{% endif %}
+						{% if username == cita.User.username %}
+							<il>
+								{{ cita.fecha |date('Y-m-d')}}
+								{{ cita.hora |date('H:i:s')}}
+								<a href="/anular">Anular</a>
+							</il>
+							<br>
+						{% endif %}
 				{% endfor %}
-			</ul>
+			</ul> #}
+
+			{{username}}
 			{% include 'familia/menu.html.twig' %}
 		{% endif %}
 {% endblock %}

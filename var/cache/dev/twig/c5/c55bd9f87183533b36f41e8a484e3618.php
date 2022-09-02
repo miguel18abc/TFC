@@ -46,10 +46,7 @@ class __TwigTemplate_f5a3741a7865595677046e11af218072 extends Template
         // line 3
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cita_listado");
         echo "\">Reservar</a> 
-    <a href=\"";
-        // line 4
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cita_consulta");
-        echo "\">Consultas</a>
+    <a href=\"/consulta\">Consultas</a>
     
 
 ";
@@ -73,7 +70,7 @@ class __TwigTemplate_f5a3741a7865595677046e11af218072 extends Template
 
     public function getDebugInfo()
     {
-        return array (  51 => 4,  47 => 3,  43 => 1,);
+        return array (  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -81,7 +78,7 @@ class __TwigTemplate_f5a3741a7865595677046e11af218072 extends Template
         return new Source("
     <br>
     <a href=\"{{ path('cita_listado')}}\">Reservar</a> 
-    <a href=\"{{ path('cita_consulta')}}\">Consultas</a>
+    <a href=\"/consulta\">Consultas</a>
     
 
 ", "familia/menu.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\menu.html.twig");

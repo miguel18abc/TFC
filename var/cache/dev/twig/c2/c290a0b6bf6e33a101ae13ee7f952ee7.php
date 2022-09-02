@@ -75,10 +75,10 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
         ";
         // line 20
         $this->displayBlock('menu', $context, $blocks);
-        // line 52
+        // line 53
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 53
+        // line 54
         echo "    </body>
 </html>
 ";
@@ -156,9 +156,13 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
             echo "                            <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Iniciar sesión</a>
+                            <a class=\"nav-link\" href=\"";
+            // line 48
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Registrar</a>
                         ";
         }
-        // line 49
+        // line 50
         echo "                </div>
             </nav>
         ";
@@ -170,7 +174,7 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
 
     }
 
-    // line 52
+    // line 53
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -200,7 +204,7 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
 
     public function getDebugInfo()
     {
-        return array (  174 => 52,  162 => 49,  156 => 47,  148 => 43,  146 => 42,  123 => 21,  113 => 20,  94 => 5,  82 => 53,  79 => 52,  77 => 20,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
+        return array (  178 => 53,  166 => 50,  161 => 48,  156 => 47,  148 => 43,  146 => 42,  123 => 21,  113 => 20,  94 => 5,  82 => 54,  79 => 53,  77 => 20,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -252,6 +256,7 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
                             </a>
                         {% else %}
                             <a class=\"nav-link\" href=\"{{ path('app_login') }}\">Iniciar sesión</a>
+                            <a class=\"nav-link\" href=\"{{ path('app_login') }}\">Registrar</a>
                         {% endif %}
                 </div>
             </nav>

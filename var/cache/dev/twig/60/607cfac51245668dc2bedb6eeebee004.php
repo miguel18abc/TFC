@@ -103,37 +103,36 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
             $context['_seq'] = twig_ensure_traversable((isset($context["citas"]) || array_key_exists("citas", $context) ? $context["citas"] : (function () { throw new RuntimeError('Variable "citas" does not exist.', 13, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["cita"]) {
                 // line 14
-                echo "
-\t\t\t\t\t";
-                // line 15
-                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "User", [], "any", false, false, false, 15), "username", [], "any", false, false, false, 15)) {
+                echo "\t\t\t\t\t\t";
+                if (((isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 14, $this->source); })()) == twig_get_attribute($this->env, $this->source, $context["cita"], "User", [], "any", false, false, false, 14))) {
+                    // line 15
+                    echo "\t\t\t\t\t\t\t<il>
+\t\t\t\t\t\t\t\t";
                     // line 16
-                    echo "\t\t\t\t\t\t<il>
-\t\t\t\t\t\t\t";
+                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "fecha", [], "any", false, false, false, 16), "Y-m-d"), "html", null, true);
+                    echo "
+\t\t\t\t\t\t\t\t";
                     // line 17
-                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "fecha", [], "any", false, false, false, 17), "Y-m-d"), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "hora", [], "any", false, false, false, 17), "H:i:s"), "html", null, true);
                     echo "
-\t\t\t\t\t\t\t";
-                    // line 18
-                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "hora", [], "any", false, false, false, 18), "H:i:s"), "html", null, true);
-                    echo "
-\t\t\t\t\t\t\t<a href=\"/anular\">Anular</a>
-\t\t\t\t\t\t</il>
-\t\t\t\t\t\t<br>
-\t\t\t\t\t";
+\t\t\t\t\t\t\t\t<a href=\"/anular\">Anular</a>
+\t\t\t\t\t\t\t</il>
+\t\t\t\t\t\t\t<br>
+\t\t\t\t\t\t";
                 }
-                // line 23
+                // line 22
                 echo "\t\t\t\t";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cita'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 24
+            // line 23
             echo "\t\t\t</ul>
 \t\t\t";
-            // line 25
-            $this->loadTemplate("familia/menu.html.twig", "familia/reservas.html.twig", 25)->display($context);
-            // line 26
+            // line 27
+            echo "\t\t\t";
+            $this->loadTemplate("familia/menu.html.twig", "familia/reservas.html.twig", 27)->display($context);
+            // line 28
             echo "\t\t";
         }
         
@@ -156,7 +155,7 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  137 => 26,  135 => 25,  132 => 24,  126 => 23,  118 => 18,  114 => 17,  111 => 16,  109 => 15,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  136 => 28,  133 => 27,  130 => 23,  124 => 22,  116 => 17,  112 => 16,  109 => 15,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -174,19 +173,22 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
 \t\t{% else %}
 \t\t\t<ul>
 \t\t\t\t{% for cita in citas %}
-
-\t\t\t\t\t{% if cita.User.username %}
-\t\t\t\t\t\t<il>
-\t\t\t\t\t\t\t{{ cita.fecha |date('Y-m-d')}}
-\t\t\t\t\t\t\t{{ cita.hora |date('H:i:s')}}
-\t\t\t\t\t\t\t<a href=\"/anular\">Anular</a>
-\t\t\t\t\t\t</il>
-\t\t\t\t\t\t<br>
-\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t{% if id == cita.User %}
+\t\t\t\t\t\t\t<il>
+\t\t\t\t\t\t\t\t{{ cita.fecha |date('Y-m-d')}}
+\t\t\t\t\t\t\t\t{{ cita.hora |date('H:i:s')}}
+\t\t\t\t\t\t\t\t<a href=\"/anular\">Anular</a>
+\t\t\t\t\t\t\t</il>
+\t\t\t\t\t\t\t<br>
+\t\t\t\t\t\t{% endif %}
 \t\t\t\t{% endfor %}
 \t\t\t</ul>
+\t\t\t{# {% for cita in citas %}
+\t\t\t\t{{cita.User.username}}
+\t\t\t{% endfor %} #}
 \t\t\t{% include 'familia/menu.html.twig' %}
 \t\t{% endif %}
-{% endblock %}", "familia/reservas.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\reservas.html.twig");
+{% endblock %}
+", "familia/reservas.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\reservas.html.twig");
     }
 }

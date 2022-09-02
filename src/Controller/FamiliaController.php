@@ -100,11 +100,11 @@ class FamiliaController extends AbstractController
     #[Route('/consulta', name:'cita_consulta')]
     public function consultas(ManagerRegistry $doctrine)
     {
-        
+        $username=$_POST['_username'];
         $citaRepository = new CitaRepository($doctrine);
         $citas = $citaRepository->findAll();
 
-        return $this->render('familia/reservas.html.twig', ['citas' => $citas]);
+        return $this->render('familia/reservas.html.twig', ['citas' => $citas,'username' => $username]);
     }
 
 
