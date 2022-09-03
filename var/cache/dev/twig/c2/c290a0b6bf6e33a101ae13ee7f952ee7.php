@@ -158,7 +158,7 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
             echo "\">Iniciar sesión</a>
                             <a class=\"nav-link\" href=\"";
             // line 48
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
             echo "\">Registrar</a>
                         ";
         }
@@ -256,7 +256,7 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
                             </a>
                         {% else %}
                             <a class=\"nav-link\" href=\"{{ path('app_login') }}\">Iniciar sesión</a>
-                            <a class=\"nav-link\" href=\"{{ path('app_login') }}\">Registrar</a>
+                            <a class=\"nav-link\" href=\"{{ path('app_register') }}\">Registrar</a>
                         {% endif %}
                 </div>
             </nav>

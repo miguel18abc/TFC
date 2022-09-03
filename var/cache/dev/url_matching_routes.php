@@ -13,7 +13,6 @@ return [
         '/familia/orientacion' => [[['_route' => 'orientacion', '_controller' => 'App\\Controller\\FamiliaController::indexOrientacion'], null, null, null, false, false, null]],
         '/familia/secretaria' => [[['_route' => 'secretaria', '_controller' => 'App\\Controller\\FamiliaController::indexSecretaria'], null, null, null, false, false, null]],
         '/familia/tutoria' => [[['_route' => 'tutoria', '_controller' => 'App\\Controller\\FamiliaController::indexTutoria'], null, null, null, false, false, null]],
-        '/consulta' => [[['_route' => 'cita_consulta', '_controller' => 'App\\Controller\\FamiliaController::consultas'], null, null, null, false, false, null]],
         '/listado' => [[['_route' => 'cita_listado', '_controller' => 'App\\Controller\\FamiliaController::listado'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\LoginController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'main', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
@@ -35,25 +34,28 @@ return [
                     .'|delete/([^/]++)(*:55)'
                 .')'
                 .'|/familia/tutoria/([^/]++)(*:88)'
-                .'|/reserva/([^/]++)(*:112)'
-                .'|/cita/anular/([^/]++)(*:141)'
+                .'|/c(?'
+                    .'|onsulta/([^/]++)(*:116)'
+                    .'|ita/anular/([^/]++)(*:143)'
+                .')'
+                .'|/reserva/([^/]++)(*:169)'
                 .'|/anula(?'
-                    .'|r/([^/]++)(*:168)'
-                    .'|cion/([^/]++)(*:189)'
+                    .'|r/([^/]++)(*:196)'
+                    .'|cion/([^/]++)(*:217)'
                 .')'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:229)'
-                    .'|wdt/([^/]++)(*:249)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:257)'
+                    .'|wdt/([^/]++)(*:277)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:295)'
-                            .'|router(*:309)'
+                            .'|search/results(*:323)'
+                            .'|router(*:337)'
                             .'|exception(?'
-                                .'|(*:329)'
-                                .'|\\.css(*:342)'
+                                .'|(*:357)'
+                                .'|\\.css(*:370)'
                             .')'
                         .')'
-                        .'|(*:352)'
+                        .'|(*:380)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -62,17 +64,18 @@ return [
         33 => [[['_route' => 'update', '_controller' => 'App\\Controller\\CitaController::updateAction'], ['id'], null, null, false, true, null]],
         55 => [[['_route' => 'delete', '_controller' => 'App\\Controller\\CitaController::deleteAction'], ['id'], null, null, false, true, null]],
         88 => [[['_route' => 'tutoria_reserva', '_controller' => 'App\\Controller\\FamiliaController::reservaTutoria'], ['id'], null, null, false, true, null]],
-        112 => [[['_route' => 'reserva', '_controller' => 'App\\Controller\\FamiliaController::reserva'], ['id'], null, null, false, true, null]],
-        141 => [[['_route' => 'anular_cita', '_controller' => 'App\\Controller\\FamiliaController::anular_cita'], ['id'], null, null, false, true, null]],
-        168 => [[['_route' => 'anular', '_controller' => 'App\\Controller\\FamiliaController::anular'], ['id'], null, null, false, true, null]],
-        189 => [[['_route' => 'cita_anulacion', '_controller' => 'App\\Controller\\FamiliaController::anulacion'], ['id'], null, null, false, true, null]],
-        229 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        249 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        295 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        309 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        329 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        342 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        352 => [
+        116 => [[['_route' => 'cita_consulta', '_controller' => 'App\\Controller\\FamiliaController::consultas'], ['username'], null, null, false, true, null]],
+        143 => [[['_route' => 'anular_cita', '_controller' => 'App\\Controller\\FamiliaController::anular_cita'], ['id'], null, null, false, true, null]],
+        169 => [[['_route' => 'reserva', '_controller' => 'App\\Controller\\FamiliaController::reserva'], ['id'], null, null, false, true, null]],
+        196 => [[['_route' => 'anular', '_controller' => 'App\\Controller\\FamiliaController::anular'], ['id'], null, null, false, true, null]],
+        217 => [[['_route' => 'cita_anulacion', '_controller' => 'App\\Controller\\FamiliaController::anulacion'], ['id'], null, null, false, true, null]],
+        257 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        277 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        323 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        337 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        357 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        370 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        380 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

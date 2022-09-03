@@ -9,7 +9,7 @@
 		{% if citas is empty %}
 			No se han encontrado reservas
 		{% else %}
-			{# <ul>
+			<ul>
 				{% for cita in citas %}
 						{% if username == cita.User.username %}
 							<il>
@@ -20,9 +20,7 @@
 							<br>
 						{% endif %}
 				{% endfor %}
-			</ul> #}
-
-			{{username}}
+			</ul>	
 			{% include 'familia/menu.html.twig' %}
 		{% endif %}
 {% endblock %}

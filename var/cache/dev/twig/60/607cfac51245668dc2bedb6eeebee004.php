@@ -104,7 +104,7 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
             foreach ($context['_seq'] as $context["_key"] => $context["cita"]) {
                 // line 14
                 echo "\t\t\t\t\t\t";
-                if (((isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 14, $this->source); })()) == twig_get_attribute($this->env, $this->source, $context["cita"], "User", [], "any", false, false, false, 14))) {
+                if (((isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 14, $this->source); })()) == twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "User", [], "any", false, false, false, 14), "username", [], "any", false, false, false, 14))) {
                     // line 15
                     echo "\t\t\t\t\t\t\t<il>
 \t\t\t\t\t\t\t\t";
@@ -127,12 +127,11 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cita'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 23
-            echo "\t\t\t</ul>
+            echo "\t\t\t</ul>\t
 \t\t\t";
-            // line 27
-            echo "\t\t\t";
-            $this->loadTemplate("familia/menu.html.twig", "familia/reservas.html.twig", 27)->display($context);
-            // line 28
+            // line 24
+            $this->loadTemplate("familia/menu.html.twig", "familia/reservas.html.twig", 24)->display($context);
+            // line 25
             echo "\t\t";
         }
         
@@ -155,7 +154,7 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  136 => 28,  133 => 27,  130 => 23,  124 => 22,  116 => 17,  112 => 16,  109 => 15,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  135 => 25,  133 => 24,  130 => 23,  124 => 22,  116 => 17,  112 => 16,  109 => 15,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -173,7 +172,7 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
 \t\t{% else %}
 \t\t\t<ul>
 \t\t\t\t{% for cita in citas %}
-\t\t\t\t\t\t{% if id == cita.User %}
+\t\t\t\t\t\t{% if username == cita.User.username %}
 \t\t\t\t\t\t\t<il>
 \t\t\t\t\t\t\t\t{{ cita.fecha |date('Y-m-d')}}
 \t\t\t\t\t\t\t\t{{ cita.hora |date('H:i:s')}}
@@ -182,10 +181,7 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
 \t\t\t\t\t\t\t<br>
 \t\t\t\t\t\t{% endif %}
 \t\t\t\t{% endfor %}
-\t\t\t</ul>
-\t\t\t{# {% for cita in citas %}
-\t\t\t\t{{cita.User.username}}
-\t\t\t{% endfor %} #}
+\t\t\t</ul>\t
 \t\t\t{% include 'familia/menu.html.twig' %}
 \t\t{% endif %}
 {% endblock %}

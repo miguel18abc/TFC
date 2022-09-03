@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class FamiliaController extends AbstractController
 {
@@ -29,8 +30,10 @@ class FamiliaController extends AbstractController
     }
 
     #[Route('/familia/orientacion', name: 'orientacion')]
-    public function indexOrientacion(ManagerRegistry $doctrine): Response
+    public function indexOrientacion(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
     {
+        $lastUsername = $authenticationUtils->getLastUsername();
+
         $citaRepository = new CitaRepository($doctrine);
         $citas = $citaRepository->findBy(['Servicio'=>1]);
 
@@ -40,12 +43,13 @@ class FamiliaController extends AbstractController
             );
         }
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas]);
+        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername]);
     }
 
     #[Route('/familia/secretaria', name: 'secretaria')]
-    public function indexSecretaria(ManagerRegistry $doctrine): Response
+    public function indexSecretaria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
     {
+        $lastUsername = $authenticationUtils->getLastUsername();
         $citaRepository = new CitaRepository($doctrine);
         $citas = $citaRepository->findBy(['Servicio'=>2]);
 
@@ -55,12 +59,13 @@ class FamiliaController extends AbstractController
             );
         }
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas]);
+        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername]);
     }
 
     #[Route('/familia/tutoria', name: 'tutoria')]
-    public function indexTutoria(ManagerRegistry $doctrine): Response
+    public function indexTutoria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
     {
+        $lastUsername = $authenticationUtils->getLastUsername();
         $citaRepository = new CitaRepository($doctrine);
         $citas = $citaRepository->findBy(['Servicio'=>3]);
 
@@ -70,7 +75,7 @@ class FamiliaController extends AbstractController
             );
         }
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas]);
+        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername]);
     }
 
     #[Route('/familia/tutoria/{id}', name: 'tutoria_reserva')]
@@ -97,17 +102,20 @@ class FamiliaController extends AbstractController
         }
     }
 
-    #[Route('/consulta', name:'cita_consulta')]
-    public function consultas(ManagerRegistry $doctrine)
+    #[Route('/consulta/{username}', name:'cita_consulta')]
+    public function consultas(string $username,ManagerRegistry $doctrine)
     {
-        $username=$_POST['_username'];
         $citaRepository = new CitaRepository($doctrine);
         $citas = $citaRepository->findAll();
-
         return $this->render('familia/reservas.html.twig', ['citas' => $citas,'username' => $username]);
     }
 
 
+    public function menuFamilias(AuthenticationUtils $authenticationUtils)
+    {
+        $lastUsername = $authenticationUtils->getLastUsername();
+        return $this->render('familia/menu.html.twig', ['username' => $lastUsername]);
+    }
 
 
 

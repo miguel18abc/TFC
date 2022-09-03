@@ -46,7 +46,10 @@ class __TwigTemplate_f5a3741a7865595677046e11af218072 extends Template
         // line 3
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cita_listado");
         echo "\">Reservar</a> 
-    <a href=\"/consulta\">Consultas</a>
+    <a href=\"";
+        // line 4
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cita_consulta", ["username" => (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 4, $this->source); })())]), "html", null, true);
+        echo "\">Consultas</a>
     
 
 ";
@@ -70,7 +73,7 @@ class __TwigTemplate_f5a3741a7865595677046e11af218072 extends Template
 
     public function getDebugInfo()
     {
-        return array (  47 => 3,  43 => 1,);
+        return array (  51 => 4,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -78,7 +81,7 @@ class __TwigTemplate_f5a3741a7865595677046e11af218072 extends Template
         return new Source("
     <br>
     <a href=\"{{ path('cita_listado')}}\">Reservar</a> 
-    <a href=\"/consulta\">Consultas</a>
+    <a href=\"{{ path('cita_consulta',{'username': username})}}\">Consultas</a>
     
 
 ", "familia/menu.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\menu.html.twig");

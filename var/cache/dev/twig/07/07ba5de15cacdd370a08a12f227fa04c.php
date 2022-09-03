@@ -129,7 +129,10 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
         // line 26
         echo "    </tbody>
 </table>
-<a href=\"/consulta\" class=\"btn btn-primary\">Consulta</a>
+<a href=\"/consulta/";
+        // line 28
+        echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 28, $this->source); })()), "html", null, true);
+        echo "\" class=\"btn btn-primary\">Consulta</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -151,7 +154,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
 
     public function getDebugInfo()
     {
-        return array (  130 => 26,  121 => 23,  117 => 22,  113 => 21,  109 => 20,  105 => 18,  101 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  134 => 28,  130 => 26,  121 => 23,  117 => 22,  113 => 21,  109 => 20,  105 => 18,  101 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -183,7 +186,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
     {% endfor %}
     </tbody>
 </table>
-<a href=\"/consulta\" class=\"btn btn-primary\">Consulta</a>
+<a href=\"/consulta/{{username}}\" class=\"btn btn-primary\">Consulta</a>
 {% endblock %}
 ", "familia/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\index.html.twig");
     }
