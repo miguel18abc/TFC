@@ -127,11 +127,12 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cita'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 23
-            echo "\t\t\t</ul>\t
+            echo "\t\t\t</ul>
+\t\t\t</br>
 \t\t\t";
-            // line 24
-            $this->loadTemplate("familia/menu.html.twig", "familia/reservas.html.twig", 24)->display($context);
             // line 25
+            $this->loadTemplate("familia/menu.html.twig", "familia/reservas.html.twig", 25)->display($context);
+            // line 26
             echo "\t\t";
         }
         
@@ -154,7 +155,7 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  135 => 25,  133 => 24,  130 => 23,  124 => 22,  116 => 17,  112 => 16,  109 => 15,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  136 => 26,  134 => 25,  130 => 23,  124 => 22,  116 => 17,  112 => 16,  109 => 15,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -181,7 +182,8 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
 \t\t\t\t\t\t\t<br>
 \t\t\t\t\t\t{% endif %}
 \t\t\t\t{% endfor %}
-\t\t\t</ul>\t
+\t\t\t</ul>
+\t\t\t</br>
 \t\t\t{% include 'familia/menu.html.twig' %}
 \t\t{% endif %}
 {% endblock %}

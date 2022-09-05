@@ -7,6 +7,7 @@ use App\Entity\Reserva;
 use App\Form\ReservaType;
 use App\Repository\CitaRepository;
 use App\Repository\ReservaRepository;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,6 +22,7 @@ class FamiliaController extends AbstractController
 {
 
     private $requestStack;
+    
 
     public function __construct(RequestStack $requestStack)
     {
@@ -41,12 +43,12 @@ class FamiliaController extends AbstractController
             );
         }
 
-        $session = $request->getSession();
+        $session = $this->requestStack->getSession();
         $session->start();
-
         $session->set('servicio','orientacion');
-        
-        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername]);
+        $servicio = $session->get('servicio');
+
+        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio]);
     }
 
     #[Route('/familia/secretaria', name: 'secretaria')]
@@ -62,12 +64,13 @@ class FamiliaController extends AbstractController
             );
         }
 
-        $session = $request->getSession();
+        
+        $session = $this->requestStack->getSession();
         $session->start();
-
         $session->set('servicio','secretaria');
+        $servicio = $session->get('servicio');
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername]);
+        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio]);
     }
 
     #[Route('/familia/tutoria', name: 'tutoria')]
@@ -83,56 +86,60 @@ class FamiliaController extends AbstractController
             );
         }
 
-        $session = $request->getSession();
+        $session = $this->requestStack->getSession();
         $session->start();
-
         $session->set('servicio','tutoria');
-        $session->
+        $servicio = $session->get('servicio');
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername]);
+        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio]);
     }
 
     #[Route('/familia/tutoria/{id}', name: 'tutoria_reserva')]
-    public function reservaTutoria(ManagerRegistry $doctrine, Request $request, $id)
-    { {
-
+    public function reservaTutoria(ManagerRegistry $doctrine, Request $request,AuthenticationUtils $authenticationUtils,$id)
+    { 
+            $username = $authenticationUtils->getLastUsername();
             $citaRepository = new CitaRepository($doctrine);
+            $userRepository = new UserRepository($doctrine);
             $reserva = new Reserva();
             $form = $this->createForm(ReservaType::class, $reserva);
 
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
+
                 $em = $doctrine->getManager();
-                
                 $cita = $citaRepository->findOneBy(['id' => $id]);
+                $user = $userRepository->findOneBy(['username' => $username]);
+                $cita->setUser($user);
                 $reserva->setCita($cita);
+                $em->persist($cita);
                 $em->persist($reserva);
                 $em->flush();
 
-                return $this->render('familia/exito.twig');
-            } else
-                return $this->render('familia/reserva.html.twig',['form' => $form->createView()]);
-        }
+                return $this->render('familia/exito.twig',['id' => $id,'username' => $username]);
+            }
+                return $this->render('familia/reserva.html.twig',['form' => $form->createView(),'id' => $id,'username' => $username]);
+        
     }
     
-    public function menuFamilias(AuthenticationUtils $authenticationUtils)
+    public function menuFamilias(AuthenticationUtils $authenticationUtils,$id)
     {
-
-        $session->get('servicio');
+        $session = $this->requestStack->getSession();
+        $servicio = $session->get('servicio');
         $lastUsername = $authenticationUtils->getLastUsername();
-        return $this->render('familia/menu.html.twig', ['username' => $lastUsername]);
+        return $this->render('familia/menu.html.twig', ['username' => $lastUsername,'servicio' => $servicio,'id' => $id]);
+
     }
 
-    #[Route('/consulta/{servicio}/{username}', name:'cita_consulta')]
-    public function consultasOrientacion(string $servicio,string $username,ManagerRegistry $doctrine)
+    #[Route('/consulta/orientacion/{username}', name:'cita_consulta_orientacion')]
+    public function consultasOrientacion(string $username,ManagerRegistry $doctrine)
     {
         $citaRepository = new CitaRepository($doctrine);
         $citas = $citaRepository->findBy(['Servicio'=>1]);
         return $this->render('familia/reservas.html.twig', ['citas' => $citas,'username' => $username]);
     }
 
-    #[Route('/consulta/{servicio}/{username}', name:'cita_consulta')]
+    #[Route('/consulta/secretaria/{username}', name:'cita_consulta_secretaria')]
     public function consultasSecretaria(string $username,ManagerRegistry $doctrine)
     {
         $citaRepository = new CitaRepository($doctrine);
@@ -141,7 +148,7 @@ class FamiliaController extends AbstractController
     }
 
     
-    #[Route('/consulta/{servicio}/{username}', name:'cita_consulta')]
+    #[Route('/consulta/tutoria/{username}', name:'cita_consulta_tutoria')]
     public function consultasTutoria(string $username,ManagerRegistry $doctrine)
     {
         $citaRepository = new CitaRepository($doctrine);

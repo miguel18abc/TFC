@@ -131,6 +131,8 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
 </table>
 <a href=\"/consulta/";
         // line 28
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 28, $this->source); })()), "html", null, true);
+        echo "/";
         echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 28, $this->source); })()), "html", null, true);
         echo "\" class=\"btn btn-primary\">Consulta</a>
 ";
@@ -186,7 +188,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
     {% endfor %}
     </tbody>
 </table>
-<a href=\"/consulta/{{username}}\" class=\"btn btn-primary\">Consulta</a>
+<a href=\"/consulta/{{servicio}}/{{username}}\" class=\"btn btn-primary\">Consulta</a>
 {% endblock %}
 ", "familia/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\index.html.twig");
     }

@@ -345,8 +345,6 @@
     <service id="App\Controller\FamiliaController" class="App\Controller\FamiliaController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
-      <argument type="service" id="App\Repository\CitaRepository"/>
-      <argument type="service" id="App\Repository\ReservaRepository"/>
       <argument type="service" id="request_stack"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\FamiliaController"/>
@@ -6695,7 +6693,7 @@
         <argument key="userPasswordHasher" type="service_closure" id="security.user_password_hasher"/>
       </argument>
     </service>
-    <service id=".service_locator.q6pbhDZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.9CfOQS0" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CitaController::createAction" type="service_closure" id=".service_locator.GQZbvNR"/>
@@ -6713,7 +6711,7 @@
         <argument key="App\Controller\FamiliaController::listado" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\FamiliaController::menuFamilias" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\FamiliaController::reserva" type="service_closure" id=".service_locator.GQZbvNR"/>
-        <argument key="App\Controller\FamiliaController::reservaTutoria" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\FamiliaController::reservaTutoria" type="service_closure" id=".service_locator.PbFLIDh"/>
         <argument key="App\Controller\LoginController::index" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.YU8H6ve"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -6737,7 +6735,7 @@
         <argument key="App\Controller\FamiliaController:listado" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\FamiliaController:menuFamilias" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\FamiliaController:reserva" type="service_closure" id=".service_locator.GQZbvNR"/>
-        <argument key="App\Controller\FamiliaController:reservaTutoria" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\FamiliaController:reservaTutoria" type="service_closure" id=".service_locator.PbFLIDh"/>
         <argument key="App\Controller\LoginController:index" type="service_closure" id=".service_locator.zFcJjKU"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.YU8H6ve"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -7374,12 +7372,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.q6pbhDZ"/>
+      <argument type="service" id=".service_locator.9CfOQS0"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.q6pbhDZ"/>
+      <argument type="service" id=".service_locator.9CfOQS0"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8346,7 +8344,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.q6pbhDZ"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.9CfOQS0"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8372,7 +8370,7 @@
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.8C5AXya" alias=".service_locator.PbFLIDh"/>
     <service id=".service_locator.riGN6sa" alias=".service_locator.YU8H6ve"/>
-    <service id=".service_locator.TyyEHAy" alias=".service_locator.q6pbhDZ"/>
+    <service id=".service_locator.trCrSjr" alias=".service_locator.9CfOQS0"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.rGym1A9" alias=".service_locator.wbH20Jl"/>
     <service id=".service_locator.nk0lT0X" alias=".service_locator.1kmbKC8"/>
