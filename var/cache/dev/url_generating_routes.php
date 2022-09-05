@@ -11,7 +11,7 @@ return [
     'secretaria' => [[], ['_controller' => 'App\\Controller\\FamiliaController::indexSecretaria'], [], [['text', '/familia/secretaria']], [], [], []],
     'tutoria' => [[], ['_controller' => 'App\\Controller\\FamiliaController::indexTutoria'], [], [['text', '/familia/tutoria']], [], [], []],
     'tutoria_reserva' => [['id'], ['_controller' => 'App\\Controller\\FamiliaController::reservaTutoria'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/familia/tutoria']], [], [], []],
-    'cita_consulta' => [['username'], ['_controller' => 'App\\Controller\\FamiliaController::consultas'], [], [['variable', '/', '[^/]++', 'username', true], ['text', '/consulta']], [], [], []],
+    'cita_consulta' => [['servicio', 'username'], ['_controller' => 'App\\Controller\\FamiliaController::consultasTutoria'], [], [['variable', '/', '[^/]++', 'username', true], ['variable', '/', '[^/]++', 'servicio', true], ['text', '/consulta']], [], [], []],
     'cita_listado' => [[], ['_controller' => 'App\\Controller\\FamiliaController::listado'], [], [['text', '/listado']], [], [], []],
     'reserva' => [['id'], ['_controller' => 'App\\Controller\\FamiliaController::reserva'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/reserva']], [], [], []],
     'anular_cita' => [['id'], ['_controller' => 'App\\Controller\\FamiliaController::anular_cita'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/cita/anular']], [], [], []],

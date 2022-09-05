@@ -22,10 +22,8 @@ class FamiliaController extends AbstractController
 
     private $requestStack;
 
-    public function __construct(CitaRepository $citaRepository, ReservaRepository $reservaRepository, RequestStack $requestStack)
+    public function __construct(RequestStack $requestStack)
     {
-        $this->citaRepository = $citaRepository;
-        $this->reservaRepository = $reservaRepository;
         $this->requestStack = $requestStack;
     }
 
@@ -43,6 +41,11 @@ class FamiliaController extends AbstractController
             );
         }
 
+        $session = $request->getSession();
+        $session->start();
+
+        $session->set('servicio','orientacion');
+        
         return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername]);
     }
 
@@ -59,6 +62,11 @@ class FamiliaController extends AbstractController
             );
         }
 
+        $session = $request->getSession();
+        $session->start();
+
+        $session->set('servicio','secretaria');
+
         return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername]);
     }
 
@@ -74,6 +82,12 @@ class FamiliaController extends AbstractController
                 'No product found for id '
             );
         }
+
+        $session = $request->getSession();
+        $session->start();
+
+        $session->set('servicio','tutoria');
+        $session->
 
         return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername]);
     }
@@ -101,28 +115,39 @@ class FamiliaController extends AbstractController
                 return $this->render('familia/reserva.html.twig',['form' => $form->createView()]);
         }
     }
-
-    #[Route('/consulta/{username}', name:'cita_consulta')]
-    public function consultas(string $username,ManagerRegistry $doctrine)
-    {
-        $citaRepository = new CitaRepository($doctrine);
-        $citas = $citaRepository->findAll();
-        return $this->render('familia/reservas.html.twig', ['citas' => $citas,'username' => $username]);
-    }
-
-
+    
     public function menuFamilias(AuthenticationUtils $authenticationUtils)
     {
+
+        $session->get('servicio');
         $lastUsername = $authenticationUtils->getLastUsername();
         return $this->render('familia/menu.html.twig', ['username' => $lastUsername]);
     }
 
+    #[Route('/consulta/{servicio}/{username}', name:'cita_consulta')]
+    public function consultasOrientacion(string $servicio,string $username,ManagerRegistry $doctrine)
+    {
+        $citaRepository = new CitaRepository($doctrine);
+        $citas = $citaRepository->findBy(['Servicio'=>1]);
+        return $this->render('familia/reservas.html.twig', ['citas' => $citas,'username' => $username]);
+    }
 
+    #[Route('/consulta/{servicio}/{username}', name:'cita_consulta')]
+    public function consultasSecretaria(string $username,ManagerRegistry $doctrine)
+    {
+        $citaRepository = new CitaRepository($doctrine);
+        $citas = $citaRepository->findBy(['Servicio'=>2]);
+        return $this->render('familia/reservas.html.twig', ['citas' => $citas,'username' => $username]);
+    }
 
-
-
-
-
+    
+    #[Route('/consulta/{servicio}/{username}', name:'cita_consulta')]
+    public function consultasTutoria(string $username,ManagerRegistry $doctrine)
+    {
+        $citaRepository = new CitaRepository($doctrine);
+        $citas = $citaRepository->findBy(['Servicio'=>3]);
+        return $this->render('familia/reservas.html.twig', ['citas' => $citas,'username' => $username]);
+    }
 
 
 
@@ -165,7 +190,7 @@ class FamiliaController extends AbstractController
         }
     }
 
-    // Fernando
+    // Fernando OK
 
     // #[Route('/consulta', name:'cita_consulta')]
     // public function consulta(Request $request)

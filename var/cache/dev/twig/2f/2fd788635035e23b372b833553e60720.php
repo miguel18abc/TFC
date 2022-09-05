@@ -107,7 +107,7 @@ class __TwigTemplate_51e4935aca08fc5790f56b385a3e1745 extends Template
         <div class=\"dhx_cal_prev_button\">&nbsp;</div>
         <div class=\"dhx_cal_next_button\">&nbsp;</div>
         <div class=\"dhx_cal_today_button\"></div>
-        <div class=\"dhx_cal_date\">Hola</div>
+        <div class=\"dhx_cal_date\"></div>
         <div class=\"dhx_cal_tab\" name=\"day_tab\" style=\"right:204px;\"></div>
         <div class=\"dhx_cal_tab\" name=\"week_tab\" style=\"right:140px;\"></div>
         <div class=\"dhx_cal_tab\" name=\"month_tab\" style=\"right:76px;\"></div>
@@ -232,7 +232,7 @@ class __TwigTemplate_51e4935aca08fc5790f56b385a3e1745 extends Template
         <div class=\"dhx_cal_prev_button\">&nbsp;</div>
         <div class=\"dhx_cal_next_button\">&nbsp;</div>
         <div class=\"dhx_cal_today_button\"></div>
-        <div class=\"dhx_cal_date\">Hola</div>
+        <div class=\"dhx_cal_date\"></div>
         <div class=\"dhx_cal_tab\" name=\"day_tab\" style=\"right:204px;\"></div>
         <div class=\"dhx_cal_tab\" name=\"week_tab\" style=\"right:140px;\"></div>
         <div class=\"dhx_cal_tab\" name=\"month_tab\" style=\"right:76px;\"></div>
