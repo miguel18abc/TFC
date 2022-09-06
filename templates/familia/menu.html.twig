@@ -1,12 +1,2 @@
-
     <br>
-    <a href="{{ path('tutoria_reserva',{'id':id})}}">Reservar</a> 
-    {% if app.session.get('servicio') == 'orientacion' %}
-        <a href="{{ path('cita_consulta_orientacion',{'username': username})}}">Consultas</a>
-	{% elseif app.session.get('servicio') == 'secretaria'  %} 
-        <a href="{{ path('cita_consulta_secretaria',{'username': username})}}">Consultas</a>
-    {% elseif app.session.get('servicio') == 'tutoria'  %}
-        <a href="{{ path('cita_consulta_tutoria',{'username': username})}}">Consultas</a>
-    {% endif %}
-    
-    
+    <a class="btn btn-primary" href="{{ path('tutoria') }}">Volver a tutoría</a> 

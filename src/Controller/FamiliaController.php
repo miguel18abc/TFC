@@ -8,6 +8,7 @@ use App\Form\ReservaType;
 use App\Repository\CitaRepository;
 use App\Repository\ReservaRepository;
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
+use function PHPUnit\Framework\throwException;
 
 class FamiliaController extends AbstractController
 {
@@ -97,6 +100,8 @@ class FamiliaController extends AbstractController
     #[Route('/familia/tutoria/{id}', name: 'tutoria_reserva')]
     public function reservaTutoria(ManagerRegistry $doctrine, Request $request,AuthenticationUtils $authenticationUtils,$id)
     { 
+            $session = $this->requestStack->getSession();
+            $session->start();
             $username = $authenticationUtils->getLastUsername();
             $citaRepository = new CitaRepository($doctrine);
             $userRepository = new UserRepository($doctrine);
@@ -107,14 +112,23 @@ class FamiliaController extends AbstractController
 
             if ($form->isSubmitted() && $form->isValid()) {
 
-                $em = $doctrine->getManager();
-                $cita = $citaRepository->findOneBy(['id' => $id]);
-                $user = $userRepository->findOneBy(['username' => $username]);
-                $cita->setUser($user);
-                $reserva->setCita($cita);
-                $em->persist($cita);
-                $em->persist($reserva);
-                $em->flush();
+                try{
+                    $em = $doctrine->getManager();
+                    $cita = $citaRepository->findOneBy(['id' => $id]);
+                    $user = $userRepository->findOneBy(['username' => $username]);
+                    $cita->setUser($user);
+                    $reserva->setCita($cita);
+                    $em->persist($cita);
+                    $em->persist($reserva);
+                    $em->flush();
+
+                } catch (UniqueConstraintViolationException) {
+                    $error = $authenticationUtils->getLastAuthenticationError();
+                    $servicio = $session->get('servicio');
+                    $citas = $citaRepository->findBy(['Servicio'=>3]);
+                    return $this->render('familia/index.html.twig',['form' => $form->createView(),'citas'=> $citas,'username' => $username,'error' => $error, 'servicio' => $servicio]);  
+                }
+                $this->addFlash('success', 'Datos guardados.');
 
                 return $this->render('familia/exito.twig',['id' => $id,'username' => $username]);
             }

@@ -3,27 +3,32 @@
 {% block title %}Hello FamiliaController!{% endblock %}
 
 {% block body %}
-
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Fecha</th>
-            <th scope="col">Hora</th>
-            <th scope="col">Servicio</th>
-            <th scope="col">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for cita in citas %}
-        
-        <tr>
-            <td>{{cita.fecha|date("d/m/Y")}}</td>
-            <td>{{cita.hora|date("H:m:s")}}</td>
-            <td>{{cita.Servicio.nombre}}</td>
-            <td><a href="/familia/tutoria/{{cita.id}}" class="btn btn-primary">Reservar</a></td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-<a href="/consulta/{{servicio}}/{{username}}" class="btn btn-primary">Consulta</a>
+    {% if citas is empty %}
+        No existen citas para mostrar
+    {% elseif error %}
+        Hay un error de duplicado
+    {% else %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for cita in citas %}
+                
+                <tr>
+                    <td>{{cita.fecha|date("d/m/Y")}}</td>
+                    <td>{{cita.hora|date("H:m:s")}}</td>
+                    <td>{{cita.Servicio.nombre}}</td>
+                    <td><a href="/familia/tutoria/{{cita.id}}" class="btn btn-primary">Reservar</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="/consulta/{{servicio}}/{{username}}" class="btn btn-primary">Consulta</a>
+    {% endif %}
 {% endblock %}
