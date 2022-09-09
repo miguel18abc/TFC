@@ -6,7 +6,7 @@
     {% if citas is empty %}
         No existen citas para mostrar
     {% elseif error %}
-        Hay un error de duplicado
+        {{error.messageKey}}
     {% else %}
         <table class="table">
             <thead>

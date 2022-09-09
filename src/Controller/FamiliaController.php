@@ -93,8 +93,9 @@ class FamiliaController extends AbstractController
         $session->start();
         $session->set('servicio','tutoria');
         $servicio = $session->get('servicio');
+        $error = $authenticationUtils->getLastAuthenticationError();
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio]);
+        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio,'error' => $error]);
     }
 
     #[Route('/familia/tutoria/{id}', name: 'tutoria_reserva')]
@@ -104,35 +105,21 @@ class FamiliaController extends AbstractController
             $session->start();
             $username = $authenticationUtils->getLastUsername();
             $citaRepository = new CitaRepository($doctrine);
+            $cita = $citaRepository->findOneBy(['id' => $id]);
             $userRepository = new UserRepository($doctrine);
+            $user = $userRepository->findOneBy(['username' => $username]);
             $reserva = new Reserva();
-            $form = $this->createForm(ReservaType::class, $reserva);
+    
+            $em = $doctrine->getManager();
+            $cita->setUser($user);
+            $reserva->setCita($cita);
+            $reserva->setUsername($username);
+            $em->persist($cita);
+            $em->persist($reserva);
+            $em->flush();
 
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-
-                try{
-                    $em = $doctrine->getManager();
-                    $cita = $citaRepository->findOneBy(['id' => $id]);
-                    $user = $userRepository->findOneBy(['username' => $username]);
-                    $cita->setUser($user);
-                    $reserva->setCita($cita);
-                    $em->persist($cita);
-                    $em->persist($reserva);
-                    $em->flush();
-
-                } catch (UniqueConstraintViolationException) {
-                    $error = $authenticationUtils->getLastAuthenticationError();
-                    $servicio = $session->get('servicio');
-                    $citas = $citaRepository->findBy(['Servicio'=>3]);
-                    return $this->render('familia/index.html.twig',['form' => $form->createView(),'citas'=> $citas,'username' => $username,'error' => $error, 'servicio' => $servicio]);  
-                }
-                $this->addFlash('success', 'Datos guardados.');
-
-                return $this->render('familia/exito.twig',['id' => $id,'username' => $username]);
-            }
-                return $this->render('familia/reserva.html.twig',['form' => $form->createView(),'id' => $id,'username' => $username]);
+            $this->addFlash('success', 'Datos guardados.');
+            return $this->render('familia/exito.html.twig',['id' => $id,'username' => $username]);
         
     }
     

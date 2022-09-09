@@ -93,10 +93,11 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
         } elseif (        // line 8
 (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 8, $this->source); })())) {
             // line 9
-            echo "        Hay un error de duplicado
+            echo "        ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 9, $this->source); })()), "messageKey", [], "any", false, false, false, 9), "html", null, true);
+            echo "
     ";
-        } elseif (        // line 10
-(isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 10, $this->source); })())) {
+        } else {
             // line 11
             echo "        <table class=\"table\">
             <thead>
@@ -169,7 +170,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
 
     public function getDebugInfo()
     {
-        return array (  146 => 32,  142 => 30,  133 => 27,  129 => 26,  125 => 25,  121 => 24,  117 => 22,  113 => 21,  101 => 11,  99 => 10,  96 => 9,  94 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  147 => 32,  143 => 30,  134 => 27,  130 => 26,  126 => 25,  122 => 24,  118 => 22,  114 => 21,  102 => 11,  96 => 9,  94 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -182,8 +183,8 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
     {% if citas is empty %}
         No existen citas para mostrar
     {% elseif error %}
-        Hay un error de duplicado
-    {% elseif error %}
+        {{error.messageKey}}
+    {% else %}
         <table class=\"table\">
             <thead>
                 <tr>

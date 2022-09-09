@@ -20,9 +20,6 @@ class Cita
     #[ORM\Column(type: 'time')]
     private $hora;
 
-    #[ORM\OneToOne(mappedBy: 'cita', targetEntity: Reserva::class)]
-    private $reserva;
-
     #[ORM\ManyToOne(inversedBy: 'citas')]
     private ?Servicios $Servicio = null;
 
@@ -66,18 +63,6 @@ class Cita
     public function setHora(\DateTimeInterface $hora): self
     {
         $this->hora = $hora;
-
-        return $this;
-    }
-
-    public function getReserva(): ?Reserva
-    {
-        return $this->reserva;
-    }
-
-    public function setReserva(?Reserva $reserva): self
-    {
-        $this->reserva = $reserva;
 
         return $this;
     }
