@@ -69,16 +69,20 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
             .navbar{
                 background-color: #37a8ec;
             }
+            .disabled{
+                cursor: not-allowed;
+                pointer-events: none;
+            }
         </style>
     </head>
     <body>
         ";
-        // line 20
+        // line 24
         $this->displayBlock('menu', $context, $blocks);
-        // line 53
+        // line 57
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 54
+        // line 58
         echo "    </body>
 </html>
 ";
@@ -109,7 +113,7 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
 
     }
 
-    // line 20
+    // line 24
     public function block_menu($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -119,7 +123,7 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "menu"));
 
-        // line 21
+        // line 25
         echo "            <nav class=\"navbar navbar-light bg-light\">
                 <div class=\"container\">
                     <svg
@@ -142,9 +146,9 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
                         </g>
                         </svg>
                         ";
-        // line 42
+        // line 46
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 43
+            // line 47
             echo "                            <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">
@@ -152,17 +156,17 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
                             </a>
                         ";
         } else {
-            // line 47
+            // line 51
             echo "                            <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Iniciar sesión</a>
                             <a class=\"nav-link\" href=\"";
-            // line 48
+            // line 52
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
             echo "\">Registrar</a>
                         ";
         }
-        // line 50
+        // line 54
         echo "                </div>
             </nav>
         ";
@@ -174,7 +178,7 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
 
     }
 
-    // line 53
+    // line 57
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -204,7 +208,7 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
 
     public function getDebugInfo()
     {
-        return array (  178 => 53,  166 => 50,  161 => 48,  156 => 47,  148 => 43,  146 => 42,  123 => 21,  113 => 20,  94 => 5,  82 => 54,  79 => 53,  77 => 20,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
+        return array (  182 => 57,  170 => 54,  165 => 52,  160 => 51,  152 => 47,  150 => 46,  127 => 25,  117 => 24,  98 => 5,  86 => 58,  83 => 57,  81 => 24,  66 => 11,  63 => 10,  60 => 9,  57 => 8,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -224,6 +228,10 @@ class __TwigTemplate_40108280f505cc6134adfe51e4f9ac3a extends Template
         <style>
             .navbar{
                 background-color: #37a8ec;
+            }
+            .disabled{
+                cursor: not-allowed;
+                pointer-events: none;
             }
         </style>
     </head>

@@ -5,8 +5,6 @@
 {% block body %}
     {% if citas is empty %}
         No existen citas para mostrar
-    {% elseif error %}
-        {{error.messageKey}}
     {% else %}
         <table class="table">
             <thead>
@@ -22,9 +20,9 @@
                 
                 <tr>
                     <td>{{cita.fecha|date("d/m/Y")}}</td>
-                    <td>{{cita.hora|date("H:m:s")}}</td>
+                    <td>{{cita.hora|date("H:i:s")}}</td>
                     <td>{{cita.Servicio.nombre}}</td>
-                    <td><a href="/familia/tutoria/{{cita.id}}" class="btn btn-primary">Reservar</a></td>
+                    <td><a href="/familia/tutoria/{{cita.id}}" class="btn btn-primary {% if cita.disabled == true %}disabled{% endif %}">Reservar</a></td>
                 </tr>
             {% endfor %}
             </tbody>

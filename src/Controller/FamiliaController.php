@@ -112,6 +112,7 @@ class FamiliaController extends AbstractController
     
             $em = $doctrine->getManager();
             $cita->setUser($user);
+            $cita->setDisabled(true);
             $reserva->setCita($cita);
             $reserva->setUsername($username);
             $em->persist($cita);
@@ -185,8 +186,8 @@ class FamiliaController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
+
                 $em = $doctrine->getManager();
-                
                 $cita = $citaRepository->findOneBy(['id'=>$id]);
                 $reserva->setCita($cita);
                 $em->persist($reserva);

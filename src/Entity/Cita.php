@@ -37,6 +37,9 @@ class Cita
 
     #[ORM\ManyToOne(inversedBy: 'citas')]
     private ?User $User = null;
+
+    #[ORM\Column]
+    private ?bool $disabled = null;
     
     public function getId(): ?int
     {
@@ -135,6 +138,18 @@ class Cita
     public function setUser(?User $User): self
     {
         $this->User = $User;
+
+        return $this;
+    }
+
+    public function isDisabled(): ?bool
+    {
+        return $this->disabled;
+    }
+
+    public function setDisabled(bool $disabled): self
+    {
+        $this->disabled = $disabled;
 
         return $this;
     }
