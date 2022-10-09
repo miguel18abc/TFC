@@ -22,11 +22,12 @@
                     <td>{{cita.fecha|date("d/m/Y")}}</td>
                     <td>{{cita.hora|date("H:i:s")}}</td>
                     <td>{{cita.Servicio.nombre}}</td>
-                    <td><a href="/familia/tutoria/{{cita.id}}" class="btn btn-primary {% if cita.disabled == true %}disabled{% endif %}">Reservar</a></td>
+                    <td><a href="/familia/{{servicio}}/{{cita.id}}" class="btn btn-primary {% if cita.disabled == true %}disabled{% endif %}">Reservar</a></td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        <a href="/familia" class="btn btn-primary">⏪</a>
         <a href="/consulta/{{servicio}}/{{username}}" class="btn btn-primary">Consulta</a>
     {% endif %}
 {% endblock %}

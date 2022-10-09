@@ -15,13 +15,13 @@
 							<il>
 								{{ cita.fecha |date('Y-m-d')}}
 								{{ cita.hora |date('H:i:s')}}
-								<a href="/anular">Anular</a>
+								<a href="/anular/{{cita.Reserva.id}}">Anular</a>
 							</il>
 							<br>
 						{% endif %}
 				{% endfor %}
 			</ul>
 			</br>
-			{% include 'familia/menu.html.twig' %}
+    		<a class="btn btn-primary" href="/familia/{{servicio}}">Volver a {{servicio}}</a> 
 		{% endif %}
 {% endblock %}

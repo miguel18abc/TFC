@@ -122,8 +122,10 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
                 // line 24
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "Servicio", [], "any", false, false, false, 24), "nombre", [], "any", false, false, false, 24), "html", null, true);
                 echo "</td>
-                    <td><a href=\"/familia/tutoria/";
+                    <td><a href=\"/familia/";
                 // line 25
+                echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 25, $this->source); })()), "html", null, true);
+                echo "/";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "id", [], "any", false, false, false, 25), "html", null, true);
                 echo "\" class=\"btn btn-primary ";
                 if ((twig_get_attribute($this->env, $this->source, $context["cita"], "disabled", [], "any", false, false, false, 25) == true)) {
@@ -139,11 +141,12 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
             // line 28
             echo "            </tbody>
         </table>
+        <a href=\"/familia\" class=\"btn btn-primary\">⏪</a>
         <a href=\"/consulta/";
-            // line 30
-            echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 30, $this->source); })()), "html", null, true);
+            // line 31
+            echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 31, $this->source); })()), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 30, $this->source); })()), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 31, $this->source); })()), "html", null, true);
             echo "\" class=\"btn btn-primary\">Consulta</a>
     ";
         }
@@ -167,7 +170,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
 
     public function getDebugInfo()
     {
-        return array (  144 => 30,  140 => 28,  127 => 25,  123 => 24,  119 => 23,  115 => 22,  111 => 20,  107 => 19,  95 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  147 => 31,  142 => 28,  127 => 25,  123 => 24,  119 => 23,  115 => 22,  111 => 20,  107 => 19,  95 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -196,11 +199,12 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
                     <td>{{cita.fecha|date(\"d/m/Y\")}}</td>
                     <td>{{cita.hora|date(\"H:i:s\")}}</td>
                     <td>{{cita.Servicio.nombre}}</td>
-                    <td><a href=\"/familia/tutoria/{{cita.id}}\" class=\"btn btn-primary {% if cita.disabled == true %}disabled{% endif %}\">Reservar</a></td>
+                    <td><a href=\"/familia/{{servicio}}/{{cita.id}}\" class=\"btn btn-primary {% if cita.disabled == true %}disabled{% endif %}\">Reservar</a></td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        <a href=\"/familia\" class=\"btn btn-primary\">⏪</a>
         <a href=\"/consulta/{{servicio}}/{{username}}\" class=\"btn btn-primary\">Consulta</a>
     {% endif %}
 {% endblock %}

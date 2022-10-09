@@ -13,29 +13,17 @@ class Reserva
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Cita $Cita = null;
-
     #[ORM\Column(length: 255)]
     private ?string $Username = null;
+
+    #[ORM\OneToOne(inversedBy: 'Reserva', targetEntity: Cita::class)]
+    private ?Cita $cita = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
-    public function getCita(): ?Cita
-    {
-        return $this->Cita;
-    }
-
-    public function setCita(?Cita $Cita): self
-    {
-        $this->Cita = $Cita;
-
-        return $this;
-    }
-
+    
     public function getUsername(): ?string
     {
         return $this->Username;
@@ -44,6 +32,28 @@ class Reserva
     public function setUsername(string $Username): self
     {
         $this->Username = $Username;
+
+        return $this;
+    }
+
+    public function getCita(): ?Cita
+    {
+        return $this->cita;
+    }
+
+    public function setCita(?Cita $cita): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($cita === null && $this->cita !== null) {
+            $this->cita->setReserva(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($cita !== null && $cita->getReserva() !== $this) {
+            $cita->setReserva($this);
+        }
+
+        $this->cita = $cita;
 
         return $this;
     }

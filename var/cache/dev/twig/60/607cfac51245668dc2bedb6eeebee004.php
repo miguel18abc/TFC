@@ -115,7 +115,10 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
                     // line 17
                     echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "hora", [], "any", false, false, false, 17), "H:i:s"), "html", null, true);
                     echo "
-\t\t\t\t\t\t\t\t<a href=\"/anular\">Anular</a>
+\t\t\t\t\t\t\t\t<a href=\"/anular/";
+                    // line 18
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "Reserva", [], "any", false, false, false, 18), "id", [], "any", false, false, false, 18), "html", null, true);
+                    echo "\">Anular</a>
 \t\t\t\t\t\t\t</il>
 \t\t\t\t\t\t\t<br>
 \t\t\t\t\t\t";
@@ -129,11 +132,13 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
             // line 23
             echo "\t\t\t</ul>
 \t\t\t</br>
-\t\t\t";
+    \t\t<a class=\"btn btn-primary\" href=\"/familia/";
             // line 25
-            $this->loadTemplate("familia/menu.html.twig", "familia/reservas.html.twig", 25)->display($context);
-            // line 26
-            echo "\t\t";
+            echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 25, $this->source); })()), "html", null, true);
+            echo "\">Volver a ";
+            echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 25, $this->source); })()), "html", null, true);
+            echo "</a> 
+\t\t";
         }
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -155,7 +160,7 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  136 => 26,  134 => 25,  130 => 23,  124 => 22,  116 => 17,  112 => 16,  109 => 15,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  137 => 25,  133 => 23,  127 => 22,  120 => 18,  116 => 17,  112 => 16,  109 => 15,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -177,14 +182,14 @@ class __TwigTemplate_5eedd2ad4e2b113f9fde885932557dc0 extends Template
 \t\t\t\t\t\t\t<il>
 \t\t\t\t\t\t\t\t{{ cita.fecha |date('Y-m-d')}}
 \t\t\t\t\t\t\t\t{{ cita.hora |date('H:i:s')}}
-\t\t\t\t\t\t\t\t<a href=\"/anular\">Anular</a>
+\t\t\t\t\t\t\t\t<a href=\"/anular/{{cita.Reserva.id}}\">Anular</a>
 \t\t\t\t\t\t\t</il>
 \t\t\t\t\t\t\t<br>
 \t\t\t\t\t\t{% endif %}
 \t\t\t\t{% endfor %}
 \t\t\t</ul>
 \t\t\t</br>
-\t\t\t{% include 'familia/menu.html.twig' %}
+    \t\t<a class=\"btn btn-primary\" href=\"/familia/{{servicio}}\">Volver a {{servicio}}</a> 
 \t\t{% endif %}
 {% endblock %}
 ", "familia/reservas.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\reservas.html.twig");

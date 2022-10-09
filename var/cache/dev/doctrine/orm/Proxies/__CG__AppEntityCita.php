@@ -67,10 +67,10 @@ class Cita extends \App\Entity\Cita implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Titulo', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Descripcion', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha_de_inicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha_de_fin', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'disabled', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Reserva'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Titulo', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Descripcion', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha_de_inicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha_de_fin', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'disabled', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Reserva'];
     }
 
     /**
@@ -239,28 +239,6 @@ class Cita extends \App\Entity\Cita implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getReserva(): ?\App\Entity\Reserva
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReserva', []);
-
-        return parent::getReserva();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setReserva(?\App\Entity\Reserva $reserva): \App\Entity\Cita
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReserva', [$reserva]);
-
-        return parent::setReserva($reserva);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getServicio(): ?\App\Entity\Servicios
     {
 
@@ -283,94 +261,6 @@ class Cita extends \App\Entity\Cita implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getTitulo(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTitulo', []);
-
-        return parent::getTitulo();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setTitulo(string $Titulo): \App\Entity\Cita
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitulo', [$Titulo]);
-
-        return parent::setTitulo($Titulo);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getDescripcion(): ?string
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescripcion', []);
-
-        return parent::getDescripcion();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setDescripcion(?string $Descripcion): \App\Entity\Cita
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescripcion', [$Descripcion]);
-
-        return parent::setDescripcion($Descripcion);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getFechaDeInicio(): ?\DateTimeInterface
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFechaDeInicio', []);
-
-        return parent::getFechaDeInicio();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setFechaDeInicio(?\DateTimeInterface $fecha_de_inicio): \App\Entity\Cita
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFechaDeInicio', [$fecha_de_inicio]);
-
-        return parent::setFechaDeInicio($fecha_de_inicio);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getFechaDeFin(): ?\DateTimeInterface
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFechaDeFin', []);
-
-        return parent::getFechaDeFin();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setFechaDeFin(?\DateTimeInterface $fecha_de_fin): \App\Entity\Cita
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFechaDeFin', [$fecha_de_fin]);
-
-        return parent::setFechaDeFin($fecha_de_fin);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getUser(): ?\App\Entity\User
     {
 
@@ -388,6 +278,50 @@ class Cita extends \App\Entity\Cita implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$User]);
 
         return parent::setUser($User);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function isDisabled(): ?bool
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isDisabled', []);
+
+        return parent::isDisabled();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDisabled(bool $disabled): \App\Entity\Cita
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDisabled', [$disabled]);
+
+        return parent::setDisabled($disabled);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getReserva(): ?\App\Entity\Reserva
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReserva', []);
+
+        return parent::getReserva();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setReserva(?\App\Entity\Reserva $Reserva): \App\Entity\Cita
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReserva', [$Reserva]);
+
+        return parent::setReserva($Reserva);
     }
 
 }

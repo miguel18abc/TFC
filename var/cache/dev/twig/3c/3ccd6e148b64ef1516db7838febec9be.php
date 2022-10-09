@@ -122,6 +122,8 @@ class __TwigTemplate_152ac81e6eed8db94cea2f842775368b extends Template
             <p class=\"card-text\">Secretaría</p>
         </div>
     </div>
+
+    <a href=\"/\" class=\"btn btn-primary\">⏪</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -179,6 +181,8 @@ class __TwigTemplate_152ac81e6eed8db94cea2f842775368b extends Template
             <p class=\"card-text\">Secretaría</p>
         </div>
     </div>
+
+    <a href=\"/\" class=\"btn btn-primary\">⏪</a>
 {% endblock %}", "main/familia.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\familia.html.twig");
     }
 }

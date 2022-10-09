@@ -66,13 +66,14 @@ class __TwigTemplate_ce35f247d8836c8f13e152d872e9ae20 extends Template
 
         // line 3
         echo "\tSe ha anulado la reserva
-\t<a href=\"";
-        // line 4
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cita_listado");
-        echo "\">Volver</a>
-\t";
+\t<br>
+    <a class=\"btn btn-primary\" href=\"/familia/";
         // line 5
-        $this->loadTemplate("familia/menu.html.twig", "familia/anulaReserva.html.twig", 5)->display($context);
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 5, $this->source); })()), "html", null, true);
+        echo "\">Volver a ";
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 5, $this->source); })()), "html", null, true);
+        echo "</a> 
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -93,7 +94,7 @@ class __TwigTemplate_ce35f247d8836c8f13e152d872e9ae20 extends Template
 
     public function getDebugInfo()
     {
-        return array (  75 => 5,  71 => 4,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  72 => 5,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -101,8 +102,8 @@ class __TwigTemplate_ce35f247d8836c8f13e152d872e9ae20 extends Template
         return new Source("{% extends 'base.html.twig' %}
 {% block body %}
 \tSe ha anulado la reserva
-\t<a href=\"{{path('cita_listado')}}\">Volver</a>
-\t{% include 'familia/menu.html.twig' %}
+\t<br>
+    <a class=\"btn btn-primary\" href=\"/familia/{{servicio}}\">Volver a {{servicio}}</a> 
 {% endblock %}
 ", "familia/anulaReserva.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\anulaReserva.html.twig");
     }

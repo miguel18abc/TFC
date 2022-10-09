@@ -2,9 +2,11 @@
 
 namespace App\Repository;
 
+use App\Entity\Cita;
 use App\Entity\Reserva;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use PhpParser\Node\Expr\Cast\Object_;
 
 /**
  * @extends ServiceEntityRepository<Reserva>
@@ -39,6 +41,15 @@ class ReservaRepository extends ServiceEntityRepository
         }
     }
 
+    // public function findUsernameAndService(String $username,String $servicio): ?Reserva
+    // {
+    //     $query = $this->getEntityManager()->createQuery('SELECT r.username,s.nombre,c.fecha,c.hora 
+    //                                                     FROM App\Entity\Reserva r INNER JOIN App\Entity\Cita c ON r.cita_id==c.id INNER JOIN App\Entity\Servicios s ON c.servicio_id==s.id
+    //                                                     WHERE :username==r.username AND :servicio==s.nombre');
+    //     $query->setParameter('username',$username);
+    //     $query->setParameter('servicio',$servicio);
+    //     return $query->getOneOrNullResult();
+    // }
 //    /**
 //     * @return Reserva[] Returns an array of Reserva objects
 //     */

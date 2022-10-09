@@ -23,23 +23,14 @@ class Cita
     #[ORM\ManyToOne(inversedBy: 'citas')]
     private ?Servicios $Servicio = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Titulo = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Descripcion = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $fecha_de_inicio = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $fecha_de_fin = null;
-
     #[ORM\ManyToOne(inversedBy: 'citas')]
     private ?User $User = null;
 
     #[ORM\Column]
     private ?bool $disabled = null;
+
+    #[ORM\OneToOne(mappedBy: 'cita', targetEntity: Reserva::class)]
+    private ?Reserva $Reserva = null;
     
     public function getId(): ?int
     {
@@ -82,54 +73,6 @@ class Cita
         return $this;
     }
 
-    public function getTitulo(): ?string
-    {
-        return $this->Titulo;
-    }
-
-    public function setTitulo(string $Titulo): self
-    {
-        $this->Titulo = $Titulo;
-
-        return $this;
-    }
-
-    public function getDescripcion(): ?string
-    {
-        return $this->Descripcion;
-    }
-
-    public function setDescripcion(?string $Descripcion): self
-    {
-        $this->Descripcion = $Descripcion;
-
-        return $this;
-    }
-
-    public function getFechaDeInicio(): ?\DateTimeInterface
-    {
-        return $this->fecha_de_inicio;
-    }
-
-    public function setFechaDeInicio(?\DateTimeInterface $fecha_de_inicio): self
-    {
-        $this->fecha_de_inicio = $fecha_de_inicio;
-
-        return $this;
-    }
-
-    public function getFechaDeFin(): ?\DateTimeInterface
-    {
-        return $this->fecha_de_fin;
-    }
-
-    public function setFechaDeFin(?\DateTimeInterface $fecha_de_fin): self
-    {
-        $this->fecha_de_fin = $fecha_de_fin;
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->User;
@@ -150,6 +93,18 @@ class Cita
     public function setDisabled(bool $disabled): self
     {
         $this->disabled = $disabled;
+
+        return $this;
+    }
+
+    public function getReserva(): ?Reserva
+    {
+        return $this->Reserva;
+    }
+
+    public function setReserva(?Reserva $Reserva): self
+    {
+        $this->Reserva = $Reserva;
 
         return $this;
     }

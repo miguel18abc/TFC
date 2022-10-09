@@ -98,8 +98,14 @@ class __TwigTemplate_fb833620247d874912e8c562a5c0871e extends Template
         unset($context['_seq'], $context['_iterated'], $context['label'], $context['messages'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 14
-        echo "\t";
-        $this->loadTemplate("familia/menu.html.twig", "familia/exito.html.twig", 14)->display($context);
+        echo "\t<br>
+    <a class=\"btn btn-primary\" href=\"/familia/";
+        // line 15
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 15, $this->source); })()), "html", null, true);
+        echo "\">Volver a ";
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 15, $this->source); })()), "html", null, true);
+        echo "</a> 
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -120,7 +126,7 @@ class __TwigTemplate_fb833620247d874912e8c562a5c0871e extends Template
 
     public function getDebugInfo()
     {
-        return array (  101 => 14,  95 => 13,  83 => 7,  78 => 6,  73 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  104 => 15,  101 => 14,  95 => 13,  83 => 7,  78 => 6,  73 => 5,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -138,7 +144,8 @@ class __TwigTemplate_fb833620247d874912e8c562a5c0871e extends Template
 \t\t\t</div>
 \t\t{% endfor %}
 \t{% endfor %}
-\t{% include 'familia/menu.html.twig' %}
+\t<br>
+    <a class=\"btn btn-primary\" href=\"/familia/{{servicio}}\">Volver a {{servicio}}</a> 
 {% endblock %}
 ", "familia/exito.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\exito.html.twig");
     }

@@ -41,10 +41,12 @@ class __TwigTemplate_f5a3741a7865595677046e11af218072 extends Template
 
         // line 1
         echo "    <br>
-    <a class=\"btn btn-primary\" href=\"";
+    <a class=\"btn btn-primary\" href=\"/familia/";
         // line 2
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tutoria");
-        echo "\">Volver a tutoría</a> ";
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 2, $this->source); })()), "html", null, true);
+        echo "\">Volver a ";
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 2, $this->source); })()), "html", null, true);
+        echo "</a> ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -71,6 +73,6 @@ class __TwigTemplate_f5a3741a7865595677046e11af218072 extends Template
     public function getSourceContext()
     {
         return new Source("    <br>
-    <a class=\"btn btn-primary\" href=\"{{ path('tutoria') }}\">Volver a tutoría</a> ", "familia/menu.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\menu.html.twig");
+    <a class=\"btn btn-primary\" href=\"/familia/{{servicio}}\">Volver a {{servicio}}</a> ", "familia/menu.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\menu.html.twig");
     }
 }

@@ -120,6 +120,7 @@ class __TwigTemplate_ac05f8a23beeada0f1f3697363d6b7dd extends Template
             <p class=\"card-text\">Alumnado</p>
         </div>
     </div>
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -177,6 +178,7 @@ class __TwigTemplate_ac05f8a23beeada0f1f3697363d6b7dd extends Template
             <p class=\"card-text\">Alumnado</p>
         </div>
     </div>
+
 {% endblock %}
 ", "main/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\index.html.twig");
     }
