@@ -108,19 +108,6 @@ class __TwigTemplate_ac05f8a23beeada0f1f3697363d6b7dd extends Template
             <p class=\"card-text\">Plantilla</p>
         </div>
     </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"";
-        // line 25
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("alumnado");
-        echo "\">
-            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Alumnado</p>
-        </div>
-    </div>
-
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -142,7 +129,7 @@ class __TwigTemplate_ac05f8a23beeada0f1f3697363d6b7dd extends Template
 
     public function getDebugInfo()
     {
-        return array (  115 => 25,  103 => 16,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  103 => 16,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -169,16 +156,6 @@ class __TwigTemplate_ac05f8a23beeada0f1f3697363d6b7dd extends Template
             <p class=\"card-text\">Plantilla</p>
         </div>
     </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"{{path('alumnado')}}\">
-            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Alumnado</p>
-        </div>
-    </div>
-
 {% endblock %}
 ", "main/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\index.html.twig");
     }

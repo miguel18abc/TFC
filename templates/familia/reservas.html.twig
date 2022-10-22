@@ -6,17 +6,17 @@
 
 	<h1>Reservas</h1>
 	<ul>
-		{% if citas is empty %}
+		{% if reservas is empty %}
 			No se han encontrado reservas
 		{% else %}
 			<ul>
-				{% for cita in citas %}
-						{% if username == cita.User.username %}
-							<il>
-								{{ cita.fecha |date('Y-m-d')}}
-								{{ cita.hora |date('H:i:s')}}
-								<a href="/anular/{{cita.Reserva.id}}">Anular</a>
-							</il>
+				{% for reserva in reservas %}
+						{% if username == reserva.cita.User.username and reserva.cita.Servicio.Nombre == servicio %}
+							<li>
+								{{ reserva.cita.fecha |date('Y-m-d')}}
+								{{ reserva.cita.hora |date('H:i:s')}}
+								<a href="/anular/{{reserva.id}}">Anular</a>
+							</li>
 							<br>
 						{% endif %}
 				{% endfor %}

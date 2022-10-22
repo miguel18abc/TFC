@@ -33,8 +33,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/plantilla, roles: ROLE_ADMIN }
-        - { path: ^/familia, roles: ROLE_SEMIADMIN }
-        - { path: ^/alumnado, roles: ROLE_USER }
+        - { path: ^/familia, roles: ROLE_USER }
 
 when@test:
     security:

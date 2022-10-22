@@ -65,9 +65,7 @@ class __TwigTemplate_10ea8ad119a55b16936716f624fa8397 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello ";
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 3, $this->source); })()), "html", null, true);
-        echo "!";
+        echo "Plantilla";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -87,7 +85,30 @@ class __TwigTemplate_10ea8ad119a55b16936716f624fa8397 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    
+        echo "    <div class=\"card\" style=\"width: 18rem;\">
+        <a href=\"";
+        // line 7
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("aniadir_citas");
+        echo "\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
+        <div class=\"card-body\">
+            <p class=\"card-text\">Añadir citas</p>
+        </div>
+    </div>
+
+    <div class=\"card\" style=\"width: 18rem;\">
+        <a href=\"";
+        // line 16
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("plantilla");
+        echo "\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
+        <div class=\"card-body\">
+            <p class=\"card-text\">Mis citas</p>
+        </div>
+    </div>
+    <a href=\"/\" class=\"btn btn-primary\">⏪</a>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -109,17 +130,34 @@ class __TwigTemplate_10ea8ad119a55b16936716f624fa8397 extends Template
 
     public function getDebugInfo()
     {
-        return array (  90 => 6,  80 => 5,  59 => 3,  36 => 1,);
+        return array (  103 => 16,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello {{controller_name}}!{% endblock %}
+{% block title %}Plantilla{% endblock %}
 
 {% block body %}
-    
+    <div class=\"card\" style=\"width: 18rem;\">
+        <a href=\"{{path('aniadir_citas')}}\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
+        <div class=\"card-body\">
+            <p class=\"card-text\">Añadir citas</p>
+        </div>
+    </div>
+
+    <div class=\"card\" style=\"width: 18rem;\">
+        <a href=\"{{path('plantilla')}}\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
+        <div class=\"card-body\">
+            <p class=\"card-text\">Mis citas</p>
+        </div>
+    </div>
+    <a href=\"/\" class=\"btn btn-primary\">⏪</a>
 {% endblock %}", "main/plantilla.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\plantilla.html.twig");
     }
 }

@@ -23,14 +23,15 @@ class Cita
     #[ORM\ManyToOne(inversedBy: 'citas')]
     private ?Servicios $Servicio = null;
 
+    #[ORM\OneToOne(mappedBy: 'cita', targetEntity: Reserva::class)]
+    private ?Reserva $Reserva = null;
+
     #[ORM\ManyToOne(inversedBy: 'citas')]
     private ?User $User = null;
 
     #[ORM\Column]
     private ?bool $disabled = null;
 
-    #[ORM\OneToOne(mappedBy: 'cita', targetEntity: Reserva::class)]
-    private ?Reserva $Reserva = null;
     
     public function getId(): ?int
     {
@@ -73,6 +74,18 @@ class Cita
         return $this;
     }
 
+    public function getReserva(): ?Reserva
+    {
+        return $this->Reserva;
+    }
+
+    public function setReserva(?Reserva $Reserva): self
+    {
+        $this->Reserva = $Reserva;
+
+        return $this;
+    }
+
     public function getUser(): ?User
     {
         return $this->User;
@@ -96,17 +109,6 @@ class Cita
 
         return $this;
     }
-
-    public function getReserva(): ?Reserva
-    {
-        return $this->Reserva;
-    }
-
-    public function setReserva(?Reserva $Reserva): self
-    {
-        $this->Reserva = $Reserva;
-
-        return $this;
-    }
+    
 
 }

@@ -67,10 +67,10 @@ class Cita extends \App\Entity\Cita implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'disabled', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Reserva'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Reserva', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'disabled'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'disabled', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Reserva'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Reserva', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'disabled'];
     }
 
     /**
@@ -261,6 +261,28 @@ class Cita extends \App\Entity\Cita implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
+    public function getReserva(): ?\App\Entity\Reserva
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReserva', []);
+
+        return parent::getReserva();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setReserva(?\App\Entity\Reserva $Reserva): \App\Entity\Cita
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReserva', [$Reserva]);
+
+        return parent::setReserva($Reserva);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getUser(): ?\App\Entity\User
     {
 
@@ -300,28 +322,6 @@ class Cita extends \App\Entity\Cita implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDisabled', [$disabled]);
 
         return parent::setDisabled($disabled);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getReserva(): ?\App\Entity\Reserva
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReserva', []);
-
-        return parent::getReserva();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setReserva(?\App\Entity\Reserva $Reserva): \App\Entity\Cita
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReserva', [$Reserva]);
-
-        return parent::setReserva($Reserva);
     }
 
 }

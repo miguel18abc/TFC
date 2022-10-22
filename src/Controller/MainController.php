@@ -16,27 +16,15 @@ class MainController extends AbstractController
         return $this->render('main/index.html.twig');
     }
 
-    #[Route('/alumnado', name: 'alumnado')]
-    public function indexAlumnado(): Response
-    {
-        return $this->render('main/alumnado.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
-    }
-
     #[Route('/plantilla', name: 'plantilla')]
     public function indexPlantilla(): Response
     {
-        return $this->render('main/plantilla.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
+        return $this->render('main/plantilla.html.twig');
     }
 
     #[Route('/familia', name: 'familia')]
     public function indexFamilia(): Response
     {
-        return $this->render('main/familia.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
+        return $this->render('main/familia.html.twig');
     }
 }

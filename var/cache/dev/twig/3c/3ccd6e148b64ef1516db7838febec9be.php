@@ -65,9 +65,7 @@ class __TwigTemplate_152ac81e6eed8db94cea2f842775368b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello ";
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 3, $this->source); })()), "html", null, true);
-        echo "!";
+        echo "Familia";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -145,14 +143,14 @@ class __TwigTemplate_152ac81e6eed8db94cea2f842775368b extends Template
 
     public function getDebugInfo()
     {
-        return array (  117 => 25,  105 => 16,  93 => 7,  90 => 6,  80 => 5,  59 => 3,  36 => 1,);
+        return array (  115 => 25,  103 => 16,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello {{controller_name}}!{% endblock %}
+{% block title %}Familia{% endblock %}
 
 {% block body %}
     <div class=\"card\" style=\"width: 18rem;\">
