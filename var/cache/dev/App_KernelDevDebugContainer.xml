@@ -389,10 +389,6 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\TutoresRepository" class="App\Repository\TutoresRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -4210,7 +4206,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.daoFpDD"/>
+      <argument type="service" id=".service_locator.EWOoj31"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5371,7 +5367,42 @@
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id=".security.request_matcher.0AaANbd"/>
+        <argument type="service" id=".security.request_matcher.3Y6ft8Y"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.3bPO6Gq"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.AqBc9ZP"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.FnoJvn1"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.irsucux"/>
+        <argument type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher..9_dG8E"/>
         <argument type="collection">
           <argument>ROLE_USER</argument>
         </argument>
@@ -5969,8 +6000,23 @@
     <service id=".security.request_matcher.od9Trwc" class="Symfony\Component\HttpFoundation\RequestMatcher">
       <argument>^/plantilla</argument>
     </service>
-    <service id=".security.request_matcher.0AaANbd" class="Symfony\Component\HttpFoundation\RequestMatcher">
-      <argument>^/familia</argument>
+    <service id=".security.request_matcher.3Y6ft8Y" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/familia/Orientación/\d{1,}</argument>
+    </service>
+    <service id=".security.request_matcher.3bPO6Gq" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/familia/Tutoría/\d{1,}</argument>
+    </service>
+    <service id=".security.request_matcher.AqBc9ZP" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/familia/Secretaría/\d{1,}</argument>
+    </service>
+    <service id=".security.request_matcher.FnoJvn1" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/consulta/Orientación/</argument>
+    </service>
+    <service id=".security.request_matcher.irsucux" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/consulta/Tutoría/</argument>
+    </service>
+    <service id=".security.request_matcher..9_dG8E" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/consulta/Secretaría/</argument>
     </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand">
       <tag name="console.command" command="security:encode-password"/>
@@ -6324,8 +6370,6 @@
     <service id=".abstract.instanceof.App\Repository\ReservaRepository" class="App\Repository\ReservaRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ServiciosRepository" class="App\Repository\ServiciosRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ServiciosRepository" class="App\Repository\ServiciosRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TutoresRepository" class="App\Repository\TutoresRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\TutoresRepository" class="App\Repository\TutoresRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.gSv9zYw" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6873,13 +6917,12 @@
         <argument key="doctrine.orm.messenger.doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.messenger.doctrine_schema_subscriber"/>
       </argument>
     </service>
-    <service id=".service_locator.daoFpDD" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.EWOoj31" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CitaRepository" type="service_closure" id="App\Repository\CitaRepository"/>
         <argument key="App\Repository\ReservaRepository" type="service_closure" id="App\Repository\ReservaRepository"/>
         <argument key="App\Repository\ServiciosRepository" type="service_closure" id="App\Repository\ServiciosRepository"/>
-        <argument key="App\Repository\TutoresRepository" type="service_closure" id="App\Repository\TutoresRepository"/>
         <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>

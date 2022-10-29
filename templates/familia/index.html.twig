@@ -28,6 +28,9 @@
             </tbody>
         </table>
         <a href="/familia" class="btn btn-primary">⏪</a>
-        <a href="/consulta/{{servicio}}/{{username}}" class="btn btn-primary">Consulta</a>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a href="/consulta/{{servicio}}/{{username}}" class="btn btn-primary">Consulta</a>
+        {% endif %}
+        
     {% endif %}
 {% endblock %}

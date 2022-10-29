@@ -142,12 +142,19 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
             echo "            </tbody>
         </table>
         <a href=\"/familia\" class=\"btn btn-primary\">⏪</a>
-        <a href=\"/consulta/";
+        ";
             // line 31
-            echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 31, $this->source); })()), "html", null, true);
-            echo "/";
-            echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 31, $this->source); })()), "html", null, true);
-            echo "\" class=\"btn btn-primary\">Consulta</a>
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+                // line 32
+                echo "            <a href=\"/consulta/";
+                echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 32, $this->source); })()), "html", null, true);
+                echo "/";
+                echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 32, $this->source); })()), "html", null, true);
+                echo "\" class=\"btn btn-primary\">Consulta</a>
+        ";
+            }
+            // line 34
+            echo "        
     ";
         }
         
@@ -170,7 +177,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
 
     public function getDebugInfo()
     {
-        return array (  147 => 31,  142 => 28,  127 => 25,  123 => 24,  119 => 23,  115 => 22,  111 => 20,  107 => 19,  95 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  157 => 34,  149 => 32,  147 => 31,  142 => 28,  127 => 25,  123 => 24,  119 => 23,  115 => 22,  111 => 20,  107 => 19,  95 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -205,7 +212,10 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
             </tbody>
         </table>
         <a href=\"/familia\" class=\"btn btn-primary\">⏪</a>
-        <a href=\"/consulta/{{servicio}}/{{username}}\" class=\"btn btn-primary\">Consulta</a>
+        {% if is_granted(\"IS_AUTHENTICATED_REMEMBERED\") %}
+            <a href=\"/consulta/{{servicio}}/{{username}}\" class=\"btn btn-primary\">Consulta</a>
+        {% endif %}
+        
     {% endif %}
 {% endblock %}
 ", "familia/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\index.html.twig");
