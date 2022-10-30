@@ -154,8 +154,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
         ";
             }
             // line 34
-            echo "        
-    ";
+            echo "    ";
         }
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -215,7 +214,6 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
         {% if is_granted(\"IS_AUTHENTICATED_REMEMBERED\") %}
             <a href=\"/consulta/{{servicio}}/{{username}}\" class=\"btn btn-primary\">Consulta</a>
         {% endif %}
-        
     {% endif %}
 {% endblock %}
 ", "familia/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\index.html.twig");

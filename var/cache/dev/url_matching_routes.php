@@ -16,6 +16,7 @@ return [
         '/plantilla' => [[['_route' => 'plantilla', '_controller' => 'App\\Controller\\MainController::indexPlantilla'], null, null, null, false, false, null]],
         '/familia' => [[['_route' => 'familia', '_controller' => 'App\\Controller\\MainController::indexFamilia'], null, null, null, false, false, null]],
         '/añadir_citas' => [[['_route' => 'aniadir_citas', '_controller' => 'App\\Controller\\PlantillaController::addCitas'], null, null, null, false, false, null]],
+        '/miscitas' => [[['_route' => 'misCitas', '_controller' => 'App\\Controller\\PlantillaController::misCitas'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/_profiler' => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
         '/_profiler/search' => [[['_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'], null, null, null, false, false, null]],

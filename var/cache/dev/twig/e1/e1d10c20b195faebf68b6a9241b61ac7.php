@@ -100,7 +100,7 @@ class __TwigTemplate_10ea8ad119a55b16936716f624fa8397 extends Template
     <div class=\"card\" style=\"width: 18rem;\">
         <a href=\"";
         // line 16
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("plantilla");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("misCitas");
         echo "\">
             <img src=\"...\" class=\"card-img-top\" alt=\"...\">
         </a>
@@ -150,7 +150,7 @@ class __TwigTemplate_10ea8ad119a55b16936716f624fa8397 extends Template
     </div>
 
     <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"{{path('plantilla')}}\">
+        <a href=\"{{path('misCitas')}}\">
             <img src=\"...\" class=\"card-img-top\" alt=\"...\">
         </a>
         <div class=\"card-body\">

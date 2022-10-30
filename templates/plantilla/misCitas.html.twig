@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mis citas{% endblock %}
+
+{% block body %}
+    <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">User</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for reserva in reservas %}
+                <tr>
+                    <td>{{reserva.cita.fecha|date("d/m/Y")}}</td>
+                    <td>{{reserva.cita.hora|date("H:i:s")}}</td>
+                    <td>{{reserva.cita.Servicio.nombre}}</td>
+                    <td>{{reserva.cita.User.username}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="/plantilla" class="btn btn-primary">⏪</a>
+{% endblock %}

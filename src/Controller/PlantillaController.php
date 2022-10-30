@@ -4,11 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Cita;
 use App\Form\CitaType;
+use App\Repository\ReservaRepository;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class PlantillaController extends AbstractController
 {
@@ -35,5 +38,15 @@ class PlantillaController extends AbstractController
         return $this->render('plantilla/formularioCita.html.twig',['form' => $form->createView()]);
     }
 
-    
+    #[Route('/miscitas', name: 'misCitas')]
+    public function misCitas(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
+    {
+        $username = $authenticationUtils->getLastUsername();
+        $userRepository = new UserRepository($doctrine);
+        $user = $userRepository->findOneBy(['username' => $username]);
+        $reservaRepository = new ReservaRepository($doctrine);
+        $reservas = $reservaRepository->findBy(['user' => $user->getId()]);
+
+        return $this->render('plantilla/misCitas.html.twig',['username' => $username,'reservas' => $reservas]);
+    }
 }
