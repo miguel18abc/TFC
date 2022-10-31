@@ -67,10 +67,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'citas', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservas'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'citas', '' . "\0" . 'App\\Entity\\User' . "\0" . 'tutor'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'citas', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservas'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'username', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'citas', '' . "\0" . 'App\\Entity\\User' . "\0" . 'tutor'];
     }
 
     /**
@@ -327,34 +327,23 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getReservas(): \Doctrine\Common\Collections\Collection
+    public function getTutor(): ?\App\Entity\Tutor
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReservas', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTutor', []);
 
-        return parent::getReservas();
+        return parent::getTutor();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function addReserva(\App\Entity\Reserva $reserva): \App\Entity\User
+    public function setTutor(?\App\Entity\Tutor $tutor): \App\Entity\User
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addReserva', [$reserva]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTutor', [$tutor]);
 
-        return parent::addReserva($reserva);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function removeReserva(\App\Entity\Reserva $reserva): \App\Entity\User
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeReserva', [$reserva]);
-
-        return parent::removeReserva($reserva);
+        return parent::setTutor($tutor);
     }
 
 }

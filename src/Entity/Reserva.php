@@ -19,8 +19,8 @@ class Reserva
     #[ORM\OneToOne(inversedBy: 'Reserva', targetEntity: Cita::class)]
     private ?Cita $cita = null;
 
-    #[ORM\ManyToOne(inversedBy: 'reservas')]
-    private ?User $user = null;
+    #[ORM\ManyToOne(inversedBy: 'Reserva')]
+    private ?Tutor $tutor = null;
 
     public function getId(): ?int
     {
@@ -61,14 +61,14 @@ class Reserva
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getTutor(): ?Tutor
     {
-        return $this->user;
+        return $this->tutor;
     }
 
-    public function setUser(?User $user): self
+    public function setTutor(?Tutor $tutor): self
     {
-        $this->user = $user;
+        $this->tutor = $tutor;
 
         return $this;
     }

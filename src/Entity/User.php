@@ -34,8 +34,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'User', targetEntity: Cita::class)]
     private Collection $citas;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Reserva::class)]
-    private Collection $reservas;
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Tutor $tutor = null;
 
     public function __construct()
     {
@@ -157,33 +157,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Reserva>
-     */
-    public function getReservas(): Collection
+    public function getTutor(): ?Tutor
     {
-        return $this->reservas;
+        return $this->tutor;
     }
 
-    public function addReserva(Reserva $reserva): self
+    public function setTutor(?Tutor $tutor): self
     {
-        if (!$this->reservas->contains($reserva)) {
-            $this->reservas->add($reserva);
-            $reserva->setUser($this);
+        // unset the owning side of the relation if necessary
+        if ($tutor === null && $this->tutor !== null) {
+            $this->tutor->setUser(null);
         }
+
+        // set the owning side of the relation if necessary
+        if ($tutor !== null && $tutor->getUser() !== $this) {
+            $tutor->setUser($this);
+        }
+
+        $this->tutor = $tutor;
 
         return $this;
     }
-
-    public function removeReserva(Reserva $reserva): self
-    {
-        if ($this->reservas->removeElement($reserva)) {
-            // set the owning side to null (unless already changed)
-            if ($reserva->getUser() === $this) {
-                $reserva->setUser(null);
-            }
-        }
-
-        return $this;
-    }   
+    
 }

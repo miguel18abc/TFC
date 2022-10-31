@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Cita;
 use App\Form\CitaType;
 use App\Repository\ReservaRepository;
+use App\Repository\TutorRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -44,9 +45,14 @@ class PlantillaController extends AbstractController
         $username = $authenticationUtils->getLastUsername();
         $userRepository = new UserRepository($doctrine);
         $user = $userRepository->findOneBy(['username' => $username]);
-        $reservaRepository = new ReservaRepository($doctrine);
-        $reservas = $reservaRepository->findBy(['user' => $user->getId()]);
 
+        $tutorRepository = new TutorRepository($doctrine);
+        $tutor = $tutorRepository->findOneBy(['user' => $user->getId()]);
+
+        $reservaRepository = new ReservaRepository($doctrine);
+        $reservas = $reservaRepository->findBy(['tutor' => $tutor->getId()]);
+        
         return $this->render('plantilla/misCitas.html.twig',['username' => $username,'reservas' => $reservas]);
+
     }
 }
