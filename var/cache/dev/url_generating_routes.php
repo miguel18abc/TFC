@@ -4,6 +4,7 @@
 
 return [
     'anular' => [['id'], ['_controller' => 'App\\Controller\\FamiliaController::anular'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/anular']], [], [], []],
+    'showTutores' => [[], ['_controller' => 'App\\Controller\\FamiliaController::listadoTutoria'], [], [['text', '/familia/tutor']], [], [], []],
     'tutoria' => [[], ['_controller' => 'App\\Controller\\FamiliaController::indexTutoria'], [], [['text', '/familia/Tutoría']], [], [], []],
     'tutoria_reserva' => [['id'], ['_controller' => 'App\\Controller\\FamiliaController::reservaTutoria'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/familia/Tutoría']], [], [], []],
     'cita_consulta_tutoria' => [['username'], ['_controller' => 'App\\Controller\\FamiliaController::consultasTutoria'], [], [['variable', '/', '[^/]++', 'username', true], ['text', '/consulta/Tutoría']], [], [], []],

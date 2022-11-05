@@ -91,9 +91,14 @@ class __TwigTemplate_1c1f9cc6c8f4f412af83bc0413e2e768 extends Template
         // line 10
         echo "
 \t</ul>
-\t";
-        // line 12
-        $this->loadTemplate("familia/menu.html.twig", "familia/listado.html.twig", 12)->display($context);
+\t<br>
+    <a class=\"btn btn-primary\" href=\"/familia/";
+        // line 13
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 13, $this->source); })()), "html", null, true);
+        echo "\">Volver a ";
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 13, $this->source); })()), "html", null, true);
+        echo "</a> 
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -114,7 +119,7 @@ class __TwigTemplate_1c1f9cc6c8f4f412af83bc0413e2e768 extends Template
 
     public function getDebugInfo()
     {
-        return array (  96 => 12,  92 => 10,  81 => 7,  75 => 5,  71 => 4,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  97 => 13,  92 => 10,  81 => 7,  75 => 5,  71 => 4,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -130,7 +135,8 @@ class __TwigTemplate_1c1f9cc6c8f4f412af83bc0413e2e768 extends Template
 \t\t{% endfor %}
 
 \t</ul>
-\t{% include 'familia/menu.html.twig' %}
+\t<br>
+    <a class=\"btn btn-primary\" href=\"/familia/{{servicio}}\">Volver a {{servicio}}</a> 
 {% endblock %}
 ", "familia/listado.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\listado.html.twig");
     }

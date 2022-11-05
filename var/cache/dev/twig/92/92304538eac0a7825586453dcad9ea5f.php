@@ -48,9 +48,13 @@ class __TwigTemplate_0fb1f741c726c63e0ee10bc27398dc02 extends Template
         echo "
 
 <br>
-";
+<a class=\"btn btn-primary\" href=\"/familia/";
         // line 6
-        $this->loadTemplate("familia/menu.html.twig", "familia/msg.html.twig", 6)->display($context);
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 6, $this->source); })()), "html", null, true);
+        echo "\">Volver a ";
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 6, $this->source); })()), "html", null, true);
+        echo "</a> 
+";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -81,7 +85,7 @@ class __TwigTemplate_0fb1f741c726c63e0ee10bc27398dc02 extends Template
 {{ msg}}
 
 <br>
-{% include 'familia/menu.html.twig'%}
+<a class=\"btn btn-primary\" href=\"/familia/{{servicio}}\">Volver a {{servicio}}</a> 
 ", "familia/msg.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\msg.html.twig");
     }
 }

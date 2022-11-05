@@ -137,7 +137,7 @@ $catalogue = new MessageCatalogue('lv', array (
     'Please enter a valid email address.' => 'Lūdzu, ievadiet derīgu e-pasta adresi.',
     'Please select a valid option.' => 'Lūdzu, izvēlieties derīgu opciju.',
     'Please select a valid range.' => 'Lūdzu, izvēlieties derīgu diapazonu.',
-    'Please enter a valid week.' => 'Lūdzu, ievadiet derīgu nedeļu.',
+    'Please enter a valid week.' => 'Lūdzu, ievadiet derīgu nedēļu.',
   ),
   'security' => 
   array (

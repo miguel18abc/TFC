@@ -67,10 +67,10 @@ class Tutor extends \App\Entity\Tutor implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username'];
     }
 
     /**
@@ -245,6 +245,28 @@ class Tutor extends \App\Entity\Tutor implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeReserva', [$reserva]);
 
         return parent::removeReserva($reserva);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUsername(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsername', []);
+
+        return parent::getUsername();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUsername(?string $username): \App\Entity\Tutor
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsername', [$username]);
+
+        return parent::setUsername($username);
     }
 
 }

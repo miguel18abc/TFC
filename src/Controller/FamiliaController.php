@@ -3,15 +3,23 @@
 namespace App\Controller;
 
 use App\Entity\Reserva;
+use App\Entity\Tutor;
+use App\Form\TutorType;
 use App\Repository\CitaRepository;
 use App\Repository\ReservaRepository;
+use App\Repository\TutorRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class FamiliaController extends AbstractController
 {
@@ -60,6 +68,68 @@ class FamiliaController extends AbstractController
     }
 
     //CÓDIGO DE TUTORÍA
+
+    #[Route('/familia/tutor', name: 'showTutores')]
+    public function listadoTutoria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils,Request $request): Response
+    {
+        // $tutorRepository = new TutorRepository($doctrine);
+        // $tutores = $tutorRepository->findAll();
+        // $tutoresPrueba = [];
+        
+        // $form = $this->createFormBuilder()
+        // ->add('tutor', ChoiceType::class, ['label'=>'Selecciona tutor','choices' => $tutoresPrueba])
+        // ->add('send', SubmitType::class)
+        // ->getForm();
+        // $form->handleRequest($request);
+        // if ($form->isSubmitted() && $form->isValid()) {
+        //         $data = $form->getData();
+        //         $tutor=$data['tutor'];
+        //         $em = $doctrine->getManager();
+        // }
+        // return $this->render('familia/listarTutores.html.twig',['form' => $form->createView()]);
+
+        // --------------------------------------------------------------------------
+
+        // $tutorRepository = new TutorRepository($doctrine);
+        // $tutores = $tutorRepository->findAll();
+
+        // // $form = $this->createForm(TutorType::class);
+        // $form = $this->createFormBuilder()
+        // ->add('Tutor',ChoiceType::class,['required' => true,'choices' => [  ]])
+        // ->add('choiceTutor',SubmitType::class,['label' => 'Elegir tutor'])
+        // ->getForm();
+        // $form->handleRequest($request);
+
+        // if ($form->isSubmitted() && $form->isValid()) {
+
+        //     $form->getData();
+        //     $tutor = $form->get('Tutor')->getData();
+        //     $user = $tutor->getUser();
+        //     $session = $this->requestStack->getSession();
+        //     $session->start();
+        //     $session->set('tutor', $user);
+
+        //     return $this->redirectToRoute('tutoria');
+        // }
+        
+        // return $this->render('familia/listarTutores.html.twig',['form' => $form->createView()]);
+        // // return $this->render('familia/listarTutores.html.twig',['tutores' => $tutores]);
+
+        //----------------------------------------------------------------------
+
+        $form = $this->createFormBuilder()
+                     ->add('tutor', EntityType::class, ['label' => 'Seleccione tutor ', 'class' => Tutor::class, 'choice_label' => 'username'])
+                     ->add('send', SubmitType::class)
+                     ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            return $this->redirectToRoute('tutoria', ['id' => $data['tutor']->getId()]);
+        }
+        return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView()]);
+    }
+
+
     #[Route('/familia/Tutoría', name: 'tutoria')]
     public function indexTutoria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
     {

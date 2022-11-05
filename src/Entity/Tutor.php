@@ -21,6 +21,9 @@ class Tutor
     #[ORM\OneToMany(mappedBy: 'tutor', targetEntity: Reserva::class)]
     private Collection $reserva;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $username = null;
+
     public function __construct()
     {
         $this->reserva = new ArrayCollection();
@@ -69,6 +72,18 @@ class Tutor
                 $reserva->setTutor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(?string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }

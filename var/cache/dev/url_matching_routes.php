@@ -8,6 +8,7 @@
 return [
     false, // $matchHost
     [ // $staticRoutes
+        '/familia/tutor' => [[['_route' => 'showTutores', '_controller' => 'App\\Controller\\FamiliaController::listadoTutoria'], null, null, null, false, false, null]],
         '/familia/Tutoría' => [[['_route' => 'tutoria', '_controller' => 'App\\Controller\\FamiliaController::indexTutoria'], null, null, null, false, false, null]],
         '/familia/Orientación' => [[['_route' => 'orientacion', '_controller' => 'App\\Controller\\FamiliaController::indexOrientacion'], null, null, null, false, false, null]],
         '/familia/Secretaría' => [[['_route' => 'secretaria', '_controller' => 'App\\Controller\\FamiliaController::indexSecretaria'], null, null, null, false, false, null]],

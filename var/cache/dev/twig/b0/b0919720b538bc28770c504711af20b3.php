@@ -85,9 +85,7 @@ class __TwigTemplate_d1d6bcb6483dcac6ca6ff74646404b9a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    ";
-        echo twig_escape_filter($this->env, (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 6, $this->source); })()), "html", null, true);
-        echo "
+        echo "    
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -119,7 +117,7 @@ class __TwigTemplate_d1d6bcb6483dcac6ca6ff74646404b9a extends Template
 {% block title %}Hello CitaController!{% endblock %}
 
 {% block body %}
-    {{data}}
+    
 {% endblock %}
 ", "cita/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\cita\\index.html.twig");
     }

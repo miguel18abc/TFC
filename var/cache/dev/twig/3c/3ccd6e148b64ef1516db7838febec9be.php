@@ -88,7 +88,7 @@ class __TwigTemplate_152ac81e6eed8db94cea2f842775368b extends Template
         echo "    <div class=\"card\" style=\"width: 18rem;\">
         <a href=\"";
         // line 7
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tutoria");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("showTutores");
         echo "\">
             <img src=\"...\" class=\"card-img-top\" alt=\"...\">
         </a>
@@ -154,7 +154,7 @@ class __TwigTemplate_152ac81e6eed8db94cea2f842775368b extends Template
 
 {% block body %}
     <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"{{path('tutoria')}}\">
+        <a href=\"{{path('showTutores')}}\">
             <img src=\"...\" class=\"card-img-top\" alt=\"...\">
         </a>
         <div class=\"card-body\">
