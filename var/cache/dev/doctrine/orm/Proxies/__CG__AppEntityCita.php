@@ -67,10 +67,10 @@ class Cita extends \App\Entity\Cita implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Reserva', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'disabled'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Reserva', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'disabled', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'tutor'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Reserva', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'disabled'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'fecha', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'hora', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Servicio', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'Reserva', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'User', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'disabled', '' . "\0" . 'App\\Entity\\Cita' . "\0" . 'tutor'];
     }
 
     /**
@@ -322,6 +322,28 @@ class Cita extends \App\Entity\Cita implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDisabled', [$disabled]);
 
         return parent::setDisabled($disabled);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTutor(): ?\App\Entity\Tutor
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTutor', []);
+
+        return parent::getTutor();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTutor(?\App\Entity\Tutor $tutor): \App\Entity\Cita
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTutor', [$tutor]);
+
+        return parent::setTutor($tutor);
     }
 
 }

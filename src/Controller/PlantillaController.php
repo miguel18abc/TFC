@@ -17,11 +17,16 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class PlantillaController extends AbstractController
 {
     #[Route('/añadir_citas', name: 'aniadir_citas')]
-    public function addCitas(Request $request,ManagerRegistry $doctrine): Response
+    public function addCitas(Request $request,ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
     {
         $cita = new Cita();
         $form = $this->createForm(CitaType::class,$cita);
         $form->handleRequest($request);
+
+        $username = $authenticationUtils->getLastUsername();
+        $tutorRepository = new TutorRepository($doctrine);
+        $tutor = $tutorRepository->findOneBy(['username' => $username]);
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -29,6 +34,7 @@ class PlantillaController extends AbstractController
             $cita->setHora($form->get('hora')->getData());
             $cita->setServicio($form->get('Servicio')->getData());
             $cita->setDisabled(false);
+            $cita->setTutor($tutor);
 
             $em = $doctrine->getManager();
             $em->persist($cita);
@@ -43,11 +49,9 @@ class PlantillaController extends AbstractController
     public function misCitas(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
     {
         $username = $authenticationUtils->getLastUsername();
-        $userRepository = new UserRepository($doctrine);
-        $user = $userRepository->findOneBy(['username' => $username]);
-
+        
         $tutorRepository = new TutorRepository($doctrine);
-        $tutor = $tutorRepository->findOneBy(['user' => $user->getId()]);
+        $tutor = $tutorRepository->findOneBy(['username' => $username]);
 
         $reservaRepository = new ReservaRepository($doctrine);
         $reservas = $reservaRepository->findBy(['tutor' => $tutor->getId()]);

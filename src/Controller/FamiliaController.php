@@ -70,61 +70,20 @@ class FamiliaController extends AbstractController
     //CÓDIGO DE TUTORÍA
 
     #[Route('/familia/tutor', name: 'showTutores')]
-    public function listadoTutoria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils,Request $request): Response
+    public function listadoTutoria(Request $request): Response
     {
-        // $tutorRepository = new TutorRepository($doctrine);
-        // $tutores = $tutorRepository->findAll();
-        // $tutoresPrueba = [];
-        
-        // $form = $this->createFormBuilder()
-        // ->add('tutor', ChoiceType::class, ['label'=>'Selecciona tutor','choices' => $tutoresPrueba])
-        // ->add('send', SubmitType::class)
-        // ->getForm();
-        // $form->handleRequest($request);
-        // if ($form->isSubmitted() && $form->isValid()) {
-        //         $data = $form->getData();
-        //         $tutor=$data['tutor'];
-        //         $em = $doctrine->getManager();
-        // }
-        // return $this->render('familia/listarTutores.html.twig',['form' => $form->createView()]);
-
-        // --------------------------------------------------------------------------
-
-        // $tutorRepository = new TutorRepository($doctrine);
-        // $tutores = $tutorRepository->findAll();
-
-        // // $form = $this->createForm(TutorType::class);
-        // $form = $this->createFormBuilder()
-        // ->add('Tutor',ChoiceType::class,['required' => true,'choices' => [  ]])
-        // ->add('choiceTutor',SubmitType::class,['label' => 'Elegir tutor'])
-        // ->getForm();
-        // $form->handleRequest($request);
-
-        // if ($form->isSubmitted() && $form->isValid()) {
-
-        //     $form->getData();
-        //     $tutor = $form->get('Tutor')->getData();
-        //     $user = $tutor->getUser();
-        //     $session = $this->requestStack->getSession();
-        //     $session->start();
-        //     $session->set('tutor', $user);
-
-        //     return $this->redirectToRoute('tutoria');
-        // }
-        
-        // return $this->render('familia/listarTutores.html.twig',['form' => $form->createView()]);
-        // // return $this->render('familia/listarTutores.html.twig',['tutores' => $tutores]);
-
-        //----------------------------------------------------------------------
-
         $form = $this->createFormBuilder()
-                     ->add('tutor', EntityType::class, ['label' => 'Seleccione tutor ', 'class' => Tutor::class, 'choice_label' => 'username'])
-                     ->add('send', SubmitType::class)
-                     ->getForm();
+                    ->add('Tutor', EntityType::class, ['label' => 'Seleccione tutor ', 'class' => Tutor::class, 'choice_label' => 'username'])
+                    ->add('Elegir', SubmitType::class)
+                    ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            return $this->redirectToRoute('tutoria', ['id' => $data['tutor']->getId()]);
+
+            $session = $this->requestStack->getSession();
+            $session->start();
+            $session->set('tutor', $data['Tutor']->getId());
+            return $this->redirectToRoute('tutoria');
         }
         return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView()]);
     }
@@ -147,9 +106,10 @@ class FamiliaController extends AbstractController
         $session->start();
         $session->set('servicio','Tutoría');
         $servicio = $session->get('servicio');
+        $idTutor = $session->get('tutor');
         $error = $authenticationUtils->getLastAuthenticationError();
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio,'error' => $error]);
+        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio,'error' => $error,'id' => $idTutor]);
     }
 
     #[Route('/familia/Tutoría/{id}', name: 'tutoria_reserva')]
@@ -164,12 +124,15 @@ class FamiliaController extends AbstractController
             $userRepository = new UserRepository($doctrine);
             $user = $userRepository->findOneBy(['username' => $username]);
             $reserva = new Reserva();
-    
+            $tutorRepository = new TutorRepository($doctrine);
+            $tutor = $tutorRepository->findOneBy(['username' => $cita->getTutor()->getUsername()]);
+
             $em = $doctrine->getManager();
             $cita->setUser($user);
             $cita->setDisabled(true);
             $reserva->setCita($cita);
             $reserva->setUsername($username);
+            $reserva->setTutor($tutor);
             $em->persist($cita);
             $em->persist($reserva);
             $em->flush();
@@ -191,6 +154,26 @@ class FamiliaController extends AbstractController
     }
 
     //CÓDIGO DE ORIENTACIÓN
+
+    #[Route('/familia/orientador', name: 'showOrientacion')]
+    public function listadoOrientacion(Request $request): Response
+    {
+        $form = $this->createFormBuilder()
+                    ->add('Orientador', EntityType::class, ['label' => 'Seleccione orientador/ora ', 'class' => Tutor::class, 'choice_label' => 'username'])
+                    ->add('Elegir', SubmitType::class)
+                    ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            $session = $this->requestStack->getSession();
+            $session->start();
+            $session->set('orientador', $data['Orientador']->getId());
+            return $this->redirectToRoute('orientacion');
+        }
+        return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView()]);
+    }
+
     #[Route('/familia/Orientación', name: 'orientacion')]
     public function indexOrientacion(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
     {
@@ -209,8 +192,9 @@ class FamiliaController extends AbstractController
         $session->start();
         $session->set('servicio','Orientación');
         $servicio = $session->get('servicio');
+        $idOrientandor = $session->get('orientador');
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio]);
+        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio,'id' => $idOrientandor]);
     }
 
     #[Route('/familia/Orientación/{id}', name: 'orientacion_reserva')]
@@ -225,12 +209,15 @@ class FamiliaController extends AbstractController
             $userRepository = new UserRepository($doctrine);
             $user = $userRepository->findOneBy(['username' => $username]);
             $reserva = new Reserva();
-    
+            $tutorRepository = new TutorRepository($doctrine);
+            $tutor = $tutorRepository->findOneBy(['username' => $cita->getTutor()->getUsername()]);
+
             $em = $doctrine->getManager();
             $cita->setUser($user);
             $cita->setDisabled(true);
             $reserva->setCita($cita);
             $reserva->setUsername($username);
+            $reserva->setTutor($tutor);
             $em->persist($cita);
             $em->persist($reserva);
             $em->flush();
@@ -252,6 +239,27 @@ class FamiliaController extends AbstractController
     }
 
     //CÓDIGO DE SECRETARÍA
+
+    #[Route('/familia/secretario', name: 'showSecretaria')]
+    public function listadoSecretaria(Request $request): Response
+    {
+        $form = $this->createFormBuilder()
+                    ->add('Secretario', EntityType::class, ['label' => 'Seleccione secretario/a ', 'class' => Tutor::class, 'choice_label' => 'username'])
+                    ->add('Elegir', SubmitType::class)
+                    ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            $session = $this->requestStack->getSession();
+            $session->start();
+            $session->set('secretaria', $data['Secretario']->getId());
+            return $this->redirectToRoute('secretaria');
+        }
+        return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView()]);
+    }
+
+
     #[Route('/familia/Secretaría', name: 'secretaria')]
     public function indexSecretaria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
     {
@@ -270,8 +278,9 @@ class FamiliaController extends AbstractController
         $session->start();
         $session->set('servicio','Secretaría');
         $servicio = $session->get('servicio');
+        $idSecretario = $session->get('secretaria');
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio]);
+        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio,'id' => $idSecretario]);
     }
 
     #[Route('/familia/Secretaría/{id}', name: 'secretaria_reserva')]
@@ -286,12 +295,15 @@ class FamiliaController extends AbstractController
             $userRepository = new UserRepository($doctrine);
             $user = $userRepository->findOneBy(['username' => $username]);
             $reserva = new Reserva();
+            $tutorRepository = new TutorRepository($doctrine);
+            $tutor = $tutorRepository->findOneBy(['username' => $cita->getTutor()->getUsername()]);
     
             $em = $doctrine->getManager();
             $cita->setUser($user);
             $cita->setDisabled(true);
             $reserva->setCita($cita);
             $reserva->setUsername($username);
+            $reserva->setTutor($tutor);
             $em->persist($cita);
             $em->persist($reserva);
             $em->flush();

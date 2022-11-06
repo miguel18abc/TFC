@@ -17,13 +17,14 @@
             </thead>
             <tbody>
             {% for cita in citas %}
-                
-                <tr>
-                    <td>{{cita.fecha|date("d/m/Y")}}</td>
-                    <td>{{cita.hora|date("H:i:s")}}</td>
-                    <td>{{cita.Servicio.nombre}}</td>
-                    <td><a href="/familia/{{servicio}}/{{cita.id}}" class="btn btn-primary {% if cita.disabled == true %}disabled{% endif %}">Reservar</a></td>
-                </tr>
+                {% if cita.tutor.id == id %}
+                    <tr>
+                        <td>{{cita.fecha|date("d/m/Y")}}</td>
+                        <td>{{cita.hora|date("H:i:s")}}</td>
+                        <td>{{cita.Servicio.nombre}}</td>
+                        <td><a href="/familia/{{servicio}}/{{cita.id}}" class="btn btn-primary {% if cita.disabled == true %}disabled{% endif %}">Reservar</a></td>
+                    </tr>
+                {% endif %}
             {% endfor %}
             </tbody>
         </table>

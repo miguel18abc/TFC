@@ -100,7 +100,7 @@ class __TwigTemplate_152ac81e6eed8db94cea2f842775368b extends Template
     <div class=\"card\" style=\"width: 18rem;\">
         <a href=\"";
         // line 16
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("orientacion");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("showOrientacion");
         echo "\">
             <img src=\"...\" class=\"card-img-top\" alt=\"...\">
         </a>
@@ -112,7 +112,7 @@ class __TwigTemplate_152ac81e6eed8db94cea2f842775368b extends Template
     <div class=\"card\" style=\"width: 18rem;\">
         <a href=\"";
         // line 25
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("secretaria");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("showSecretaria");
         echo "\">
             <img src=\"...\" class=\"card-img-top\" alt=\"...\">
         </a>
@@ -163,7 +163,7 @@ class __TwigTemplate_152ac81e6eed8db94cea2f842775368b extends Template
     </div>
 
     <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"{{path('orientacion')}}\">
+        <a href=\"{{path('showOrientacion')}}\">
             <img src=\"...\" class=\"card-img-top\" alt=\"...\">
         </a>
         <div class=\"card-body\">
@@ -172,7 +172,7 @@ class __TwigTemplate_152ac81e6eed8db94cea2f842775368b extends Template
     </div>
 
     <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"{{path('secretaria')}}\">
+        <a href=\"{{path('showSecretaria')}}\">
             <img src=\"...\" class=\"card-img-top\" alt=\"...\">
         </a>
         <div class=\"card-body\">

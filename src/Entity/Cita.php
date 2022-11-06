@@ -32,6 +32,9 @@ class Cita
     #[ORM\Column]
     private ?bool $disabled = null;
 
+    #[ORM\ManyToOne(inversedBy: 'citas')]
+    private ?Tutor $tutor = null;
+
     
     public function getId(): ?int
     {
@@ -106,6 +109,18 @@ class Cita
     public function setDisabled(bool $disabled): self
     {
         $this->disabled = $disabled;
+
+        return $this;
+    }
+
+    public function getTutor(): ?Tutor
+    {
+        return $this->tutor;
+    }
+
+    public function setTutor(?Tutor $tutor): self
+    {
+        $this->tutor = $tutor;
 
         return $this;
     }

@@ -10,7 +10,9 @@ return [
     [ // $staticRoutes
         '/familia/tutor' => [[['_route' => 'showTutores', '_controller' => 'App\\Controller\\FamiliaController::listadoTutoria'], null, null, null, false, false, null]],
         '/familia/Tutoría' => [[['_route' => 'tutoria', '_controller' => 'App\\Controller\\FamiliaController::indexTutoria'], null, null, null, false, false, null]],
+        '/familia/orientador' => [[['_route' => 'showOrientacion', '_controller' => 'App\\Controller\\FamiliaController::listadoOrientacion'], null, null, null, false, false, null]],
         '/familia/Orientación' => [[['_route' => 'orientacion', '_controller' => 'App\\Controller\\FamiliaController::indexOrientacion'], null, null, null, false, false, null]],
+        '/familia/secretario' => [[['_route' => 'showSecretaria', '_controller' => 'App\\Controller\\FamiliaController::listadoSecretaria'], null, null, null, false, false, null]],
         '/familia/Secretaría' => [[['_route' => 'secretaria', '_controller' => 'App\\Controller\\FamiliaController::indexSecretaria'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\LoginController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'main', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],

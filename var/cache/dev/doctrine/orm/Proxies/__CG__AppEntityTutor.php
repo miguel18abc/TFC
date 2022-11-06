@@ -67,10 +67,10 @@ class Tutor extends \App\Entity\Tutor implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'citas'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'citas'];
     }
 
     /**
@@ -267,6 +267,39 @@ class Tutor extends \App\Entity\Tutor implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsername', [$username]);
 
         return parent::setUsername($username);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCitas(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCitas', []);
+
+        return parent::getCitas();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addCita(\App\Entity\Cita $cita): \App\Entity\Tutor
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addCita', [$cita]);
+
+        return parent::addCita($cita);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeCita(\App\Entity\Cita $cita): \App\Entity\Tutor
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeCita', [$cita]);
+
+        return parent::removeCita($cita);
     }
 
 }

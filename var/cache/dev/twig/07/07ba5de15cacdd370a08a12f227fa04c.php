@@ -108,52 +108,57 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
             $context['_seq'] = twig_ensure_traversable((isset($context["citas"]) || array_key_exists("citas", $context) ? $context["citas"] : (function () { throw new RuntimeError('Variable "citas" does not exist.', 19, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["cita"]) {
                 // line 20
-                echo "                
-                <tr>
-                    <td>";
-                // line 22
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "fecha", [], "any", false, false, false, 22), "d/m/Y"), "html", null, true);
-                echo "</td>
-                    <td>";
-                // line 23
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "hora", [], "any", false, false, false, 23), "H:i:s"), "html", null, true);
-                echo "</td>
-                    <td>";
-                // line 24
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "Servicio", [], "any", false, false, false, 24), "nombre", [], "any", false, false, false, 24), "html", null, true);
-                echo "</td>
-                    <td><a href=\"/familia/";
-                // line 25
-                echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 25, $this->source); })()), "html", null, true);
-                echo "/";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "id", [], "any", false, false, false, 25), "html", null, true);
-                echo "\" class=\"btn btn-primary ";
-                if ((twig_get_attribute($this->env, $this->source, $context["cita"], "disabled", [], "any", false, false, false, 25) == true)) {
-                    echo "disabled";
+                echo "                ";
+                if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "tutor", [], "any", false, false, false, 20), "id", [], "any", false, false, false, 20) == (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 20, $this->source); })()))) {
+                    // line 21
+                    echo "                    <tr>
+                        <td>";
+                    // line 22
+                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "fecha", [], "any", false, false, false, 22), "d/m/Y"), "html", null, true);
+                    echo "</td>
+                        <td>";
+                    // line 23
+                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "hora", [], "any", false, false, false, 23), "H:i:s"), "html", null, true);
+                    echo "</td>
+                        <td>";
+                    // line 24
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "Servicio", [], "any", false, false, false, 24), "nombre", [], "any", false, false, false, 24), "html", null, true);
+                    echo "</td>
+                        <td><a href=\"/familia/";
+                    // line 25
+                    echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 25, $this->source); })()), "html", null, true);
+                    echo "/";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "id", [], "any", false, false, false, 25), "html", null, true);
+                    echo "\" class=\"btn btn-primary ";
+                    if ((twig_get_attribute($this->env, $this->source, $context["cita"], "disabled", [], "any", false, false, false, 25) == true)) {
+                        echo "disabled";
+                    }
+                    echo "\">Reservar</a></td>
+                    </tr>
+                ";
                 }
-                echo "\">Reservar</a></td>
-                </tr>
-            ";
+                // line 28
+                echo "            ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cita'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 28
+            // line 29
             echo "            </tbody>
         </table>
         <a href=\"/familia\" class=\"btn btn-primary\">⏪</a>
         ";
-            // line 31
+            // line 32
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-                // line 32
+                // line 33
                 echo "            <a href=\"/consulta/";
-                echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 32, $this->source); })()), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 33, $this->source); })()), "html", null, true);
                 echo "/";
-                echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 32, $this->source); })()), "html", null, true);
+                echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 33, $this->source); })()), "html", null, true);
                 echo "\" class=\"btn btn-primary\">Consulta</a>
         ";
             }
-            // line 34
+            // line 35
             echo "    ";
         }
         
@@ -176,7 +181,7 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
 
     public function getDebugInfo()
     {
-        return array (  157 => 34,  149 => 32,  147 => 31,  142 => 28,  127 => 25,  123 => 24,  119 => 23,  115 => 22,  111 => 20,  107 => 19,  95 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  162 => 35,  154 => 33,  152 => 32,  147 => 29,  141 => 28,  129 => 25,  125 => 24,  121 => 23,  117 => 22,  114 => 21,  111 => 20,  107 => 19,  95 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -200,13 +205,14 @@ class __TwigTemplate_40d2e10884d39d3be5fea0e45ea64a94 extends Template
             </thead>
             <tbody>
             {% for cita in citas %}
-                
-                <tr>
-                    <td>{{cita.fecha|date(\"d/m/Y\")}}</td>
-                    <td>{{cita.hora|date(\"H:i:s\")}}</td>
-                    <td>{{cita.Servicio.nombre}}</td>
-                    <td><a href=\"/familia/{{servicio}}/{{cita.id}}\" class=\"btn btn-primary {% if cita.disabled == true %}disabled{% endif %}\">Reservar</a></td>
-                </tr>
+                {% if cita.tutor.id == id %}
+                    <tr>
+                        <td>{{cita.fecha|date(\"d/m/Y\")}}</td>
+                        <td>{{cita.hora|date(\"H:i:s\")}}</td>
+                        <td>{{cita.Servicio.nombre}}</td>
+                        <td><a href=\"/familia/{{servicio}}/{{cita.id}}\" class=\"btn btn-primary {% if cita.disabled == true %}disabled{% endif %}\">Reservar</a></td>
+                    </tr>
+                {% endif %}
             {% endfor %}
             </tbody>
         </table>
