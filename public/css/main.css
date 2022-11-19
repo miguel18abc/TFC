@@ -1,0 +1,17 @@
+#cardmain1{
+    /* Próximas Citas */
+    position: absolute;
+    width: 525px;
+    height: 255px;
+    left: 262px;
+    top: 325px;
+}
+
+#cardmain2{
+    /* Próximas Citas */
+    position: absolute;
+    width: 525px;
+    height: 255px;
+    left: 1175px;
+    top: 325px;
+}

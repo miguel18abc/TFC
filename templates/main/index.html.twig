@@ -3,21 +3,23 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
-    <div class="card" style="width: 18rem;">
+<body id="bodymain">
+    <div id="cardmain1" class="card" style="width: 18rem;">
         <a href="{{path('familia')}}">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="/img/reloj.jpg" class="card-img-top" alt="...">
         </a>
         <div class="card-body">
             <p class="card-text">Familia</p>
         </div>
     </div>
 
-    <div class="card" style="width: 18rem;">
+    <div id="cardmain2" class="card" style="width: 18rem;">
         <a href="{{path('plantilla')}}">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="/img/calendario.jpg" class="card-img-top" alt="...">
         </a>
         <div class="card-body">
             <p class="card-text">Plantilla</p>
         </div>
     </div>
+</body>
 {% endblock %}

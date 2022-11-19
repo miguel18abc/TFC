@@ -1,0 +1,27 @@
+.navbar{
+    position: absolute;
+    width: 1920px;
+    left: 0px;
+    background-color: #37a8ec;
+}
+.disabled{
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+#icon{
+    width: 40px;
+    height: 60px;
+    /* width:40px;height: 60px; */
+}
+
+body{
+    position: absolute;
+    width: 1920px;
+    height: 766px;
+    left: 0px;
+}
+
+.altura{
+    bottom: 20px;
+}
