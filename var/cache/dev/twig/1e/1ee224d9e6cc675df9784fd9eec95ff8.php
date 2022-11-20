@@ -181,6 +181,7 @@ class __TwigTemplate_9c0dafbf9e0325e0d041215d2e5883b3 extends Template
     </div>
 
     <a href=\"/\" class=\"btn btn-primary\">⏪</a>
-{% endblock %}", "main/familia.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\familia.html.twig");
+{% endblock %}
+", "main/familia.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\familia.html.twig");
     }
 }

@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Cita;
+use App\Entity\User;
 use App\Form\CitaType;
+use App\Form\UserAdminType;
 use App\Repository\ReservaRepository;
 use App\Repository\TutorRepository;
 use App\Repository\UserRepository;
@@ -13,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class PlantillaController extends AbstractController
 {
@@ -58,5 +61,28 @@ class PlantillaController extends AbstractController
         
         return $this->render('plantilla/misCitas.html.twig',['username' => $username,'reservas' => $reservas]);
 
+    }
+
+    #[Route('/addUser', name: 'addUser')]
+    public function addAdminUser(Request $request,ManagerRegistry $doctrine,UserPasswordHasherInterface $userPasswordHasher): Response
+    {
+        $user = new User();
+        $form = $this->createForm(UserAdminType::class,$user);
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            
+            $user->setUsername($form->get('username')->getData());
+            $user->setPassword($userPasswordHasher->hashPassword($user,$form->get('password')->getData()));
+            $roles = ["ROLE_ADMIN","ROLE_USER"];
+            $user->setRoles($roles);
+
+            $em = $doctrine->getManager();
+            $em->persist($user);
+            $em->flush();
+            return $this->redirectToRoute('plantilla');
+        }
+
+        return $this->render('plantilla/addUsuarioAdmin.html.twig',['form' => $form->createView()]);
     }
 }

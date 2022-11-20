@@ -31,6 +31,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
             'stylesheets' => [$this, 'block_stylesheets'],
             'menu' => [$this, 'block_menu'],
             'body' => [$this, 'block_body'],
+            'footer' => [$this, 'block_footer'],
         ];
     }
 
@@ -70,6 +71,8 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 16
         echo "
+
+        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css\">
         <!-- CSS only -->
         <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
 
@@ -79,12 +82,19 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
     </head>
     <body>
         ";
-        // line 25
+        // line 27
         $this->displayBlock('menu', $context, $blocks);
-        // line 47
-        echo "        ";
-        $this->displayBlock('body', $context, $blocks);
         // line 49
+        echo "
+        ";
+        // line 50
+        $this->displayBlock('body', $context, $blocks);
+        // line 53
+        echo "
+        ";
+        // line 54
+        $this->displayBlock('footer', $context, $blocks);
+        // line 85
         echo "    </body>
 </html>";
         
@@ -136,7 +146,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     }
 
-    // line 25
+    // line 27
     public function block_menu($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -146,7 +156,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "menu"));
 
-        // line 26
+        // line 28
         echo "            <nav class=\"navbar navbar-dark navbar-expand\">
                 <div class=\"container-fluid\">
                     <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
@@ -156,9 +166,9 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
                     <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">
                         <div class=\"navbar-nav ms-auto\">
                             ";
-        // line 34
+        // line 36
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 35
+            // line 37
             echo "                                <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">
@@ -166,17 +176,17 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
                                 </a>
                             ";
         } else {
-            // line 39
+            // line 41
             echo "                                <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Iniciar sesión</a>
                                 <a class=\"nav-link\" href=\"";
-            // line 40
+            // line 42
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
             echo "\">Registrar</a>
                             ";
         }
-        // line 42
+        // line 44
         echo "                        </div>
                     </div>
                 </div>
@@ -190,7 +200,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     }
 
-    // line 47
+    // line 50
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -200,8 +210,58 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 48
-        echo "        ";
+        // line 51
+        echo "        <body id=\"body\"></body>
+        ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 54
+    public function block_footer($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
+
+        // line 55
+        echo "        <footer style=\"position: absolute; bottom: 0; width: 100%; height: 157px; background-color: #666666;\" class=\"text-center text-white\">
+            <!-- Grid container -->
+            <div class=\"container p-4 pb-0\">
+                <!-- Section: Social media -->
+                <section class=\"mb-4\">
+                <!-- Facebook -->
+                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #3b5998;\" href=\"https://www.facebook.com/IesJosePlanes/\" role=\"button\">
+                    <i class=\"bi bi-facebook\"></i>
+                </a>
+
+                <!-- Twitter -->
+                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #55acee;\" href=\"https://twitter.com/iesjoseplanes\" role=\"button\">
+                    <i class=\"bi bi-twitter\"></i>
+                </a>
+
+                <!-- Google -->
+                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #dd4b39;\" href=\"#!\" role=\"button\">
+                    <i class=\"bi bi-google\"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #ac2bac;\" href=\"https://www.instagram.com/infoplaness/\" role=\"button\">
+                    <i class=\"bi bi-instagram\"></i>
+                </a>
+                </section>
+                <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+        </footer>
+        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -222,7 +282,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     public function getDebugInfo()
     {
-        return array (  204 => 48,  194 => 47,  180 => 42,  175 => 40,  170 => 39,  162 => 35,  160 => 34,  150 => 26,  140 => 25,  128 => 13,  118 => 12,  99 => 5,  88 => 49,  85 => 47,  83 => 25,  72 => 16,  70 => 12,  67 => 11,  64 => 10,  61 => 9,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  235 => 55,  225 => 54,  214 => 51,  204 => 50,  190 => 44,  185 => 42,  180 => 41,  172 => 37,  170 => 36,  160 => 28,  150 => 27,  138 => 13,  128 => 12,  109 => 5,  98 => 85,  96 => 54,  93 => 53,  91 => 50,  88 => 49,  86 => 27,  73 => 16,  71 => 12,  68 => 11,  65 => 10,  62 => 9,  59 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -243,6 +303,8 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
             <link href=\"/css/main.css\" rel=\"stylesheet\" type=\"text/css\">
         {% endblock %}
 
+
+        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css\">
         <!-- CSS only -->
         <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
 
@@ -273,7 +335,41 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
                 </div>
             </nav>
         {% endblock %}
+
         {% block body %}
+        <body id=\"body\"></body>
+        {% endblock %}
+
+        {% block footer %}
+        <footer style=\"position: absolute; bottom: 0; width: 100%; height: 157px; background-color: #666666;\" class=\"text-center text-white\">
+            <!-- Grid container -->
+            <div class=\"container p-4 pb-0\">
+                <!-- Section: Social media -->
+                <section class=\"mb-4\">
+                <!-- Facebook -->
+                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #3b5998;\" href=\"https://www.facebook.com/IesJosePlanes/\" role=\"button\">
+                    <i class=\"bi bi-facebook\"></i>
+                </a>
+
+                <!-- Twitter -->
+                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #55acee;\" href=\"https://twitter.com/iesjoseplanes\" role=\"button\">
+                    <i class=\"bi bi-twitter\"></i>
+                </a>
+
+                <!-- Google -->
+                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #dd4b39;\" href=\"#!\" role=\"button\">
+                    <i class=\"bi bi-google\"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #ac2bac;\" href=\"https://www.instagram.com/infoplaness/\" role=\"button\">
+                    <i class=\"bi bi-instagram\"></i>
+                </a>
+                </section>
+                <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+        </footer>
         {% endblock %}
     </body>
 </html>", "base.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\base.html.twig");

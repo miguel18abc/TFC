@@ -22,6 +22,7 @@ return [
     'familia' => [[], ['_controller' => 'App\\Controller\\MainController::indexFamilia'], [], [['text', '/familia']], [], [], []],
     'aniadir_citas' => [[], ['_controller' => 'App\\Controller\\PlantillaController::addCitas'], [], [['text', '/añadir_citas']], [], [], []],
     'misCitas' => [[], ['_controller' => 'App\\Controller\\PlantillaController::misCitas'], [], [['text', '/miscitas']], [], [], []],
+    'addUser' => [[], ['_controller' => 'App\\Controller\\PlantillaController::addAdminUser'], [], [['text', '/addUser']], [], [], []],
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
     '_wdt' => [['token'], ['_controller' => 'web_profiler.controller.profiler::toolbarAction'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/_wdt']], [], [], []],

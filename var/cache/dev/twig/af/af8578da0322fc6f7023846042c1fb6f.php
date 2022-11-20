@@ -108,6 +108,19 @@ class __TwigTemplate_fa976ff1d4101d851df535fc26b09f7b extends Template
             <p class=\"card-text\">Mis citas</p>
         </div>
     </div>
+
+    <div class=\"card\" style=\"width: 18rem;\">
+        <a href=\"";
+        // line 25
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("addUser");
+        echo "\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
+        <div class=\"card-body\">
+            <p class=\"card-text\">Crear un usuario admin</p>
+        </div>
+    </div>
+
     <a href=\"/\" class=\"btn btn-primary\">⏪</a>
 ";
         
@@ -130,7 +143,7 @@ class __TwigTemplate_fa976ff1d4101d851df535fc26b09f7b extends Template
 
     public function getDebugInfo()
     {
-        return array (  103 => 16,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  115 => 25,  103 => 16,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -157,6 +170,16 @@ class __TwigTemplate_fa976ff1d4101d851df535fc26b09f7b extends Template
             <p class=\"card-text\">Mis citas</p>
         </div>
     </div>
+
+    <div class=\"card\" style=\"width: 18rem;\">
+        <a href=\"{{path('addUser')}}\">
+            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+        </a>
+        <div class=\"card-body\">
+            <p class=\"card-text\">Crear un usuario admin</p>
+        </div>
+    </div>
+
     <a href=\"/\" class=\"btn btn-primary\">⏪</a>
 {% endblock %}", "main/plantilla.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\plantilla.html.twig");
     }
