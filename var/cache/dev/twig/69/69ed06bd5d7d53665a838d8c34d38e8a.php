@@ -85,7 +85,7 @@ class __TwigTemplate_a9939ee89c5c58fff885050f43693082 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<body id=\"bodymain\">
+        echo "<div id=\"mainbodyBlock\">
     <div id=\"cardmain1\" class=\"card\" style=\"width: 18rem;\">
         <a href=\"";
         // line 8
@@ -109,7 +109,7 @@ class __TwigTemplate_a9939ee89c5c58fff885050f43693082 extends Template
             <p class=\"card-text\">Plantilla</p>
         </div>
     </div>
-</body>
+</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -141,7 +141,7 @@ class __TwigTemplate_a9939ee89c5c58fff885050f43693082 extends Template
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
-<body id=\"bodymain\">
+<div id=\"mainbodyBlock\">
     <div id=\"cardmain1\" class=\"card\" style=\"width: 18rem;\">
         <a href=\"{{path('familia')}}\">
             <img src=\"/img/reloj.jpg\" class=\"card-img-top\" alt=\"...\">
@@ -159,7 +159,7 @@ class __TwigTemplate_a9939ee89c5c58fff885050f43693082 extends Template
             <p class=\"card-text\">Plantilla</p>
         </div>
     </div>
-</body>
+</div>
 {% endblock %}
 ", "main/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\index.html.twig");
     }

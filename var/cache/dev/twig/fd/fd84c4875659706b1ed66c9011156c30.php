@@ -29,6 +29,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
+            'javascripts' => [$this, 'block_javascripts'],
             'menu' => [$this, 'block_menu'],
             'body' => [$this, 'block_body'],
             'footer' => [$this, 'block_footer'],
@@ -59,7 +60,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         echo "        ";
         if ((array_key_exists("form", $context) && (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()))) {
             // line 9
-            echo "\t            ";
+            echo "\t        ";
             $this->env->getRuntime("Symfony\\Component\\Form\\FormRenderer")->setTheme((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 9, $this->source); })()), [0 => "bootstrap_5_layout.html.twig"], true);
             // line 10
             echo "        ";
@@ -69,32 +70,28 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         ";
         // line 12
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 16
+        // line 21
         echo "
-
-        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css\">
-        <!-- CSS only -->
-        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
-
-        <!-- JavaScript Bundle with Popper -->
-        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3\" crossorigin=\"anonymous\"></script>
-
-    </head>
+        ";
+        // line 22
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 27
+        echo "    </head>
     <body>
         ";
-        // line 27
+        // line 29
         $this->displayBlock('menu', $context, $blocks);
-        // line 49
+        // line 51
         echo "
         ";
-        // line 50
+        // line 52
         $this->displayBlock('body', $context, $blocks);
-        // line 53
+        // line 54
         echo "
         ";
-        // line 54
+        // line 55
         $this->displayBlock('footer', $context, $blocks);
-        // line 85
+        // line 86
         echo "    </body>
 </html>";
         
@@ -135,8 +132,13 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 13
-        echo "            <link href=\"/css/navbar.css\" rel=\"stylesheet\" type=\"text/css\">
+        echo "            <link href=\"/css/base.css\" rel=\"stylesheet\" type=\"text/css\">
             <link href=\"/css/main.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/cards.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/family.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/login.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css\">
+            <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -146,7 +148,30 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     }
 
-    // line 27
+    // line 22
+    public function block_javascripts($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 23
+        echo "            <script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>
+            <!-- JavaScript Bundle with Popper -->
+            <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3\" crossorigin=\"anonymous\"></script>
+        ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 29
     public function block_menu($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -156,7 +181,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "menu"));
 
-        // line 28
+        // line 30
         echo "            <nav class=\"navbar navbar-dark navbar-expand\">
                 <div class=\"container-fluid\">
                     <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
@@ -166,9 +191,9 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
                     <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">
                         <div class=\"navbar-nav ms-auto\">
                             ";
-        // line 36
+        // line 38
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 37
+            // line 39
             echo "                                <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">
@@ -176,17 +201,17 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
                                 </a>
                             ";
         } else {
-            // line 41
+            // line 43
             echo "                                <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Iniciar sesión</a>
                                 <a class=\"nav-link\" href=\"";
-            // line 42
+            // line 44
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
             echo "\">Registrar</a>
                             ";
         }
-        // line 44
+        // line 46
         echo "                        </div>
                     </div>
                 </div>
@@ -200,7 +225,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     }
 
-    // line 50
+    // line 52
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -210,9 +235,8 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 51
-        echo "        <body id=\"body\"></body>
-        ";
+        // line 53
+        echo "        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -221,7 +245,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     }
 
-    // line 54
+    // line 55
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -231,8 +255,8 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 55
-        echo "        <footer style=\"position: absolute; bottom: 0; width: 100%; height: 157px; background-color: #666666;\" class=\"text-center text-white\">
+        // line 56
+        echo "        <footer class=\"text-center text-white\">
             <!-- Grid container -->
             <div class=\"container p-4 pb-0\">
                 <!-- Section: Social media -->
@@ -282,7 +306,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     public function getDebugInfo()
     {
-        return array (  235 => 55,  225 => 54,  214 => 51,  204 => 50,  190 => 44,  185 => 42,  180 => 41,  172 => 37,  170 => 36,  160 => 28,  150 => 27,  138 => 13,  128 => 12,  109 => 5,  98 => 85,  96 => 54,  93 => 53,  91 => 50,  88 => 49,  86 => 27,  73 => 16,  71 => 12,  68 => 11,  65 => 10,  62 => 9,  59 => 8,  54 => 5,  48 => 1,);
+        return array (  259 => 56,  249 => 55,  239 => 53,  229 => 52,  215 => 46,  210 => 44,  205 => 43,  197 => 39,  195 => 38,  185 => 30,  175 => 29,  162 => 23,  152 => 22,  135 => 13,  125 => 12,  106 => 5,  95 => 86,  93 => 55,  90 => 54,  88 => 52,  85 => 51,  83 => 29,  79 => 27,  77 => 22,  74 => 21,  72 => 12,  69 => 11,  66 => 10,  63 => 9,  60 => 8,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -295,22 +319,24 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>\">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% if form is defined and form %}
-\t            {% form_theme form 'bootstrap_5_layout.html.twig' %}
+\t        {% form_theme form 'bootstrap_5_layout.html.twig' %}
         {% endif %}
 
         {% block stylesheets %}
-            <link href=\"/css/navbar.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/base.css\" rel=\"stylesheet\" type=\"text/css\">
             <link href=\"/css/main.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/cards.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/family.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/login.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css\">
+            <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
         {% endblock %}
 
-
-        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css\">
-        <!-- CSS only -->
-        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
-
-        <!-- JavaScript Bundle with Popper -->
-        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3\" crossorigin=\"anonymous\"></script>
-
+        {% block javascripts %}
+            <script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>
+            <!-- JavaScript Bundle with Popper -->
+            <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3\" crossorigin=\"anonymous\"></script>
+        {% endblock %}
     </head>
     <body>
         {% block menu %}
@@ -337,11 +363,10 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         {% endblock %}
 
         {% block body %}
-        <body id=\"body\"></body>
         {% endblock %}
 
         {% block footer %}
-        <footer style=\"position: absolute; bottom: 0; width: 100%; height: 157px; background-color: #666666;\" class=\"text-center text-white\">
+        <footer class=\"text-center text-white\">
             <!-- Grid container -->
             <div class=\"container p-4 pb-0\">
                 <!-- Section: Social media -->

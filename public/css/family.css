@@ -1,0 +1,30 @@
+/* .row{
+    display: flex;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 24.045407636738908vh);
+} */
+
+#familyBody{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 24.045407636738908vh);
+    width: 100vw;
+    flex-wrap: wrap;
+}
+
+#containerCards{
+    display: flex;
+    height: calc(100vh - 28.99587203302374vh);
+    justify-content:space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#buttonReturn{
+    width: 70px;
+    margin-left: 20px;
+}

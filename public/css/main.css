@@ -1,17 +1,23 @@
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+#mainbodyBlock{
+    height: calc(100vh - 24.045407636738908vh);
+    display: grid;
+    grid-template-areas: 
+        ". cardmain1 cardmain2";
+    align-content: center;
+}
+
+
 #cardmain1{
-    /* Próximas Citas */
-    position: absolute;
-    width: 525px;
+    grid-area: cardmain1;
     height: 255px;
-    left: 262px;
-    top: 325px;
 }
 
 #cardmain2{
-    /* Próximas Citas */
-    position: absolute;
-    width: 525px;
+    grid-area: cardmain2;
     height: 255px;
-    left: 1175px;
-    top: 325px;
 }

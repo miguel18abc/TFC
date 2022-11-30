@@ -40,17 +40,6 @@ class FamiliaController extends AbstractController
         return $this->render('familia/menu.html.twig', ['username' => $lastUsername,'servicio' => $servicio,'id' => $id]);
     }
 
-    // public function menuServicios()
-    // {
-    //     $session = $this->requestStack->getSession();
-    //     $session->start();
-    //     $servicio = $session->get('servicio');
-    //     return $this->render('main/exito.html.twig',['servicio' => $servicio]);
-    //     // return $this->render('familia/exito.html.twig',['servicio' => $name_servicio]);
-
-    // }
-
-
     #[Route('anular/{id}', name:'anular')]
     public function anular(ManagerRegistry $doctrine, $id)
     {

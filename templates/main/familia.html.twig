@@ -3,32 +3,78 @@
 {% block title %}Familia{% endblock %}
 
 {% block body %}
-    <div class="card" style="width: 18rem;">
-        <a href="{{path('showTutores')}}">
-            <img src="..." class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-            <p class="card-text">Tutoría</p>
+
+        {# <div id="cardfamily1" class="card" style="width: 18rem;">
+            <a href="{{path('showTutores')}}">
+                <img src="/img/orientacion.jpg" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+                <p class="card-text">Tutoría</p>
+            </div>
+        </div> 
+
+        <div id="cardfamily2" class="card" style="width: 18rem;">
+            <a href="{{path('showOrientacion')}}">
+                <img src="/img/orientacion.jpg" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+                <p class="card-text">Orientación</p>
+            </div>
+        </div>
+
+        <div id="cardfamily3" class="card" style="width: 18rem;">
+            <a href="{{path('showSecretaria')}}">
+                <img src="/img/orientacion.jpg" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+                <p class="card-text">Secretaría</p>
+            </div>
+        </div> #}
+<div id="familyBody">
+    <div id="containerCards" class="container">
+        <div id="cardfamily1" class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <a href="{{path('showTutores')}}" class="icon">
+                        <img aria-hidden="true" style="width:300px;"></img>
+                    </a>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <a href="{{path('showTutores')}}" class="content">
+                    <h3>Tutoría</h3>
+                </a>
+            </div>
+        </div>
+        <div id="cardfamily2" class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <a href="{{path('showSecretaria')}}" class="icon">
+                        <img aria-hidden="true" style="width:300px;"></img>
+                    </a>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <a href="{{path('showSecretaria')}}" class="content">
+                    <h3>Secretaría</h3>
+                </a>
+            </div>
+        </div>
+        <div id="cardfamily3" class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <a href="{{path('showOrientacion')}}" class="icon">
+                        <img aria-hidden="true" style="width:300px;"></img>
+                    </a>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <a href="{{path('showOrientacion')}}" class="content">
+                    <h3>Orientación</h3>
+                </a>
+            </div>
         </div>
     </div>
-
-    <div class="card" style="width: 18rem;">
-        <a href="{{path('showOrientacion')}}">
-            <img src="..." class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-            <p class="card-text">Orientación</p>
-        </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-        <a href="{{path('showSecretaria')}}">
-            <img src="..." class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-            <p class="card-text">Secretaría</p>
-        </div>
-    </div>
-
-    <a href="/" class="btn btn-primary">⏪</a>
+    <a href="/"><lottie-player id="buttonReturn" class="btn btn-primary" src="https://assets9.lottiefiles.com/packages/lf20_tuwojxyr.json"  background="transparent" speed="1" style="width: 70px; height: 40px;"  loop  autoplay></lottie-player></a>
+<div>
 {% endblock %}

@@ -95,20 +95,29 @@ class __TwigTemplate_fb77da35a353ddb72350355db43f0312 extends Template
         }
         // line 9
         echo "
-    <form action=\"";
+    <form id=\"login\" action=\"";
         // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\" method=\"post\">
-        <label for=\"username\">Username:</label>
-        <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 12, $this->source); })()), "html", null, true);
+        <div class=\"form-group col-sm-3\">
+            <label for=\"username\">Username:</label>
+            <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
+        // line 13
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 13, $this->source); })()), "html", null, true);
         echo "\"/>
-
-        <label for=\"password\">Password:</label>
-        <input type=\"password\" id=\"password\" name=\"_password\"/>
-
+        </div>
+        <div class=\"form-group col-sm-3\">
+            <label for=\"password\">Password:</label>
+            <input type=\"password\" id=\"password\" name=\"_password\"/>
+        </div>
         <button type=\"submit\">login</button>
+
+        <p style=\"font-size: 12px; margin-top: 5px;\">¿No tienes cuenta?
+\t\t\t\t<a href=\"";
+        // line 22
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+        echo "\">Regístrate</a>
+\t\t</p>
     </form>
 ";
         
@@ -131,7 +140,7 @@ class __TwigTemplate_fb77da35a353ddb72350355db43f0312 extends Template
 
     public function getDebugInfo()
     {
-        return array (  105 => 12,  100 => 10,  97 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  118 => 22,  106 => 13,  100 => 10,  97 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -145,14 +154,20 @@ class __TwigTemplate_fb77da35a353ddb72350355db43f0312 extends Template
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action=\"{{ path('app_login') }}\" method=\"post\">
-        <label for=\"username\">Username:</label>
-        <input type=\"text\" id=\"username\" name=\"_username\" value=\"{{ last_username }}\"/>
-
-        <label for=\"password\">Password:</label>
-        <input type=\"password\" id=\"password\" name=\"_password\"/>
-
+    <form id=\"login\" action=\"{{ path('app_login') }}\" method=\"post\">
+        <div class=\"form-group col-sm-3\">
+            <label for=\"username\">Username:</label>
+            <input type=\"text\" id=\"username\" name=\"_username\" value=\"{{ last_username }}\"/>
+        </div>
+        <div class=\"form-group col-sm-3\">
+            <label for=\"password\">Password:</label>
+            <input type=\"password\" id=\"password\" name=\"_password\"/>
+        </div>
         <button type=\"submit\">login</button>
+
+        <p style=\"font-size: 12px; margin-top: 5px;\">¿No tienes cuenta?
+\t\t\t\t<a href=\"{{ path( \"app_register\") }}\">Regístrate</a>
+\t\t</p>
     </form>
 {% endblock %}
 ", "login/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\login\\index.html.twig");
