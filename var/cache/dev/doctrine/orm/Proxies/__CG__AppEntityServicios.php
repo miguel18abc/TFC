@@ -67,10 +67,10 @@ class Servicios extends \App\Entity\Servicios implements \Doctrine\ORM\Proxy\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'Nombre', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'citas'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'Nombre', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'calendars'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'Nombre', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'citas'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'Nombre', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'calendars'];
     }
 
     /**
@@ -217,34 +217,34 @@ class Servicios extends \App\Entity\Servicios implements \Doctrine\ORM\Proxy\Pro
     /**
      * {@inheritDoc}
      */
-    public function getCitas(): \Doctrine\Common\Collections\Collection
+    public function getCalendars(): \Doctrine\Common\Collections\Collection
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCitas', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCalendars', []);
 
-        return parent::getCitas();
+        return parent::getCalendars();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function addCita(\App\Entity\Cita $cita): \App\Entity\Servicios
+    public function addCalendar(\App\Entity\Calendar $calendar): \App\Entity\Servicios
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addCita', [$cita]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addCalendar', [$calendar]);
 
-        return parent::addCita($cita);
+        return parent::addCalendar($calendar);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function removeCita(\App\Entity\Cita $cita): \App\Entity\Servicios
+    public function removeCalendar(\App\Entity\Calendar $calendar): \App\Entity\Servicios
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeCita', [$cita]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeCalendar', [$calendar]);
 
-        return parent::removeCita($cita);
+        return parent::removeCalendar($calendar);
     }
 
 }

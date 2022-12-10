@@ -101,6 +101,10 @@ $catalogue = new MessageCatalogue('az', array (
     'This value should satisfy at least one of the following constraints:' => 'Bu dəyər aşağıdakı məcburiyyətlərdən birini qarşılamalıdır:',
     'Each element of this collection should satisfy its own set of constraints.' => 'Bu kolleksiyadakı hər element öz məcburiyyətlərini qarşılamalıdır.',
     'This value is not a valid International Securities Identification Number (ISIN).' => 'Bu dəyər doğru bir Qiymətli Kağızın Beynəlxalq İdentifikasiya Kodu (ISIN) deyil.',
+    'This value should be a valid expression.' => 'Bu dəyər etibarlı ifadə olmalıdır.',
+    'This value is not a valid CSS color.' => 'Bu dəyər etibarlı CSS rəngi deyil.',
+    'This value is not a valid CIDR notation.' => 'Bu dəyər etibarlı CIDR notasiyası deyil.',
+    'The value of the netmask should be between {{ min }} and {{ max }}.' => 'Şəbəkə maskasının dəyəri {{ min }} və {{ max }} arasında olmalıdır.',
     'This form should not contain extra fields.' => 'Bu formada əlavə sahə olmamalıdır.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'Yüklənən fayl çox böyükdür. Lütfən daha kiçik fayl yükləyin.',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'CSRF nişanı yanlışdır. Lütfen formanı yenidən göndərin.',
@@ -154,6 +158,8 @@ $catalogue = new MessageCatalogue('az', array (
     'Account is locked.' => 'Hesab kilitlənib.',
     'Too many failed login attempts, please try again later.' => 'Çoxlu uğursuz giriş təşəbbüsü, zəhmət olmasa daha sonra yeniden yoxlayın.',
     'Invalid or expired login link.' => 'Yanlış və ya müddəti keçmiş giriş keçidi.',
+    'Too many failed login attempts, please try again in %minutes% minute.' => 'Həddindən artıq uğursuz giriş cəhdi, lütfən %minutes% dəqiqə ərzində yenidən yoxlayın.',
+    'Too many failed login attempts, please try again in %minutes% minutes.' => 'Həddindən artıq uğursuz giriş cəhdi, lütfən %minutes% dəqiqə ərzində yenidən yoxlayın.',
   ),
 ));
 

@@ -1,16 +1,14 @@
-body{
-    width: 100vw;
-    height: 100vh;
-}
-
-#mainbodyBlock{
+/* #mainbodyBlock{
+    display: flex;
+    flex-direction: column;
     height: calc(100vh - 24.045407636738908vh);
-    display: grid;
-    grid-template-areas: 
-        ". cardmain1 cardmain2";
-    align-content: center;
+    width: 100vw;
+    flex-wrap: wrap;
 }
 
+#reservabodyBlock{
+    height: calc(100vh - 24.045407636738908vh);
+}
 
 #cardmain1{
     grid-area: cardmain1;
@@ -20,4 +18,31 @@ body{
 #cardmain2{
     grid-area: cardmain2;
     height: 255px;
+} */
+
+#mainbodyBlock{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 24.045407636738908vh);
+    width: 100vw;
+    flex-wrap: wrap;
+}
+
+#containerCards{
+    display: flex;
+    height: calc(100vh - 28.99587203302374vh);
+    justify-content:space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#buttonReturn{
+    width: 70px;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    #mainbodyBlock{
+        min-height: 100vh;
+    }
 }

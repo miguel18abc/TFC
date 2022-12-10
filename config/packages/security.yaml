@@ -33,14 +33,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/plantilla, roles: ROLE_ADMIN }
-        - { path: '^/familia/Orientación/\d{1,}', roles: ROLE_USER }
-        - { path: '^/familia/Tutoría/\d{1,}', roles: ROLE_USER }
-        - { path: '^/familia/Secretaría/\d{1,}', roles: ROLE_USER }
-        - { path: '^/consulta/Orientación/', roles: ROLE_USER }
-        - { path: '^/consulta/Tutoría/', roles: ROLE_USER }
-        - { path: '^/consulta/Secretaría/', roles: ROLE_USER }
-
-        
+        - { path: '^/familia/tutor/Tutoría', roles: ROLE_USER }
+        - { path: '^/familia/orientador/Orientación', roles: ROLE_USER }
+        - { path: '^/familia/secretario/Secretaría', roles: ROLE_USER }
 
 when@test:
     security:

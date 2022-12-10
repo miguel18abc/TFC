@@ -67,10 +67,10 @@ class Tutor extends \App\Entity\Tutor implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'citas'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'calendars'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'citas'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'calendars'];
     }
 
     /**
@@ -272,34 +272,34 @@ class Tutor extends \App\Entity\Tutor implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getCitas(): \Doctrine\Common\Collections\Collection
+    public function getCalendars(): \Doctrine\Common\Collections\Collection
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCitas', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCalendars', []);
 
-        return parent::getCitas();
+        return parent::getCalendars();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function addCita(\App\Entity\Cita $cita): \App\Entity\Tutor
+    public function addCalendar(\App\Entity\Calendar $calendar): \App\Entity\Tutor
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addCita', [$cita]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addCalendar', [$calendar]);
 
-        return parent::addCita($cita);
+        return parent::addCalendar($calendar);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function removeCita(\App\Entity\Cita $cita): \App\Entity\Tutor
+    public function removeCalendar(\App\Entity\Calendar $calendar): \App\Entity\Tutor
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeCita', [$cita]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeCalendar', [$calendar]);
 
-        return parent::removeCita($cita);
+        return parent::removeCalendar($calendar);
     }
 
 }

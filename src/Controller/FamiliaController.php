@@ -4,8 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Reserva;
 use App\Entity\Tutor;
-use App\Form\TutorType;
-use App\Repository\CitaRepository;
+use App\Repository\CalendarRepository;
 use App\Repository\ReservaRepository;
 use App\Repository\TutorRepository;
 use App\Repository\UserRepository;
@@ -15,11 +14,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-use Symfony\Component\Validator\Constraints\Regex;
 
 class FamiliaController extends AbstractController
 {
@@ -45,15 +42,15 @@ class FamiliaController extends AbstractController
     {
         $reservaRepository = new ReservaRepository($doctrine, $doctrine->getManager());
         $reserva = $reservaRepository->findOneBy(['id' => $id]);
-        $cita = $reserva->getCita();
-        $cita->setDisabled(false);
+        $calendar = $reserva->getCalendar();
+        $calendar->setDisabled(false);
         $em = $doctrine->getManager();
-        $em->remove($reserva);
+        $em->remove($calendar);
         $em->flush();
         $session = $this->requestStack->getSession();
         $session->start();
         $servicio = $session->get('servicio');
-        return $this->render('familia/anulaReserva.html.twig', ['servicio' => $servicio]);
+        return $this->render('familia/anulaReserva.html.twig', ['servicio' => $servicio,'trabajador' => $session->get('trabajador')]);
     }
 
     //CÓDIGO DE TUTORÍA
@@ -78,68 +75,81 @@ class FamiliaController extends AbstractController
     }
 
 
-    #[Route('/familia/Tutoría', name: 'tutoria')]
-    public function indexTutoria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
+    #[Route('/familia/tutor/Tutoría', name: 'tutoria')]
+    public function indexTutoria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils,CalendarRepository $calendar): Response
     {
+        $session = $this->requestStack->getSession();
+        $session->start();
         $lastUsername = $authenticationUtils->getLastUsername();
-        $citaRepository = new CitaRepository($doctrine);
-        $citas = $citaRepository->findBy(['Servicio'=>3]);
-
-        if (!$citas) {
-            throw $this->createNotFoundException(
-                'No product found for id '
-            );
+        $calendarRepository = new CalendarRepository($doctrine);
+        $calendar = $calendarRepository->findBy(['servicios'=>3,'tutor' => $session->get('tutor'),'disabled' => false]);
+        $rdvs = [];
+        foreach($calendar as $event){
+            $rdvs[] = [
+                'id' => $event->getId(),
+                'start' => $event->getStart()->format('Y-m-d H:i:s'),
+                'end' => $event->getEnd()->format('Y-m-d H:i:s'),
+                'title' => $event->getTitle(),
+                'description' => $event->getDescription(),
+                'backgroundColor' => $event->getBackgroundColor(),
+                'borderColor' => $event->getBorderColor(),
+                'textColor' => $event->getTextColor(),
+            ];
         }
+        $data = $this->json($rdvs);
 
         $session = $this->requestStack->getSession();
         $session->start();
         $session->set('servicio','Tutoría');
-        $servicio = $session->get('servicio');
-        $idTutor = $session->get('tutor');
-        $error = $authenticationUtils->getLastAuthenticationError();
+        $session->set('trabajador','tutor');
+        // $servicio = $session->get('servicio');
+        // $idTutor = $session->get('tutor');
+        // $error = $authenticationUtils->getLastAuthenticationError();
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio,'error' => $error,'id' => $idTutor]);
+        return $this->render('familia/index.html.twig', ['data' => $data->getContent(),'username' => $lastUsername,'events' => $calendar,'servicio' => 'Tutoría','trabajador' => $session->get('trabajador')]);
     }
 
-    #[Route('/familia/Tutoría/{id}', name: 'tutoria_reserva')]
-    public function reservaTutoria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils,$id)
-    { 
-            $session = $this->requestStack->getSession();
-            $session->start();
-            $servicio = $session->get('servicio');
-            $username = $authenticationUtils->getLastUsername();
-            $citaRepository = new CitaRepository($doctrine);
-            $cita = $citaRepository->findOneBy(['id' => $id]);
-            $userRepository = new UserRepository($doctrine);
-            $user = $userRepository->findOneBy(['username' => $username]);
-            $reserva = new Reserva();
-            $tutorRepository = new TutorRepository($doctrine);
-            $tutor = $tutorRepository->findOneBy(['username' => $cita->getTutor()->getUsername()]);
+    #[Route('/familia/tutor/Tutoría/{id}', name:'tutoria_reserva')]
+    public function reservaTutoria(AuthenticationUtils $authenticationUtils,ManagerRegistry $doctrine,$id)
+    {
+        $session = $this->requestStack->getSession();
+        $session->start();
+        $idTutor = $session->get('tutor');
 
-            $em = $doctrine->getManager();
-            $cita->setUser($user);
-            $cita->setDisabled(true);
-            $reserva->setCita($cita);
-            $reserva->setUsername($username);
-            $reserva->setTutor($tutor);
-            $em->persist($cita);
-            $em->persist($reserva);
-            $em->flush();
+        $tutorRepository = new TutorRepository($doctrine);
+        $tutor = $tutorRepository->findOneBy(['id' => $idTutor]);
+        $username = $authenticationUtils->getLastUsername();
+        $calendarRepository = new CalendarRepository($doctrine);
+        $event = $calendarRepository->findOneBy(['id' => $id]);
+        $userRepository = new UserRepository($doctrine);
+        $user = $userRepository->findOneBy(['username' => $username]);
+        $reserva = new Reserva();
 
-            $this->addFlash('success', 'Datos guardados.');
-            return $this->render('familia/exito.html.twig',['id' => $id,'username' => $username,'servicio' => $servicio]);
+        $event->setDisabled(true);
+        $event->setReserva($reserva);
+        $event->setUser($user);
+        $reserva->setUsername($username);
+        $reserva->setTutor($tutor);
+        $reserva->setCalendar($event);
         
+        $em = $doctrine->getManager();
+        $em->persist($event);
+        $em->persist($reserva);
+        $em->flush();
+
+        return $this->render('confirmacion/tutoria.html.twig',['event' => $event]);
     }
     
-    #[Route('/consulta/Tutoría/{username}', name:'cita_consulta_tutoria')]
-    public function consultasTutoria(string $username,ManagerRegistry $doctrine)
+    #[Route('/familia/tutor/Tutoría/consulta/{username}', name:'cita_consulta_tutoria')]
+    public function consultasTutoria(string $username,ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils)
     {
+        $username = $authenticationUtils->getLastUsername();
         $reservaRepository = new ReservaRepository($doctrine);
-        $reservas = $reservaRepository->findAll();
+        $reservas = $reservaRepository->findBy(['Username' => $username]);
         $session = $this->requestStack->getSession();
         $session->start();
         $servicio = $session->get('servicio');
-        return $this->render('familia/reservas.html.twig', ['reservas' => $reservas,'username' => $username,'servicio' => $servicio]);
+        return $this->render('familia/reservas.html.twig', ['reservas' => $reservas,'username' => $username,'servicio' => $servicio,'trabajador' => 'tutor']);
     }
 
     //CÓDIGO DE ORIENTACIÓN
@@ -163,69 +173,80 @@ class FamiliaController extends AbstractController
         return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView()]);
     }
 
-    #[Route('/familia/Orientación', name: 'orientacion')]
-    public function indexOrientacion(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
+    #[Route('/familia/orientador/Orientación', name: 'orientacion')]
+    public function indexOrientacion(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils,CalendarRepository $calendar): Response
     {
+        $session = $this->requestStack->getSession();
+        $session->start();
         $lastUsername = $authenticationUtils->getLastUsername();
-
-        $citaRepository = new CitaRepository($doctrine);
-        $citas = $citaRepository->findBy(['Servicio'=>1]);
-
-        if (!$citas) {
-            throw $this->createNotFoundException(
-                'No product found for id '
-            );
+        $calendarRepository = new CalendarRepository($doctrine);
+        $calendar = $calendarRepository->findBy(['servicios'=>1,'tutor' => $session->get('orientador'),'disabled' => false]);
+        $rdvs = [];
+        foreach($calendar as $event){
+            $rdvs[] = [
+                'id' => $event->getId(),
+                'start' => $event->getStart()->format('Y-m-d H:i:s'),
+                'end' => $event->getEnd()->format('Y-m-d H:i:s'),
+                'title' => $event->getTitle(),
+                'description' => $event->getDescription(),
+                'backgroundColor' => $event->getBackgroundColor(),
+                'borderColor' => $event->getBorderColor(),
+                'textColor' => $event->getTextColor(),
+            ];
         }
+        $data = $this->json($rdvs);
 
         $session = $this->requestStack->getSession();
         $session->start();
         $session->set('servicio','Orientación');
-        $servicio = $session->get('servicio');
-        $idOrientandor = $session->get('orientador');
+        $session->set('trabajador','orientador');
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio,'id' => $idOrientandor]);
+        return $this->render('familia/index.html.twig', ['data' => $data->getContent(),'username' => $lastUsername,'events' => $calendar,'servicio' => 'Orientación','trabajador' => $session->get('trabajador')]);
     }
 
-    #[Route('/familia/Orientación/{id}', name: 'orientacion_reserva')]
-    public function reservaOrientacion(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils,$id)
-    { 
-            $session = $this->requestStack->getSession();
-            $session->start();
-            $servicio = $session->get('servicio');
-            $username = $authenticationUtils->getLastUsername();
-            $citaRepository = new CitaRepository($doctrine);
-            $cita = $citaRepository->findOneBy(['id' => $id]);
-            $userRepository = new UserRepository($doctrine);
-            $user = $userRepository->findOneBy(['username' => $username]);
-            $reserva = new Reserva();
-            $tutorRepository = new TutorRepository($doctrine);
-            $tutor = $tutorRepository->findOneBy(['username' => $cita->getTutor()->getUsername()]);
-
-            $em = $doctrine->getManager();
-            $cita->setUser($user);
-            $cita->setDisabled(true);
-            $reserva->setCita($cita);
-            $reserva->setUsername($username);
-            $reserva->setTutor($tutor);
-            $em->persist($cita);
-            $em->persist($reserva);
-            $em->flush();
-
-            $this->addFlash('success', 'Datos guardados.');
-            return $this->render('familia/exito.html.twig',['id' => $id,'username' => $username,'servicio' => $servicio]);
-        
-    }
-
-    #[Route('/consulta/Orientación/{username}', name:'cita_consulta_orientacion')]
-    public function consultasOrientacion(string $username,ManagerRegistry $doctrine)
+    #[Route('/familia/orientador/Orientación/{id}', name:'orientación_reserva')]
+    public function reservaOrientación(AuthenticationUtils $authenticationUtils,ManagerRegistry $doctrine,$id)
     {
+        $session = $this->requestStack->getSession();
+        $session->start();
+        $idTutor = $session->get('orientador');
+
+        $tutorRepository = new TutorRepository($doctrine);
+        $tutor = $tutorRepository->findOneBy(['id' => $idTutor]);
+        $username = $authenticationUtils->getLastUsername();
+        $calendarRepository = new CalendarRepository($doctrine);
+        $event = $calendarRepository->findOneBy(['id' => $id]);
+        $userRepository = new UserRepository($doctrine);
+        $user = $userRepository->findOneBy(['username' => $username]);
+        $reserva = new Reserva();
+
+        $event->setDisabled(true);
+        $event->setReserva($reserva);
+        $event->setUser($user);
+        $reserva->setUsername($username);
+        $reserva->setTutor($tutor);
+        $reserva->setCalendar($event);
+        
+        $em = $doctrine->getManager();
+        $em->persist($event);
+        $em->persist($reserva);
+        $em->flush();
+
+        return $this->render('confirmacion/tutoria.html.twig',['event' => $event]);
+    }
+
+    #[Route('/familia/orientador/Orientación/consulta/{username}', name:'consulta_orientación')]
+    public function consultasOrientación(string $username,ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils)
+    {
+        $username = $authenticationUtils->getLastUsername();
         $reservaRepository = new ReservaRepository($doctrine);
-        $reservas = $reservaRepository->findAll();
+        $reservas = $reservaRepository->findBy(['Username' => $username]);
         $session = $this->requestStack->getSession();
         $session->start();
         $servicio = $session->get('servicio');
-        return $this->render('familia/reservas.html.twig', ['reservas' => $reservas,'username' => $username,'servicio' => $servicio]);
+        return $this->render('familia/reservas.html.twig', ['reservas' => $reservas,'username' => $username,'servicio' => $servicio,'trabajador' => 'orientador']);
     }
+
 
     //CÓDIGO DE SECRETARÍA
 
@@ -249,67 +270,81 @@ class FamiliaController extends AbstractController
     }
 
 
-    #[Route('/familia/Secretaría', name: 'secretaria')]
-    public function indexSecretaria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
+    #[Route('/familia/secretario/Secretaría', name: 'secretaria')]
+    public function indexSecretaria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils,CalendarRepository $calendar): Response
     {
+        $session = $this->requestStack->getSession();
+        $session->start();
         $lastUsername = $authenticationUtils->getLastUsername();
-        $citaRepository = new CitaRepository($doctrine);
-        $citas = $citaRepository->findBy(['Servicio'=>2]);
-
-        if (!$citas) {
-            throw $this->createNotFoundException(
-                'No product found for id '
-            );
+        $calendarRepository = new CalendarRepository($doctrine);
+        $calendar = $calendarRepository->findBy(['servicios'=>2,'tutor' => $session->get('secretaria'),'disabled' => false]);
+        $rdvs = [];
+        foreach($calendar as $event){
+            $rdvs[] = [
+                'id' => $event->getId(),
+                'start' => $event->getStart()->format('Y-m-d H:i:s'),
+                'end' => $event->getEnd()->format('Y-m-d H:i:s'),
+                'title' => $event->getTitle(),
+                'description' => $event->getDescription(),
+                'backgroundColor' => $event->getBackgroundColor(),
+                'borderColor' => $event->getBorderColor(),
+                'textColor' => $event->getTextColor(),
+            ];
         }
+        $data = $this->json($rdvs);
 
-        
         $session = $this->requestStack->getSession();
         $session->start();
         $session->set('servicio','Secretaría');
-        $servicio = $session->get('servicio');
-        $idSecretario = $session->get('secretaria');
+        $session->set('trabajador','secretario');
+        // $servicio = $session->get('servicio');
+        // $idTutor = $session->get('tutor');
+        // $error = $authenticationUtils->getLastAuthenticationError();
 
-        return $this->render('familia/index.html.twig', ['citas' => $citas,'username' => $lastUsername,'servicio' => $servicio,'id' => $idSecretario]);
+        return $this->render('familia/index.html.twig', ['data' => $data->getContent(),'username' => $lastUsername,'events' => $calendar,'servicio' => 'Secretaría','trabajador' => $session->get('trabajador')]);
     }
 
-    #[Route('/familia/Secretaría/{id}', name: 'secretaria_reserva')]
+    #[Route('/familia/secretario/Secretaría/{id}', name: 'secretaria_reserva')]
     public function reservaSecretaria(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils,$id)
     { 
-            $session = $this->requestStack->getSession();
-            $session->start();
-            $servicio = $session->get('servicio');
-            $username = $authenticationUtils->getLastUsername();
-            $citaRepository = new CitaRepository($doctrine);
-            $cita = $citaRepository->findOneBy(['id' => $id]);
-            $userRepository = new UserRepository($doctrine);
-            $user = $userRepository->findOneBy(['username' => $username]);
-            $reserva = new Reserva();
-            $tutorRepository = new TutorRepository($doctrine);
-            $tutor = $tutorRepository->findOneBy(['username' => $cita->getTutor()->getUsername()]);
-    
-            $em = $doctrine->getManager();
-            $cita->setUser($user);
-            $cita->setDisabled(true);
-            $reserva->setCita($cita);
-            $reserva->setUsername($username);
-            $reserva->setTutor($tutor);
-            $em->persist($cita);
-            $em->persist($reserva);
-            $em->flush();
+        $session = $this->requestStack->getSession();
+        $session->start();
+        $idTutor = $session->get('secretaria');
 
-            $this->addFlash('success', 'Datos guardados.');
-            return $this->render('familia/exito.html.twig',['id' => $id,'username' => $username,'servicio' => $servicio]);
+        $tutorRepository = new TutorRepository($doctrine);
+        $tutor = $tutorRepository->findOneBy(['id' => $idTutor]);
+        $username = $authenticationUtils->getLastUsername();
+        $calendarRepository = new CalendarRepository($doctrine);
+        $event = $calendarRepository->findOneBy(['id' => $id]);
+        $userRepository = new UserRepository($doctrine);
+        $user = $userRepository->findOneBy(['username' => $username]);
+        $reserva = new Reserva();
+
+        $event->setDisabled(true);
+        $event->setReserva($reserva);
+        $event->setUser($user);
+        $reserva->setUsername($username);
+        $reserva->setTutor($tutor);
+        $reserva->setCalendar($event);
         
+        $em = $doctrine->getManager();
+        $em->persist($event);
+        $em->persist($reserva);
+        $em->flush();
+
+        return $this->render('confirmacion/tutoria.html.twig',['event' => $event]);
     }
 
-    #[Route('/consulta/Secretaría/{username}', name:'cita_consulta_secretaria')]
-    public function consultasSecretaria(string $username,ManagerRegistry $doctrine)
+    #[Route('/familia/secretario/Secretaría/consulta/{username}', name:'cita_consulta_secretaria')]
+    public function consultasSecretaria(string $username,ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils)
     {
+        $username = $authenticationUtils->getLastUsername();
         $reservaRepository = new ReservaRepository($doctrine);
-        $reservas = $reservaRepository->findAll();
+        $reservas = $reservaRepository->findBy(['Username' => $username]);
         $session = $this->requestStack->getSession();
         $session->start();
         $servicio = $session->get('servicio');
-        return $this->render('familia/reservas.html.twig', ['reservas' => $reservas,'username' => $username,'servicio' => $servicio]);
+        return $this->render('familia/reservas.html.twig', ['reservas' => $reservas,'username' => $username,'servicio' => $servicio,'trabajador' => 'secretario']);
     }
+
 }

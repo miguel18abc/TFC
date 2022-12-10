@@ -3,32 +3,52 @@
 {% block title %}Plantilla{% endblock %}
 
 {% block body %}
-    <div class="card" style="width: 18rem;">
-        <a href="{{path('aniadir_citas')}}">
-            <img src="..." class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-            <p class="card-text">Añadir citas</p>
+
+<div id="familyBody">
+    <div id="containerCards" class="container">
+        <div id="cardfamily1" class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <a href="{{path('aniadir_citas')}}" class="icon">
+                        <img aria-hidden="true" style="width:300px;"></img>
+                    </a>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <a href="{{path('aniadir_citas')}}" class="content">
+                    <h3>Añadir una cita</h3>
+                </a>
+            </div>
+        </div>
+        <div id="cardfamily2" class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <a href="{{path('misCitas')}}" class="icon">
+                        <img aria-hidden="true" style="width:300px;"></img>
+                    </a>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <a href="{{path('misCitas')}}" class="content">
+                    <h3>Mis citas</h3>
+                </a>
+            </div>
+        </div>
+        <div id="cardfamily3" class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <a href="{{path('addUser')}}" class="icon">
+                        <img aria-hidden="true" style="width:300px;"></img>
+                    </a>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <a href="{{path('addUser')}}" class="content">
+                    <h3>Añadir un usuario admin</h3>
+                </a>
+            </div>
         </div>
     </div>
-
-    <div class="card" style="width: 18rem;">
-        <a href="{{path('misCitas')}}">
-            <img src="..." class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-            <p class="card-text">Mis citas</p>
-        </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-        <a href="{{path('addUser')}}">
-            <img src="..." class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-            <p class="card-text">Crear un usuario admin</p>
-        </div>
-    </div>
-
-    <a href="/" class="btn btn-primary">⏪</a>
+    <a href="/"><lottie-player id="buttonReturn" class="btn btn-primary" src="https://assets9.lottiefiles.com/packages/lf20_tuwojxyr.json"  background="transparent" speed="1" style="width: 70px; height: 40px;"  loop  autoplay></lottie-player></a>
+</div>
 {% endblock %}

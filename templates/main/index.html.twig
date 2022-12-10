@@ -1,24 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Main{% endblock %}
 
 {% block body %}
 <div id="mainbodyBlock">
-    <div id="cardmain1" class="card" style="width: 18rem;">
-        <a href="{{path('familia')}}">
-            <img src="/img/reloj.jpg" class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-            <p class="card-text">Familia</p>
+    <div id="containerCards" class="container">
+        <div id="cardfamily1" class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <a href="{{path('familia')}}" class="icon">
+                        <img aria-hidden="true" style="width:300px;"></img>
+                    </a>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <a href="{{path('familia')}}" class="content">
+                    <h3>Familia</h3>
+                </a>
+            </div>
         </div>
-    </div>
-
-    <div id="cardmain2" class="card" style="width: 18rem;">
-        <a href="{{path('plantilla')}}">
-            <img src="/img/calendario.jpg" class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-            <p class="card-text">Plantilla</p>
+        <div id="cardfamily2" class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <a href="{{path('plantilla')}}" class="icon">
+                        <img aria-hidden="true" style="width:300px;"></img>
+                    </a>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <a href="{{path('plantilla')}}" class="content">
+                    <h3>Plantilla</h3>
+                </a>
+            </div>
         </div>
     </div>
 </div>

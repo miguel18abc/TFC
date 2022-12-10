@@ -152,7 +152,7 @@ class __TwigTemplate_9c0dafbf9e0325e0d041215d2e5883b3 extends Template
         </div>
     </div>
     <a href=\"/\"><lottie-player id=\"buttonReturn\" class=\"btn btn-primary\" src=\"https://assets9.lottiefiles.com/packages/lf20_tuwojxyr.json\"  background=\"transparent\" speed=\"1\" style=\"width: 70px; height: 40px;\"  loop  autoplay></lottie-player></a>
-<div>
+</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -257,7 +257,7 @@ class __TwigTemplate_9c0dafbf9e0325e0d041215d2e5883b3 extends Template
         </div>
     </div>
     <a href=\"/\"><lottie-player id=\"buttonReturn\" class=\"btn btn-primary\" src=\"https://assets9.lottiefiles.com/packages/lf20_tuwojxyr.json\"  background=\"transparent\" speed=\"1\" style=\"width: 70px; height: 40px;\"  loop  autoplay></lottie-player></a>
-<div>
+</div>
 {% endblock %}
 ", "main/familia.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\familia.html.twig");
     }

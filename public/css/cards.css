@@ -7,13 +7,13 @@
     border: 0;
 }
 
-/* #cardfamily1 .icon img,#cardfamily2 .icon img,#cardfamily3 .icon img{
+#cardfamily1 .icon img,#cardfamily2 .icon img,#cardfamily3 .icon img{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-} */
+}
 
 #cardfamily1 .icon img,#cardfamily2 .icon img,#cardfamily3 .icon img{
     position: absolute;

@@ -65,7 +65,7 @@ class __TwigTemplate_a9939ee89c5c58fff885050f43693082 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello MainController!";
+        echo "Main";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -85,28 +85,47 @@ class __TwigTemplate_a9939ee89c5c58fff885050f43693082 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<div id=\"mainbodyBlock\">
-    <div id=\"cardmain1\" class=\"card\" style=\"width: 18rem;\">
-        <a href=\"";
-        // line 8
+        echo "<div id=\"familyBody\">
+    <div id=\"containerCards\" class=\"container\">
+        <div id=\"cardfamily1\" class=\"card\">
+            <div class=\"slide slide1\">
+                <div class=\"content\">
+                    <a href=\"";
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("familia");
-        echo "\">
-            <img src=\"/img/reloj.jpg\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Familia</p>
-        </div>
-    </div>
-
-    <div id=\"cardmain2\" class=\"card\" style=\"width: 18rem;\">
-        <a href=\"";
+        echo "\" class=\"icon\">
+                        <img aria-hidden=\"true\" style=\"width:300px;\"></img>
+                    </a>
+                </div>
+            </div>
+            <div class=\"slide slide2\">
+                <a href=\"";
         // line 17
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("familia");
+        echo "\" class=\"content\">
+                    <h3>Familia</h3>
+                </a>
+            </div>
+        </div>
+        <div id=\"cardfamily2\" class=\"card\">
+            <div class=\"slide slide1\">
+                <div class=\"content\">
+                    <a href=\"";
+        // line 25
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("plantilla");
-        echo "\">
-            <img src=\"/img/calendario.jpg\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Plantilla</p>
+        echo "\" class=\"icon\">
+                        <img aria-hidden=\"true\" style=\"width:300px;\"></img>
+                    </a>
+                </div>
+            </div>
+            <div class=\"slide slide2\">
+                <a href=\"";
+        // line 31
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("plantilla");
+        echo "\" class=\"content\">
+                    <h3>Plantilla</h3>
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -131,36 +150,48 @@ class __TwigTemplate_a9939ee89c5c58fff885050f43693082 extends Template
 
     public function getDebugInfo()
     {
-        return array (  104 => 17,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  124 => 31,  115 => 25,  104 => 17,  95 => 11,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Main{% endblock %}
 
 {% block body %}
-<div id=\"mainbodyBlock\">
-    <div id=\"cardmain1\" class=\"card\" style=\"width: 18rem;\">
-        <a href=\"{{path('familia')}}\">
-            <img src=\"/img/reloj.jpg\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Familia</p>
+<div id=\"familyBody\">
+    <div id=\"containerCards\" class=\"container\">
+        <div id=\"cardfamily1\" class=\"card\">
+            <div class=\"slide slide1\">
+                <div class=\"content\">
+                    <a href=\"{{path('familia')}}\" class=\"icon\">
+                        <img aria-hidden=\"true\" style=\"width:300px;\"></img>
+                    </a>
+                </div>
+            </div>
+            <div class=\"slide slide2\">
+                <a href=\"{{path('familia')}}\" class=\"content\">
+                    <h3>Familia</h3>
+                </a>
+            </div>
         </div>
-    </div>
-
-    <div id=\"cardmain2\" class=\"card\" style=\"width: 18rem;\">
-        <a href=\"{{path('plantilla')}}\">
-            <img src=\"/img/calendario.jpg\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Plantilla</p>
+        <div id=\"cardfamily2\" class=\"card\">
+            <div class=\"slide slide1\">
+                <div class=\"content\">
+                    <a href=\"{{path('plantilla')}}\" class=\"icon\">
+                        <img aria-hidden=\"true\" style=\"width:300px;\"></img>
+                    </a>
+                </div>
+            </div>
+            <div class=\"slide slide2\">
+                <a href=\"{{path('plantilla')}}\" class=\"content\">
+                    <h3>Plantilla</h3>
+                </a>
+            </div>
         </div>
     </div>
 </div>
-{% endblock %}
-", "main/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\index.html.twig");
+{% endblock %}", "main/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\index.html.twig");
     }
 }

@@ -85,61 +85,95 @@ class __TwigTemplate_1afa4246398e6db01671d8bd68613900 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "
-\t<h1>Reservas</h1>
-\t<ul>
-\t\t";
-        // line 9
-        if (twig_test_empty((isset($context["reservas"]) || array_key_exists("reservas", $context) ? $context["reservas"] : (function () { throw new RuntimeError('Variable "reservas" does not exist.', 9, $this->source); })()))) {
-            // line 10
-            echo "\t\t\tNo se han encontrado reservas
-\t\t";
+        echo "\t<div id=\"reservabodyBlock\">
+\t\t<h1 style=\"text-align: center;\">Reservas</h1>
+\t\t\t";
+        // line 8
+        if (twig_test_empty((isset($context["reservas"]) || array_key_exists("reservas", $context) ? $context["reservas"] : (function () { throw new RuntimeError('Variable "reservas" does not exist.', 8, $this->source); })()))) {
+            // line 9
+            echo "\t\t\t\tNo se han encontrado reservas
+\t\t\t";
         } else {
-            // line 12
-            echo "\t\t\t<ul>
-\t\t\t\t";
-            // line 13
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["reservas"]) || array_key_exists("reservas", $context) ? $context["reservas"] : (function () { throw new RuntimeError('Variable "reservas" does not exist.', 13, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["reserva"]) {
-                // line 14
-                echo "\t\t\t\t\t\t";
-                if ((((isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 14, $this->source); })()) == twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "cita", [], "any", false, false, false, 14), "User", [], "any", false, false, false, 14), "username", [], "any", false, false, false, 14)) && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "cita", [], "any", false, false, false, 14), "Servicio", [], "any", false, false, false, 14), "Nombre", [], "any", false, false, false, 14) == (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 14, $this->source); })())))) {
-                    // line 15
-                    echo "\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t";
-                    // line 16
-                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "cita", [], "any", false, false, false, 16), "fecha", [], "any", false, false, false, 16), "Y-m-d"), "html", null, true);
-                    echo "
-\t\t\t\t\t\t\t\t";
-                    // line 17
-                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "cita", [], "any", false, false, false, 17), "hora", [], "any", false, false, false, 17), "H:i:s"), "html", null, true);
-                    echo "
-\t\t\t\t\t\t\t\t<a href=\"/anular/";
-                    // line 18
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reserva"], "id", [], "any", false, false, false, 18), "html", null, true);
-                    echo "\">Anular</a>
-\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t<br>
+            // line 11
+            echo "\t\t\t\t<table class=\"table table-striped\">
+\t\t\t\t\t<thead>
+\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t<th>Tutor</th>
+\t\t\t\t\t\t\t<th>Fecha de inicio</th>
+\t\t\t\t\t\t\t<th>Hora de inicio</th>
+\t\t\t\t\t\t\t<th>Fecha de fin</th>
+\t\t\t\t\t\t\t<th>Hora de fin</th>
+\t\t\t\t\t\t\t<th>Servicio</th>
+\t\t\t\t\t\t\t<th>Acciones</th>
+\t\t\t\t\t\t</tr>
+\t\t\t\t\t</thead>
+\t\t\t\t\t<tbody>
 \t\t\t\t\t\t";
+            // line 24
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["reservas"]) || array_key_exists("reservas", $context) ? $context["reservas"] : (function () { throw new RuntimeError('Variable "reservas" does not exist.', 24, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["reserva"]) {
+                // line 25
+                echo "\t\t\t\t\t\t\t\t\t";
+                // line 26
+                echo "\t\t\t\t\t\t\t\t";
+                if ((((isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 26, $this->source); })()) == twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "calendar", [], "any", false, false, false, 26), "user", [], "any", false, false, false, 26), "username", [], "any", false, false, false, 26)) && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "calendar", [], "any", false, false, false, 26), "servicios", [], "any", false, false, false, 26), "Nombre", [], "any", false, false, false, 26) == (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 26, $this->source); })())))) {
+                    // line 27
+                    echo "\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t\t<td>";
+                    // line 28
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "tutor", [], "any", false, false, false, 28), "username", [], "any", false, false, false, 28), "html", null, true);
+                    echo "</td>
+\t\t\t\t\t\t\t\t\t\t<td>";
+                    // line 29
+                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "calendar", [], "any", false, false, false, 29), "start", [], "any", false, false, false, 29), "d-m-Y"), "html", null, true);
+                    echo "</td>
+\t\t\t\t\t\t\t\t\t\t<td>";
+                    // line 30
+                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "calendar", [], "any", false, false, false, 30), "start", [], "any", false, false, false, 30), "H:i:s"), "html", null, true);
+                    echo "</td>
+\t\t\t\t\t\t\t\t\t\t<td>";
+                    // line 31
+                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "calendar", [], "any", false, false, false, 31), "end", [], "any", false, false, false, 31), "d-m-Y"), "html", null, true);
+                    echo "</td>
+\t\t\t\t\t\t\t\t\t\t<td>";
+                    // line 32
+                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "calendar", [], "any", false, false, false, 32), "end", [], "any", false, false, false, 32), "H:i:s"), "html", null, true);
+                    echo "</td>
+\t\t\t\t\t\t\t\t\t\t<td>";
+                    // line 33
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["reserva"], "calendar", [], "any", false, false, false, 33), "servicios", [], "any", false, false, false, 33), "Nombre", [], "any", false, false, false, 33), "html", null, true);
+                    echo "</td>
+\t\t\t\t\t\t\t\t\t\t<td><a href=\"/anular/";
+                    // line 34
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reserva"], "id", [], "any", false, false, false, 34), "html", null, true);
+                    echo "\" class=\"btn btn-primary\">Anular</a></td>
+\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t";
                 }
-                // line 22
-                echo "\t\t\t\t";
+                // line 37
+                echo "\t\t\t\t\t\t";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reserva'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 23
-            echo "\t\t\t</ul>
-\t\t\t</br>
-    \t\t<a class=\"btn btn-primary\" href=\"/familia/";
-            // line 25
-            echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 25, $this->source); })()), "html", null, true);
+            // line 38
+            echo "\t\t\t\t\t</tbody>
+\t\t\t\t</table>
+\t\t\t\t</br>
+\t\t\t\t<a class=\"btn btn-primary\" href=\"/familia/";
+            // line 41
+            echo twig_escape_filter($this->env, (isset($context["trabajador"]) || array_key_exists("trabajador", $context) ? $context["trabajador"] : (function () { throw new RuntimeError('Variable "trabajador" does not exist.', 41, $this->source); })()), "html", null, true);
+            echo "/";
+            echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 41, $this->source); })()), "html", null, true);
             echo "\">Volver a ";
-            echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 25, $this->source); })()), "html", null, true);
-            echo "</a> 
-\t\t";
+            echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 41, $this->source); })()), "html", null, true);
+            echo "</a>
+\t\t\t";
         }
+        // line 43
+        echo "\t</div>
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -160,7 +194,7 @@ class __TwigTemplate_1afa4246398e6db01671d8bd68613900 extends Template
 
     public function getDebugInfo()
     {
-        return array (  137 => 25,  133 => 23,  127 => 22,  120 => 18,  116 => 17,  112 => 16,  109 => 15,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  175 => 43,  166 => 41,  161 => 38,  155 => 37,  149 => 34,  145 => 33,  141 => 32,  137 => 31,  133 => 30,  129 => 29,  125 => 28,  122 => 27,  119 => 26,  117 => 25,  113 => 24,  98 => 11,  94 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -170,27 +204,44 @@ class __TwigTemplate_1afa4246398e6db01671d8bd68613900 extends Template
 {% block title %}Hello FamiliaController!{% endblock %}
 
 {% block body %}
-
-\t<h1>Reservas</h1>
-\t<ul>
-\t\t{% if reservas is empty %}
-\t\t\tNo se han encontrado reservas
-\t\t{% else %}
-\t\t\t<ul>
-\t\t\t\t{% for reserva in reservas %}
-\t\t\t\t\t\t{% if username == reserva.cita.User.username and reserva.cita.Servicio.Nombre == servicio %}
-\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t{{ reserva.cita.fecha |date('Y-m-d')}}
-\t\t\t\t\t\t\t\t{{ reserva.cita.hora |date('H:i:s')}}
-\t\t\t\t\t\t\t\t<a href=\"/anular/{{reserva.id}}\">Anular</a>
-\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t<br>
-\t\t\t\t\t\t{% endif %}
-\t\t\t\t{% endfor %}
-\t\t\t</ul>
-\t\t\t</br>
-    \t\t<a class=\"btn btn-primary\" href=\"/familia/{{servicio}}\">Volver a {{servicio}}</a> 
-\t\t{% endif %}
+\t<div id=\"reservabodyBlock\">
+\t\t<h1 style=\"text-align: center;\">Reservas</h1>
+\t\t\t{% if reservas is empty %}
+\t\t\t\tNo se han encontrado reservas
+\t\t\t{% else %}
+\t\t\t\t<table class=\"table table-striped\">
+\t\t\t\t\t<thead>
+\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t<th>Tutor</th>
+\t\t\t\t\t\t\t<th>Fecha de inicio</th>
+\t\t\t\t\t\t\t<th>Hora de inicio</th>
+\t\t\t\t\t\t\t<th>Fecha de fin</th>
+\t\t\t\t\t\t\t<th>Hora de fin</th>
+\t\t\t\t\t\t\t<th>Servicio</th>
+\t\t\t\t\t\t\t<th>Acciones</th>
+\t\t\t\t\t\t</tr>
+\t\t\t\t\t</thead>
+\t\t\t\t\t<tbody>
+\t\t\t\t\t\t{% for reserva in reservas %}
+\t\t\t\t\t\t\t\t\t{# {{ dump(reserva.calendar.user.username) }} #}
+\t\t\t\t\t\t\t\t{% if username == reserva.calendar.user.username and reserva.calendar.servicios.Nombre == servicio %}
+\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t\t<td>{{ reserva.tutor.username}}</td>
+\t\t\t\t\t\t\t\t\t\t<td>{{ reserva.calendar.start|date('d-m-Y')}}</td>
+\t\t\t\t\t\t\t\t\t\t<td>{{ reserva.calendar.start|date('H:i:s')}}</td>
+\t\t\t\t\t\t\t\t\t\t<td>{{ reserva.calendar.end|date('d-m-Y')}}</td>
+\t\t\t\t\t\t\t\t\t\t<td>{{ reserva.calendar.end|date('H:i:s')}}</td>
+\t\t\t\t\t\t\t\t\t\t<td>{{ reserva.calendar.servicios.Nombre}}</td>
+\t\t\t\t\t\t\t\t\t\t<td><a href=\"/anular/{{reserva.id}}\" class=\"btn btn-primary\">Anular</a></td>
+\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t{% endif %}
+\t\t\t\t\t\t{% endfor %}
+\t\t\t\t\t</tbody>
+\t\t\t\t</table>
+\t\t\t\t</br>
+\t\t\t\t<a class=\"btn btn-primary\" href=\"/familia/{{trabajador}}/{{servicio}}\">Volver a {{servicio}}</a>
+\t\t\t{% endif %}
+\t</div>
 {% endblock %}
 ", "familia/reservas.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\reservas.html.twig");
     }

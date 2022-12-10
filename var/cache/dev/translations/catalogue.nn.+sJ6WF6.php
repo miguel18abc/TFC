@@ -101,6 +101,10 @@ $catalogue = new MessageCatalogue('nn', array (
     'This value should satisfy at least one of the following constraints:' => 'Verdien burde oppfylla minst ein av følgjande avgrensingar:',
     'Each element of this collection should satisfy its own set of constraints.' => 'Kvart element i denne samlinga bør oppfylla sine eigne avgrensingar.',
     'This value is not a valid International Securities Identification Number (ISIN).' => 'Verdien er ikkje eit gyldig International Securities Identification Number (ISIN).',
+    'This value should be a valid expression.' => 'Denne verdien skal være et gyldig uttrykk.',
+    'This value is not a valid CSS color.' => 'Denne verdien er ikke en gyldig CSS-farge.',
+    'This value is not a valid CIDR notation.' => 'Denne verdien er ikke en gyldig CIDR-notasjon.',
+    'The value of the netmask should be between {{ min }} and {{ max }}.' => 'Verdien av nettmasken skal være mellom {{ min }} og {{ max }}.',
     'This form should not contain extra fields.' => 'Feltgruppa kan ikkje innehalde ekstra felt.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'Fila du lasta opp var for stor. Last opp ei mindre fil.',
     'The CSRF token is invalid.' => 'CSRF-nøkkelen er ikkje gyldig.',
@@ -154,6 +158,8 @@ $catalogue = new MessageCatalogue('nn', array (
     'Account is locked.' => 'Brukarkontoen er sperra.',
     'Too many failed login attempts, please try again later.' => 'For mange innloggingsforsøk har feila, prøv igjen seinare.',
     'Invalid or expired login link.' => 'Innloggingslenka er ugyldig eller utgjengen.',
+    'Too many failed login attempts, please try again in %minutes% minute.' => 'For mange mislykkede påloggingsforsøk, prøv igjen om %minutes% minutt.',
+    'Too many failed login attempts, please try again in %minutes% minutes.' => 'For mange mislykkede påloggingsforsøk, prøv igjen om %minutes% minutter.',
   ),
 ));
 
@@ -256,6 +262,10 @@ $catalogueNo = new MessageCatalogue('no', array (
     'This value should satisfy at least one of the following constraints:' => 'Denne verdien skal tilfredsstille minst en av følgende begrensninger:',
     'Each element of this collection should satisfy its own set of constraints.' => 'Hvert element i denne samlingen skal tilfredsstille sitt eget sett med begrensninger.',
     'This value is not a valid International Securities Identification Number (ISIN).' => 'Denne verdien er ikke et gyldig International Securities Identification Number (ISIN).',
+    'This value should be a valid expression.' => 'Denne verdien skal være et gyldig uttrykk.',
+    'This value is not a valid CSS color.' => 'Denne verdien er ikke en gyldig CSS-farge.',
+    'This value is not a valid CIDR notation.' => 'Denne verdien er ikke en gyldig CIDR-notasjon.',
+    'The value of the netmask should be between {{ min }} and {{ max }}.' => 'Verdien på nettmasken skal være mellom {{ min }} og {{ max }}.',
     'This form should not contain extra fields.' => 'Feltgruppen må ikke inneholde ekstra felter.',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'Den opplastede filen var for stor. Vennligst last opp en mindre fil.',
     'The CSRF token is invalid.' => 'CSRF nøkkelen er ugyldig.',
@@ -309,6 +319,8 @@ $catalogueNo = new MessageCatalogue('no', array (
     'Account is locked.' => 'Brukerkonto er sperret.',
     'Too many failed login attempts, please try again later.' => 'For mange mislykkede påloggingsforsøk. Prøv igjen senere.',
     'Invalid or expired login link.' => 'Ugyldig eller utløpt påloggingskobling.',
+    'Too many failed login attempts, please try again in %minutes% minute.' => 'For mange mislykkede påloggingsforsøk, prøv igjen om %minutes% minutt.',
+    'Too many failed login attempts, please try again in %minutes% minutes.' => 'For mange mislykkede påloggingsforsøk, prøv igjen om %minutes% minutter.',
   ),
 ));
 $catalogue->addFallbackCatalogue($catalogueNo);

@@ -85,43 +85,72 @@ class __TwigTemplate_fa976ff1d4101d851df535fc26b09f7b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"";
-        // line 7
+        echo "
+<div id=\"familyBody\">
+    <div id=\"containerCards\" class=\"container\">
+        <div id=\"cardfamily1\" class=\"card\">
+            <div class=\"slide slide1\">
+                <div class=\"content\">
+                    <a href=\"";
+        // line 12
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("aniadir_citas");
-        echo "\">
-            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Añadir citas</p>
+        echo "\" class=\"icon\">
+                        <img aria-hidden=\"true\" style=\"width:300px;\"></img>
+                    </a>
+                </div>
+            </div>
+            <div class=\"slide slide2\">
+                <a href=\"";
+        // line 18
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("aniadir_citas");
+        echo "\" class=\"content\">
+                    <h3>Añadir una cita</h3>
+                </a>
+            </div>
         </div>
-    </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"";
-        // line 16
+        <div id=\"cardfamily2\" class=\"card\">
+            <div class=\"slide slide1\">
+                <div class=\"content\">
+                    <a href=\"";
+        // line 26
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("misCitas");
-        echo "\">
-            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Mis citas</p>
+        echo "\" class=\"icon\">
+                        <img aria-hidden=\"true\" style=\"width:300px;\"></img>
+                    </a>
+                </div>
+            </div>
+            <div class=\"slide slide2\">
+                <a href=\"";
+        // line 32
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("misCitas");
+        echo "\" class=\"content\">
+                    <h3>Mis citas</h3>
+                </a>
+            </div>
         </div>
-    </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"";
-        // line 25
+        <div id=\"cardfamily3\" class=\"card\">
+            <div class=\"slide slide1\">
+                <div class=\"content\">
+                    <a href=\"";
+        // line 40
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("addUser");
-        echo "\">
-            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Crear un usuario admin</p>
+        echo "\" class=\"icon\">
+                        <img aria-hidden=\"true\" style=\"width:300px;\"></img>
+                    </a>
+                </div>
+            </div>
+            <div class=\"slide slide2\">
+                <a href=\"";
+        // line 46
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("addUser");
+        echo "\" class=\"content\">
+                    <h3>Añadir un usuario admin</h3>
+                </a>
+            </div>
         </div>
     </div>
-
-    <a href=\"/\" class=\"btn btn-primary\">⏪</a>
+    <a href=\"/\"><lottie-player id=\"buttonReturn\" class=\"btn btn-primary\" src=\"https://assets9.lottiefiles.com/packages/lf20_tuwojxyr.json\"  background=\"transparent\" speed=\"1\" style=\"width: 70px; height: 40px;\"  loop  autoplay></lottie-player></a>
+</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -143,7 +172,7 @@ class __TwigTemplate_fa976ff1d4101d851df535fc26b09f7b extends Template
 
     public function getDebugInfo()
     {
-        return array (  115 => 25,  103 => 16,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  145 => 46,  136 => 40,  125 => 32,  116 => 26,  105 => 18,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -153,34 +182,54 @@ class __TwigTemplate_fa976ff1d4101d851df535fc26b09f7b extends Template
 {% block title %}Plantilla{% endblock %}
 
 {% block body %}
-    <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"{{path('aniadir_citas')}}\">
-            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Añadir citas</p>
+
+<div id=\"familyBody\">
+    <div id=\"containerCards\" class=\"container\">
+        <div id=\"cardfamily1\" class=\"card\">
+            <div class=\"slide slide1\">
+                <div class=\"content\">
+                    <a href=\"{{path('aniadir_citas')}}\" class=\"icon\">
+                        <img aria-hidden=\"true\" style=\"width:300px;\"></img>
+                    </a>
+                </div>
+            </div>
+            <div class=\"slide slide2\">
+                <a href=\"{{path('aniadir_citas')}}\" class=\"content\">
+                    <h3>Añadir una cita</h3>
+                </a>
+            </div>
+        </div>
+        <div id=\"cardfamily2\" class=\"card\">
+            <div class=\"slide slide1\">
+                <div class=\"content\">
+                    <a href=\"{{path('misCitas')}}\" class=\"icon\">
+                        <img aria-hidden=\"true\" style=\"width:300px;\"></img>
+                    </a>
+                </div>
+            </div>
+            <div class=\"slide slide2\">
+                <a href=\"{{path('misCitas')}}\" class=\"content\">
+                    <h3>Mis citas</h3>
+                </a>
+            </div>
+        </div>
+        <div id=\"cardfamily3\" class=\"card\">
+            <div class=\"slide slide1\">
+                <div class=\"content\">
+                    <a href=\"{{path('addUser')}}\" class=\"icon\">
+                        <img aria-hidden=\"true\" style=\"width:300px;\"></img>
+                    </a>
+                </div>
+            </div>
+            <div class=\"slide slide2\">
+                <a href=\"{{path('addUser')}}\" class=\"content\">
+                    <h3>Añadir un usuario admin</h3>
+                </a>
+            </div>
         </div>
     </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"{{path('misCitas')}}\">
-            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Mis citas</p>
-        </div>
-    </div>
-
-    <div class=\"card\" style=\"width: 18rem;\">
-        <a href=\"{{path('addUser')}}\">
-            <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-        </a>
-        <div class=\"card-body\">
-            <p class=\"card-text\">Crear un usuario admin</p>
-        </div>
-    </div>
-
-    <a href=\"/\" class=\"btn btn-primary\">⏪</a>
+    <a href=\"/\"><lottie-player id=\"buttonReturn\" class=\"btn btn-primary\" src=\"https://assets9.lottiefiles.com/packages/lf20_tuwojxyr.json\"  background=\"transparent\" speed=\"1\" style=\"width: 70px; height: 40px;\"  loop  autoplay></lottie-player></a>
+</div>
 {% endblock %}", "main/plantilla.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\main\\plantilla.html.twig");
     }
 }

@@ -29,10 +29,10 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
-            'javascripts' => [$this, 'block_javascripts'],
             'menu' => [$this, 'block_menu'],
             'body' => [$this, 'block_body'],
             'footer' => [$this, 'block_footer'],
+            'javascripts' => [$this, 'block_javascripts'],
         ];
     }
 
@@ -54,7 +54,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>\">
+        <link rel=\"icon\" href=\"/public/svg/logoPlanesSinFondo.svg\">
         ";
         // line 8
         echo "        ";
@@ -70,30 +70,32 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         ";
         // line 12
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 21
-        echo "
-        ";
-        // line 22
-        $this->displayBlock('javascripts', $context, $blocks);
-        // line 27
+        // line 24
         echo "    </head>
     <body>
         ";
-        // line 29
+        // line 26
         $this->displayBlock('menu', $context, $blocks);
+        // line 50
+        echo "
+        ";
         // line 51
-        echo "
-        ";
-        // line 52
         $this->displayBlock('body', $context, $blocks);
-        // line 54
+        // line 53
         echo "
         ";
-        // line 55
+        // line 54
         $this->displayBlock('footer', $context, $blocks);
+        // line 85
+        echo "
+        ";
         // line 86
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 91
         echo "    </body>
-</html>";
+</html>
+
+";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -137,7 +139,10 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
             <link href=\"/css/cards.css\" rel=\"stylesheet\" type=\"text/css\">
             <link href=\"/css/family.css\" rel=\"stylesheet\" type=\"text/css\">
             <link href=\"/css/login.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/calendar.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/calendario.css\" rel=\"stylesheet\" type=\"text/css\">
             <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css\">
+            <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css\" integrity=\"sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=\" crossorigin=\"anonymous\">
             <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
         ";
         
@@ -148,30 +153,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     }
 
-    // line 22
-    public function block_javascripts($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 23
-        echo "            <script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>
-            <!-- JavaScript Bundle with Popper -->
-            <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3\" crossorigin=\"anonymous\"></script>
-        ";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 29
+    // line 26
     public function block_menu($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -181,19 +163,21 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "menu"));
 
-        // line 30
+        // line 27
         echo "            <nav class=\"navbar navbar-dark navbar-expand\">
                 <div class=\"container-fluid\">
-                    <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
+                    <a href=\"https://www.iesjoseplanes.es/\" target=\"_blank\">
+                        <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
+                    </a>
                     <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                         <span class=\"navbar-toggler-icon\"></span>
                     </button>
                     <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">
                         <div class=\"navbar-nav ms-auto\">
                             ";
-        // line 38
+        // line 37
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 39
+            // line 38
             echo "                                <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">
@@ -201,17 +185,17 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
                                 </a>
                             ";
         } else {
-            // line 43
+            // line 42
             echo "                                <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Iniciar sesión</a>
                                 <a class=\"nav-link\" href=\"";
-            // line 44
+            // line 43
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
             echo "\">Registrar</a>
                             ";
         }
-        // line 46
+        // line 45
         echo "                        </div>
                     </div>
                 </div>
@@ -225,7 +209,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     }
 
-    // line 52
+    // line 51
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -235,7 +219,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 53
+        // line 52
         echo "        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -245,7 +229,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     }
 
-    // line 55
+    // line 54
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -255,7 +239,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 56
+        // line 55
         echo "        <footer class=\"text-center text-white\">
             <!-- Grid container -->
             <div class=\"container p-4 pb-0\">
@@ -272,7 +256,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
                 </a>
 
                 <!-- Google -->
-                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #dd4b39;\" href=\"#!\" role=\"button\">
+                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #dd4b39;\" href=\"https://mail.google.com/mail/?ui=2&view=cm&fs=1&tf=1&to=migueltornel003@gmail.com&su=Solicito%20una%20duda\" role=\"button\" target=\"_blank\">
                     <i class=\"bi bi-google\"></i>
                 </a>
 
@@ -294,6 +278,29 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     }
 
+    // line 86
+    public function block_javascripts($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 87
+        echo "            <script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>
+            <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3\" crossorigin=\"anonymous\"></script>
+            <script src=\"/javascripts/sweetalert2.all.min.js\"></script>
+        ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
     public function getTemplateName()
     {
         return "base.html.twig";
@@ -306,7 +313,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
 
     public function getDebugInfo()
     {
-        return array (  259 => 56,  249 => 55,  239 => 53,  229 => 52,  215 => 46,  210 => 44,  205 => 43,  197 => 39,  195 => 38,  185 => 30,  175 => 29,  162 => 23,  152 => 22,  135 => 13,  125 => 12,  106 => 5,  95 => 86,  93 => 55,  90 => 54,  88 => 52,  85 => 51,  83 => 29,  79 => 27,  77 => 22,  74 => 21,  72 => 12,  69 => 11,  66 => 10,  63 => 9,  60 => 8,  55 => 5,  49 => 1,);
+        return array (  292 => 87,  282 => 86,  243 => 55,  233 => 54,  223 => 52,  213 => 51,  199 => 45,  194 => 43,  189 => 42,  181 => 38,  179 => 37,  167 => 27,  157 => 26,  137 => 13,  127 => 12,  108 => 5,  95 => 91,  93 => 86,  90 => 85,  88 => 54,  85 => 53,  83 => 51,  80 => 50,  78 => 26,  74 => 24,  72 => 12,  69 => 11,  66 => 10,  63 => 9,  60 => 8,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -316,7 +323,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
     <head>
         <meta charset=\"UTF-8\">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>\">
+        <link rel=\"icon\" href=\"/public/svg/logoPlanesSinFondo.svg\">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% if form is defined and form %}
 \t        {% form_theme form 'bootstrap_5_layout.html.twig' %}
@@ -328,21 +335,20 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
             <link href=\"/css/cards.css\" rel=\"stylesheet\" type=\"text/css\">
             <link href=\"/css/family.css\" rel=\"stylesheet\" type=\"text/css\">
             <link href=\"/css/login.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/calendar.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"/css/calendario.css\" rel=\"stylesheet\" type=\"text/css\">
             <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css\">
+            <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css\" integrity=\"sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=\" crossorigin=\"anonymous\">
             <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
-        {% endblock %}
-
-        {% block javascripts %}
-            <script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>
-            <!-- JavaScript Bundle with Popper -->
-            <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3\" crossorigin=\"anonymous\"></script>
         {% endblock %}
     </head>
     <body>
         {% block menu %}
             <nav class=\"navbar navbar-dark navbar-expand\">
                 <div class=\"container-fluid\">
-                    <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
+                    <a href=\"https://www.iesjoseplanes.es/\" target=\"_blank\">
+                        <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
+                    </a>
                     <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                         <span class=\"navbar-toggler-icon\"></span>
                     </button>
@@ -382,7 +388,7 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
                 </a>
 
                 <!-- Google -->
-                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #dd4b39;\" href=\"#!\" role=\"button\">
+                <a class=\"btn text-white btn-floating m-1\" style=\"background-color: #dd4b39;\" href=\"https://mail.google.com/mail/?ui=2&view=cm&fs=1&tf=1&to=migueltornel003@gmail.com&su=Solicito%20una%20duda\" role=\"button\" target=\"_blank\">
                     <i class=\"bi bi-google\"></i>
                 </a>
 
@@ -396,7 +402,15 @@ class __TwigTemplate_a88e0b4feb60dc6c79343d1c6154525b extends Template
             <!-- Grid container -->
         </footer>
         {% endblock %}
+
+        {% block javascripts %}
+            <script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>
+            <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3\" crossorigin=\"anonymous\"></script>
+            <script src=\"/javascripts/sweetalert2.all.min.js\"></script>
+        {% endblock %}
     </body>
-</html>", "base.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\base.html.twig");
+</html>
+
+", "base.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\base.html.twig");
     }
 }

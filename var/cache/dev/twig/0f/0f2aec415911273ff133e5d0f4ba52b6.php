@@ -27,6 +27,7 @@ class __TwigTemplate_6fdd7c0093a9b09a3ff3e1bd653d54bd extends Template
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
+            'javascripts' => [$this, 'block_javascripts'],
         ];
     }
 
@@ -85,82 +86,99 @@ class __TwigTemplate_6fdd7c0093a9b09a3ff3e1bd653d54bd extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    ";
-        if (twig_test_empty((isset($context["citas"]) || array_key_exists("citas", $context) ? $context["citas"] : (function () { throw new RuntimeError('Variable "citas" does not exist.', 6, $this->source); })()))) {
-            // line 7
-            echo "        No existen citas para mostrar
+        echo "    
+    <div id=\"calendar\">
+    </div>
+
+
     ";
-        } else {
-            // line 9
-            echo "        <table class=\"table\">
-            <thead>
-                <tr>
-                    <th scope=\"col\">Fecha</th>
-                    <th scope=\"col\">Hora</th>
-                    <th scope=\"col\">Servicio</th>
-                    <th scope=\"col\">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-            ";
-            // line 19
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["citas"]) || array_key_exists("citas", $context) ? $context["citas"] : (function () { throw new RuntimeError('Variable "citas" does not exist.', 19, $this->source); })()));
-            foreach ($context['_seq'] as $context["_key"] => $context["cita"]) {
-                // line 20
-                echo "                ";
-                if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "tutor", [], "any", false, false, false, 20), "id", [], "any", false, false, false, 20) == (isset($context["id"]) || array_key_exists("id", $context) ? $context["id"] : (function () { throw new RuntimeError('Variable "id" does not exist.', 20, $this->source); })()))) {
-                    // line 21
-                    echo "                    <tr>
-                        <td>";
-                    // line 22
-                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "fecha", [], "any", false, false, false, 22), "d/m/Y"), "html", null, true);
-                    echo "</td>
-                        <td>";
-                    // line 23
-                    echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "hora", [], "any", false, false, false, 23), "H:i:s"), "html", null, true);
-                    echo "</td>
-                        <td>";
-                    // line 24
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["cita"], "Servicio", [], "any", false, false, false, 24), "nombre", [], "any", false, false, false, 24), "html", null, true);
-                    echo "</td>
-                        <td><a href=\"/familia/";
-                    // line 25
-                    echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 25, $this->source); })()), "html", null, true);
-                    echo "/";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["cita"], "id", [], "any", false, false, false, 25), "html", null, true);
-                    echo "\" class=\"btn btn-primary ";
-                    if ((twig_get_attribute($this->env, $this->source, $context["cita"], "disabled", [], "any", false, false, false, 25) == true)) {
-                        echo "disabled";
-                    }
-                    echo "\">Reservar</a></td>
-                    </tr>
-                ";
-                }
-                // line 28
-                echo "            ";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['cita'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 29
-            echo "            </tbody>
-        </table>
-        <a href=\"/familia\" class=\"btn btn-primary\">⏪</a>
-        ";
-            // line 32
-            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-                // line 33
-                echo "            <a href=\"/consulta/";
-                echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 33, $this->source); })()), "html", null, true);
-                echo "/";
-                echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 33, $this->source); })()), "html", null, true);
-                echo "\" class=\"btn btn-primary\">Consulta</a>
-        ";
-            }
-            // line 35
-            echo "    ";
+        // line 38
+        echo "    
+    ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 71
+    public function block_javascripts($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 72
+        echo "    <script src=\"/javascripts/moment.min.js\"></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js\"></script>
+    <script src=\"/javascripts/es.js\"></script>
+    <script>
+        window.onload = () => {
+            let calendarElt = document.querySelector(\"#calendar\");
+
+            let calendar = new FullCalendar.Calendar(calendarElt, {
+                locale: 'es',
+                initialView: 'dayGridMonth',
+                firstDay: 1,
+                timeZone: 'Europe/Madrid',
+                customButtons: {
+                    consulta: {
+                        themeIcon: \"refresh\",
+                        text: \"Consulta\",
+                        click: function(){
+                            window.open(`/familia/";
+        // line 89
+        echo twig_escape_filter($this->env, (isset($context["trabajador"]) || array_key_exists("trabajador", $context) ? $context["trabajador"] : (function () { throw new RuntimeError('Variable "trabajador" does not exist.', 89, $this->source); })()), "html", null, true);
+        echo "/";
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 89, $this->source); })()), "html", null, true);
+        echo "/consulta/";
+        echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 89, $this->source); })()), "html", null, true);
+        echo "`,\"_self\")
+                        }
+                    },
+                },
+                headerToolbar: {
+                    start: 'prev,next,consulta,today',
+                    center: 'title',
+                    end: 'dayGridMonth,timeGridWeek,listWeek',
+                },
+                events: ";
+        // line 98
+        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 98, $this->source); })());
+        echo ",
+                eventClick: function(e) {
+                    window.open(`/familia/";
+        // line 100
+        echo twig_escape_filter($this->env, (isset($context["trabajador"]) || array_key_exists("trabajador", $context) ? $context["trabajador"] : (function () { throw new RuntimeError('Variable "trabajador" does not exist.', 100, $this->source); })()), "html", null, true);
+        echo "/";
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 100, $this->source); })()), "html", null, true);
+        echo "/\${e.event.id}`,\"_self\") 
+                },
+                /*
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                */
+                eventResizableFromStart: true,
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+                dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sáb'],
+                buttonText: {
+                    today:    'Hoy',
+                    month:    'Mes',
+                    week:     'Semana',
+                    day:      'Día',
+                    list:     'Lista'
+                },
+                allDaySlot: false,
+            })
+            calendar.render()
         }
+    </script>
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -181,7 +199,7 @@ class __TwigTemplate_6fdd7c0093a9b09a3ff3e1bd653d54bd extends Template
 
     public function getDebugInfo()
     {
-        return array (  162 => 35,  154 => 33,  152 => 32,  147 => 29,  141 => 28,  129 => 25,  125 => 24,  121 => 23,  117 => 22,  114 => 21,  111 => 20,  107 => 19,  95 => 9,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  157 => 100,  152 => 98,  136 => 89,  117 => 72,  107 => 71,  96 => 38,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -191,7 +209,40 @@ class __TwigTemplate_6fdd7c0093a9b09a3ff3e1bd653d54bd extends Template
 {% block title %}Hello FamiliaController!{% endblock %}
 
 {% block body %}
-    {% if citas is empty %}
+    
+    <div id=\"calendar\">
+    </div>
+
+
+    {# <div class=\"modal fade\" id=\"myModal\" data-backdrop=\"static\" data-keyboard=\"false\" tabindex=\"-1\" aria-labelledby=\"staticBackdrop\" aria-hidden=\"true\">
+        <div class=\"modal-dialog\">
+            <div class=\"modal-content\">
+                <div class=\"modal-header\">
+                    <h5 class=\"modal-title\" id=\"titulo\"></h5>
+                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
+                        <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                </div>
+                <form id=\"formulario\">
+                    <div class=\"modal-body\">
+                        <div class=\"form-floating mb-3\">
+                            <input type=\"date\" class=\"form-control\" id=\"start\">
+                            <label for=\"exampleFormControlInput1\" class=\"form-label\">Fecha de inicio</label>
+                        </div>
+                        <div class=\"mb-3\">
+                            <label for=\"exampleFormControlTextarea1\" class=\"form-label\">Example textarea</label>
+                            <textarea class=\"form-control\" id=\"exampleFormControlTextarea1\" rows=\"3\"></textarea>
+                        </div>
+                    </div>
+                    <div class=\"modal-footer\">
+
+                    </div>
+                </form>    
+            </div>
+        </div>
+    </div> #}
+    
+    {# {% if citas is empty %}
         No existen citas para mostrar
     {% else %}
         <table class=\"table\">
@@ -220,8 +271,59 @@ class __TwigTemplate_6fdd7c0093a9b09a3ff3e1bd653d54bd extends Template
         {% if is_granted(\"IS_AUTHENTICATED_REMEMBERED\") %}
             <a href=\"/consulta/{{servicio}}/{{username}}\" class=\"btn btn-primary\">Consulta</a>
         {% endif %}
-    {% endif %}
+    {% endif %} #}
 {% endblock %}
-", "familia/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\index.html.twig");
+
+{% block javascripts %}
+    <script src=\"/javascripts/moment.min.js\"></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js\"></script>
+    <script src=\"/javascripts/es.js\"></script>
+    <script>
+        window.onload = () => {
+            let calendarElt = document.querySelector(\"#calendar\");
+
+            let calendar = new FullCalendar.Calendar(calendarElt, {
+                locale: 'es',
+                initialView: 'dayGridMonth',
+                firstDay: 1,
+                timeZone: 'Europe/Madrid',
+                customButtons: {
+                    consulta: {
+                        themeIcon: \"refresh\",
+                        text: \"Consulta\",
+                        click: function(){
+                            window.open(`/familia/{{trabajador}}/{{servicio}}/consulta/{{username}}`,\"_self\")
+                        }
+                    },
+                },
+                headerToolbar: {
+                    start: 'prev,next,consulta,today',
+                    center: 'title',
+                    end: 'dayGridMonth,timeGridWeek,listWeek',
+                },
+                events: {{data|raw}},
+                eventClick: function(e) {
+                    window.open(`/familia/{{trabajador}}/{{servicio}}/\${e.event.id}`,\"_self\") 
+                },
+                /*
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                */
+                eventResizableFromStart: true,
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+                dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sáb'],
+                buttonText: {
+                    today:    'Hoy',
+                    month:    'Mes',
+                    week:     'Semana',
+                    day:      'Día',
+                    list:     'Lista'
+                },
+                allDaySlot: false,
+            })
+            calendar.render()
+        }
+    </script>
+{% endblock %}", "familia/index.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\index.html.twig");
     }
 }

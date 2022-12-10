@@ -2,13 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Cita;
+use App\Entity\Calendar;
 use App\Entity\User;
-use App\Form\CitaType;
+use App\Form\CalendarType;
 use App\Form\UserAdminType;
 use App\Repository\ReservaRepository;
 use App\Repository\TutorRepository;
-use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,8 +21,8 @@ class PlantillaController extends AbstractController
     #[Route('/añadir_citas', name: 'aniadir_citas')]
     public function addCitas(Request $request,ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
     {
-        $cita = new Cita();
-        $form = $this->createForm(CitaType::class,$cita);
+        $event = new Calendar();
+        $form = $this->createForm(CalendarType::class,$event);
         $form->handleRequest($request);
 
         $username = $authenticationUtils->getLastUsername();
@@ -33,14 +32,16 @@ class PlantillaController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $cita->setFecha($form->get('fecha')->getData());
-            $cita->setHora($form->get('hora')->getData());
-            $cita->setServicio($form->get('Servicio')->getData());
-            $cita->setDisabled(false);
-            $cita->setTutor($tutor);
+            $event->setTitle($form->get('title')->getData());
+            $event->setStart($form->get('start')->getData());
+            $event->setEnd($form->get('end')->getData());
+            $event->setDescription($form->get('description')->getData());
+            $event->setServicios($form->get('servicios')->getData());
+            $event->setDisabled(false);
+            $event->setTutor($tutor);
 
             $em = $doctrine->getManager();
-            $em->persist($cita);
+            $em->persist($event);
             $em->flush();
             return $this->redirectToRoute('plantilla');
         }

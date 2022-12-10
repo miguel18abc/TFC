@@ -24,13 +24,14 @@ class Tutor
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $username = null;
 
-    #[ORM\OneToMany(mappedBy: 'tutor', targetEntity: Cita::class)]
-    private Collection $citas;
+    #[ORM\OneToMany(mappedBy: 'tutor', targetEntity: Calendar::class)]
+    private Collection $calendars;
 
     public function __construct()
     {
         $this->reserva = new ArrayCollection();
         $this->citas = new ArrayCollection();
+        $this->calendars = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -93,29 +94,29 @@ class Tutor
     }
 
     /**
-     * @return Collection<int, Cita>
+     * @return Collection<int, Calendar>
      */
-    public function getCitas(): Collection
+    public function getCalendars(): Collection
     {
-        return $this->citas;
+        return $this->calendars;
     }
 
-    public function addCita(Cita $cita): self
+    public function addCalendar(Calendar $calendar): self
     {
-        if (!$this->citas->contains($cita)) {
-            $this->citas->add($cita);
-            $cita->setTutor($this);
+        if (!$this->calendars->contains($calendar)) {
+            $this->calendars->add($calendar);
+            $calendar->setTutor($this);
         }
 
         return $this;
     }
 
-    public function removeCita(Cita $cita): self
+    public function removeCalendar(Calendar $calendar): self
     {
-        if ($this->citas->removeElement($cita)) {
+        if ($this->calendars->removeElement($calendar)) {
             // set the owning side to null (unless already changed)
-            if ($cita->getTutor() === $this) {
-                $cita->setTutor(null);
+            if ($calendar->getTutor() === $this) {
+                $calendar->setTutor(null);
             }
         }
 

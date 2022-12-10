@@ -18,12 +18,13 @@ class Servicios
     #[ORM\Column(length: 255)]
     private ?string $Nombre = null;
 
-    #[ORM\OneToMany(mappedBy: 'Servicio', targetEntity: Cita::class)]
-    private Collection $citas;
+    #[ORM\OneToMany(mappedBy: 'servicios', targetEntity: Calendar::class)]
+    private Collection $calendars;
 
     public function __construct()
     {
         $this->citas = new ArrayCollection();
+        $this->calendars = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -44,29 +45,29 @@ class Servicios
     }
 
     /**
-     * @return Collection<int, Cita>
+     * @return Collection<int, Calendar>
      */
-    public function getCitas(): Collection
+    public function getCalendars(): Collection
     {
-        return $this->citas;
+        return $this->calendars;
     }
 
-    public function addCita(Cita $cita): self
+    public function addCalendar(Calendar $calendar): self
     {
-        if (!$this->citas->contains($cita)) {
-            $this->citas->add($cita);
-            $cita->setServicio($this);
+        if (!$this->calendars->contains($calendar)) {
+            $this->calendars->add($calendar);
+            $calendar->setServicios($this);
         }
 
         return $this;
     }
 
-    public function removeCita(Cita $cita): self
+    public function removeCalendar(Calendar $calendar): self
     {
-        if ($this->citas->removeElement($cita)) {
+        if ($this->calendars->removeElement($calendar)) {
             // set the owning side to null (unless already changed)
-            if ($cita->getServicio() === $this) {
-                $cita->setServicio(null);
+            if ($calendar->getServicios() === $this) {
+                $calendar->setServicios(null);
             }
         }
 

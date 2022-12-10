@@ -67,10 +67,10 @@ class Reserva extends \App\Entity\Reserva implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'cita'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'tutor', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'calendar'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'cita'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'Username', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'tutor', '' . "\0" . 'App\\Entity\\Reserva' . "\0" . 'calendar'];
     }
 
     /**
@@ -217,23 +217,45 @@ class Reserva extends \App\Entity\Reserva implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getCita(): ?\App\Entity\Cita
+    public function getTutor(): ?\App\Entity\Tutor
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCita', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTutor', []);
 
-        return parent::getCita();
+        return parent::getTutor();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setCita(?\App\Entity\Cita $cita): \App\Entity\Reserva
+    public function setTutor(?\App\Entity\Tutor $tutor): \App\Entity\Reserva
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCita', [$cita]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTutor', [$tutor]);
 
-        return parent::setCita($cita);
+        return parent::setTutor($tutor);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCalendar(): ?\App\Entity\Calendar
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCalendar', []);
+
+        return parent::getCalendar();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCalendar(?\App\Entity\Calendar $calendar): \App\Entity\Reserva
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCalendar', [$calendar]);
+
+        return parent::setCalendar($calendar);
     }
 
 }

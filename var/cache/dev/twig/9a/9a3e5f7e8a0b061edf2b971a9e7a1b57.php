@@ -89,10 +89,9 @@ class __TwigTemplate_dc783def4926b7fc456b7aa8f2d24411 extends Template
     ";
         // line 17
         echo "
-
     ";
-        // line 19
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), 'form');
+        // line 18
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 18, $this->source); })()), 'form');
         echo "
     
 ";
@@ -116,7 +115,7 @@ class __TwigTemplate_dc783def4926b7fc456b7aa8f2d24411 extends Template
 
     public function getDebugInfo()
     {
-        return array (  95 => 19,  91 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  94 => 18,  91 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -137,7 +136,6 @@ class __TwigTemplate_dc783def4926b7fc456b7aa8f2d24411 extends Template
         </div>
     </div>
     {% endfor %} #}
-
 
     {{ form(form) }}
     

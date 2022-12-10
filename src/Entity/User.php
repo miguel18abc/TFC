@@ -29,10 +29,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-    private ?string $password = null;
-
-    #[ORM\OneToMany(mappedBy: 'User', targetEntity: Cita::class)]
-    private Collection $citas;
+    private ?string $password = null; 
 
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Tutor $tutor = null;
@@ -125,36 +122,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    /**
-     * @return Collection<int, Cita>
-     */
-    public function getCitas(): Collection
-    {
-        return $this->citas;
-    }
-
-    public function addCita(Cita $cita): self
-    {
-        if (!$this->citas->contains($cita)) {
-            $this->citas->add($cita);
-            $cita->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCita(Cita $cita): self
-    {
-        if ($this->citas->removeElement($cita)) {
-            // set the owning side to null (unless already changed)
-            if ($cita->getUser() === $this) {
-                $cita->setUser(null);
-            }
-        }
-
-        return $this;
     }
 
     public function getTutor(): ?Tutor

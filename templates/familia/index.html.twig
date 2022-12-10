@@ -3,7 +3,40 @@
 {% block title %}Hello FamiliaController!{% endblock %}
 
 {% block body %}
-    {% if citas is empty %}
+    
+    <div id="calendar">
+    </div>
+
+
+    {# <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titulo"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="formulario">
+                    <div class="modal-body">
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="start">
+                            <label for="exampleFormControlInput1" class="form-label">Fecha de inicio</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </form>    
+            </div>
+        </div>
+    </div> #}
+    
+    {# {% if citas is empty %}
         No existen citas para mostrar
     {% else %}
         <table class="table">
@@ -32,5 +65,57 @@
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <a href="/consulta/{{servicio}}/{{username}}" class="btn btn-primary">Consulta</a>
         {% endif %}
-    {% endif %}
+    {% endif %} #}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/javascripts/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="/javascripts/es.js"></script>
+    <script>
+        window.onload = () => {
+            let calendarElt = document.querySelector("#calendar");
+
+            let calendar = new FullCalendar.Calendar(calendarElt, {
+                locale: 'es',
+                initialView: 'dayGridMonth',
+                firstDay: 1,
+                timeZone: 'Europe/Madrid',
+                customButtons: {
+                    consulta: {
+                        themeIcon: "refresh",
+                        text: "Consulta",
+                        click: function(){
+                            window.open(`/familia/{{trabajador}}/{{servicio}}/consulta/{{username}}`,"_self")
+                        }
+                    },
+                },
+                headerToolbar: {
+                    start: 'prev,next,consulta,today',
+                    center: 'title',
+                    end: 'dayGridMonth,timeGridWeek,listWeek',
+                },
+                events: {{data|raw}},
+                eventClick: function(e) {
+                    window.open(`/familia/{{trabajador}}/{{servicio}}/${e.event.id}`,"_self") 
+                },
+                /*
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                */
+                eventResizableFromStart: true,
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+                dayNamesShort: ['Dom','Lun','Mar','Mie','Jue','Vie','Sáb'],
+                buttonText: {
+                    today:    'Hoy',
+                    month:    'Mes',
+                    week:     'Semana',
+                    day:      'Día',
+                    list:     'Lista'
+                },
+                allDaySlot: false,
+            })
+            calendar.render()
+        }
+    </script>
 {% endblock %}
