@@ -45,5 +45,6 @@
     "url": "https://github.com/miguel18abc/TFC/issues"
   },
   "homepage": "https://github.com/miguel18abc/TFC#readme",
-  "description": ""
+  "description": "",
+  "packageManager": "yarn@3.3.0"
 }

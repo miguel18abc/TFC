@@ -1,3 +1,8 @@
+html{
+	width: 100vw;
+	height: 100vh;
+}
+
 .disabled{
     cursor: not-allowed;
     pointer-events: none;
@@ -218,6 +223,10 @@ footer{
 
 @media (max-width: 880px) {
 
+	.footer-distributed{
+		padding-top: 0;
+	}
+
 	.footer-distributed .footer-left,
 	.footer-distributed .footer-center,
 	.footer-distributed .footer-right{
@@ -225,10 +234,37 @@ footer{
 		width: 100%;
 		margin-bottom: 40px;
 		text-align: center;
+		height: 10px;
 	}
 
 	.footer-distributed .footer-center i{
 		margin-left: 0;
 	}
 
+}
+
+@media screen and (max-width: 600px) {
+	table {
+		width:100%;
+	}
+	thead {
+		display: none;
+	}
+	tr:nth-of-type(2n) {
+		background-color: inherit;
+	}
+	tr td:first-child {
+		background: #f0f0f0;
+		font-weight:bold;
+		font-size:1.3em;
+	}
+	tbody td {
+		display: block;
+		text-align:center;
+	}
+	tbody td:before {
+		content: attr(data-th);
+		display: block;
+		text-align:center;
+	}
 }
