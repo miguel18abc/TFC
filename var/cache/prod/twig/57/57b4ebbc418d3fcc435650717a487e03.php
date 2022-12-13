@@ -72,9 +72,9 @@ class __TwigTemplate_1b7aa58e5fc9aaba002c85d22d52a40f extends Template
     {
         $macros = $this->macros;
         // line 72
-        echo "    <script src=\"/javascripts/moment.min.js\"></script>
-    <script src=\"https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@5.11.3/main.global.min.js\"></script>
-    <script src=\"/javascripts/es.js\"></script>
+        echo "    <script src=\"/public/javascripts/moment.min.js\"></script>
+    <script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js\" integrity=\"sha256-7PzqE1MyWa/IV5vZumk1CVO6OQbaJE4ns7vmxuUP/7g=\" crossorigin=\"anonymous\"></script>
+    <script src=\"/public/javascripts/es.js\"></script>
     <script>
         window.onload = () => {
             let calendarElt = document.querySelector(\"#calendar\");

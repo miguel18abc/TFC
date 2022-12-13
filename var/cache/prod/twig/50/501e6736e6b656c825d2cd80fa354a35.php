@@ -55,7 +55,7 @@ class __TwigTemplate_7b92fa01dc090183660e84d1d3af87d3 extends Template
     {
         $macros = $this->macros;
         // line 6
-        echo "    <table class=\"table table-striped\">
+        echo "    <table id=\"tablaCita\" class=\"table table-striped\">
             <thead>
                 <tr>
                     <th>Usuario</th>
@@ -112,7 +112,7 @@ class __TwigTemplate_7b92fa01dc090183660e84d1d3af87d3 extends Template
         // line 30
         echo "            </tbody>
         </table>
-        <a href=\"/plantilla\" class=\"btn btn-primary\">⏪</a>
+        <a id=\"buttonReturn\" href=\"/plantilla\" class=\"btn btn-primary\">⏪</a>
 ";
     }
 

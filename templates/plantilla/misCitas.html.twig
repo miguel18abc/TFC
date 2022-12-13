@@ -3,7 +3,7 @@
 {% block title %}Mis citas{% endblock %}
 
 {% block body %}
-    <table class="table table-striped">
+    <table id="tablaCita" class="table table-striped">
             <thead>
                 <tr>
                     <th>Usuario</th>
@@ -29,5 +29,5 @@
             {% endfor %}
             </tbody>
         </table>
-        <a href="/plantilla" class="btn btn-primary">⏪</a>
+        <a id="buttonReturn" href="/plantilla" class="btn btn-primary">⏪</a>
 {% endblock %}

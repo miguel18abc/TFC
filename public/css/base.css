@@ -3,9 +3,14 @@ html{
 	height: 100vh;
 }
 
-.disabled{
-    cursor: not-allowed;
-    pointer-events: none;
+/* AÑADIR CITAS */
+#aniadirCitas{
+	height: calc(100vh - 24.045407636738908vh);
+}
+
+/* DESPLEGABLE DE TUTORES */
+#desplegarTutores{
+	margin: 10px;
 }
 
 /* NAVBAR */
@@ -48,10 +53,6 @@ html{
 	margin:0;
 }
 
-html{
-	background-color: #eaf0f2;
-}
-
 body{
 	font:16px/1.6 Arial,  sans-serif;
 }
@@ -61,6 +62,7 @@ body{
 footer{
 	position: fixed;
 	bottom: 0;
+	height: 157px;
 }
 
 @media (max-height:800px){

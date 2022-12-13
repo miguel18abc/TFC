@@ -58,11 +58,13 @@ class __TwigTemplate_bc1332d65846c84a8bf7e825479dc52c extends Template
         echo "
     ";
         // line 17
-        echo "
-    ";
+        echo "    <div id=\"desplegarTutores\">
+        ";
         // line 18
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? null), 'form');
         echo "
+    </div>
+    
     
 ";
     }

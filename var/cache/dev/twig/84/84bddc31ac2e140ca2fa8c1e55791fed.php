@@ -88,11 +88,13 @@ class __TwigTemplate_74faf424a9b8d502d1c18ec52166d197 extends Template
         echo "
     ";
         // line 17
-        echo "
-    ";
+        echo "    <div id=\"desplegarTutores\">
+        ";
         // line 18
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 18, $this->source); })()), 'form');
         echo "
+    </div>
+    
     
 ";
         
@@ -136,8 +138,10 @@ class __TwigTemplate_74faf424a9b8d502d1c18ec52166d197 extends Template
         </div>
     </div>
     {% endfor %} #}
-
-    {{ form(form) }}
+    <div id=\"desplegarTutores\">
+        {{ form(form) }}
+    </div>
+    
     
 {% endblock %}", "familia/listarTutores.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\familia\\listarTutores.html.twig");
     }

@@ -51,6 +51,8 @@ class __TwigTemplate_29bfef7e95b1073c4ad07cce3581bf74 extends Template
 \t<br>
     <a class=\"btn btn-primary\" href=\"/familia/";
         // line 5
+        echo twig_escape_filter($this->env, ($context["trabajador"] ?? null), "html", null, true);
+        echo "/";
         echo twig_escape_filter($this->env, ($context["servicio"] ?? null), "html", null, true);
         echo "\">Volver a ";
         echo twig_escape_filter($this->env, ($context["servicio"] ?? null), "html", null, true);
