@@ -6,8 +6,7 @@ use App\Entity\Calendar;
 use App\Entity\Servicios;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ColorType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,15 +18,11 @@ class CalendarType extends AbstractType
     {
         $builder
             ->add('title',TextType::class,['label' => 'Título','required' => true])
-            ->add('start',DateType::class,['label' => 'Inicio','widget'=> 'single_text','model_timezone' => 'Europe/Madrid','required' => true])
-            ->add('end',DateType::class,['label' => 'Fin','widget'=> 'single_text','model_timezone' => 'Europe/Madrid','required' => true])
+            ->add('start',DateTimeType::class,['label' => 'Inicio','model_timezone' => 'Europe/Madrid','widget' => 'single_text','required' => true])
+            ->add('end',DateTimeType::class,['label' => 'Fin','model_timezone' => 'Europe/Madrid','widget' => 'single_text','required' => true])
             ->add('description',TextType::class,['label' => 'Descripción','required' => true])
             ->add('servicios',EntityType::class,['label' => 'Servicio','required' => true,'class' => Servicios::class,'choice_label' => 'Nombre'])
-            ->add('background_color',ColorType::class)
-            ->add('border_color',ColorType::class)
-            ->add('text_color',ColorType::class)
-            ->add('submit',SubmitType::class, ['label' => 'Enviar'])
-        ;
+            ->add('submit',SubmitType::class, ['label' => 'Enviar']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

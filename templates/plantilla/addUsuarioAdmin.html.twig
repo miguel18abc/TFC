@@ -3,5 +3,15 @@
 {% block title %}Plantilla{% endblock %}
 
 {% block body %}
-    {{form(form)}}
+    {# {{form(form)}} #}
+    {{ form_start(form) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.password) }}
+        <select id="selectServicios" name="selectServicios">
+            {% for servicio in servicios %}
+                <option value="{{servicio.Nombre}}">{{servicio.Nombre}}</option>
+            {% endfor %}
+        </select>
+        {{ form_row(form.enviar) }}
+    {{ form_end(form) }}
 {% endblock %}

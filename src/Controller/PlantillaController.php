@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Calendar;
+use App\Entity\Tutor;
 use App\Entity\User;
 use App\Form\CalendarType;
 use App\Form\UserAdminType;
 use App\Repository\ReservaRepository;
+use App\Repository\ServiciosRepository;
 use App\Repository\TutorRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,6 +39,9 @@ class PlantillaController extends AbstractController
             $event->setEnd($form->get('end')->getData());
             $event->setDescription($form->get('description')->getData());
             $event->setServicios($form->get('servicios')->getData());
+            $event->setBackgroundColor('#37a8ec');
+            $event->setTextColor('#000000');
+            $event->setBorderColor('#000000');
             $event->setDisabled(false);
             $event->setTutor($tutor);
 
@@ -67,7 +72,10 @@ class PlantillaController extends AbstractController
     #[Route('/addUser', name: 'addUser')]
     public function addAdminUser(Request $request,ManagerRegistry $doctrine,UserPasswordHasherInterface $userPasswordHasher): Response
     {
+        $serviciosRepository = new ServiciosRepository($doctrine);
+        $servicios = $serviciosRepository->findAll();
         $user = new User();
+        $tutor = new Tutor();
         $form = $this->createForm(UserAdminType::class,$user);
         $form->handleRequest($request);
         
@@ -77,13 +85,19 @@ class PlantillaController extends AbstractController
             $user->setPassword($userPasswordHasher->hashPassword($user,$form->get('password')->getData()));
             $roles = ["ROLE_ADMIN","ROLE_USER"];
             $user->setRoles($roles);
+            $tutor->setUser($user);
+            $tutor->setUsername($form->get('username')->getData());
+            $servicioSelect = $serviciosRepository->findOneBy(['Nombre' => $_POST['selectServicios']]);
+            $tutor->setServicios($servicioSelect);
 
+            
             $em = $doctrine->getManager();
             $em->persist($user);
+            $em->persist($tutor);
             $em->flush();
             return $this->redirectToRoute('plantilla');
         }
 
-        return $this->render('plantilla/addUsuarioAdmin.html.twig',['form' => $form->createView()]);
+        return $this->render('plantilla/addUsuarioAdmin.html.twig',['form' => $form->createView(),'servicios' => $servicios]);
     }
 }

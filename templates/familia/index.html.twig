@@ -2,6 +2,33 @@
 
 {% block title %}Hello FamiliaController!{% endblock %}
 
+{% block menu %}
+    {% set hide_user_nav = true %}
+        <nav class="navbar navbar-dark navbar-expand">
+            <div class="container-fluid">
+                <a href="https://www.iesjoseplanes.es/" target="_blank">
+                    <img id="icon" src="/svg/logoPlanesSinFondo.svg">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {% if (hide_user_nav is defined) %}
+                                <a class="nav-link" href="/familia/{{trabajador}}/{{servicio}}/consulta/{{username}}">Consulta</a>
+                            {% endif %}
+                            <a class="nav-link" href="{{ path('app_logout') }}">Cerrar sesión</a>
+                        {% else %}
+                            <a class="nav-link" href="{{ path('app_login') }}">Iniciar sesión</a>
+                            <a class="nav-link" href="{{ path('app_register') }}">Registrar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+{% endblock %}
+
 {% block body %}
 
     <div id="calendar">
@@ -81,7 +108,7 @@
                 initialView: 'dayGridMonth',
                 firstDay: 1,
                 timeZone: 'Europe/Madrid',
-                customButtons: {
+                /*customButtons: {
                     consulta: {
                         themeIcon: "refresh",
                         text: "Consulta",
@@ -89,9 +116,9 @@
                             window.open(`/familia/{{trabajador}}/{{servicio}}/consulta/{{username}}`,"_self")
                         }
                     },
-                },
+                },*/
                 headerToolbar: {
-                    start: 'prev,next,consulta,today',
+                    start: 'prev,next,today',
                     center: 'title',
                     end: 'dayGridMonth,timeGridWeek,listWeek',
                 },

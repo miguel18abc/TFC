@@ -77,22 +77,22 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
         ";
         // line 28
         $this->displayBlock('menu', $context, $blocks);
-        // line 52
-        echo "
-        ";
         // line 53
+        echo "
+        ";
+        // line 54
         $this->displayBlock('body', $context, $blocks);
-        // line 55
-        echo "
-        ";
         // line 56
-        $this->displayBlock('footer', $context, $blocks);
-        // line 84
         echo "
         ";
+        // line 57
+        $this->displayBlock('footer', $context, $blocks);
         // line 85
+        echo "
+        ";
+        // line 86
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 90
+        // line 91
         echo "    </body>
 </html>
 
@@ -180,24 +180,31 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
         // line 39
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
             // line 40
+            echo "                                ";
+            if (array_key_exists("hide_user_nav", $context)) {
+                // line 41
+                echo "                                    <a class=\"nav-link\" href=\"";
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+                echo "\">Cerrar sesión</a>
+                                ";
+            }
+            // line 43
             echo "                                <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-            echo "\">
-                                    Cerrar sesión
-                                </a>
+            echo "\">Cerrar sesión</a>
                             ";
         } else {
-            // line 44
+            // line 45
             echo "                                <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Iniciar sesión</a>
                                 <a class=\"nav-link\" href=\"";
-            // line 45
+            // line 46
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
             echo "\">Registrar</a>
                             ";
         }
-        // line 47
+        // line 48
         echo "                        </div>
                     </div>
                 </div>
@@ -211,7 +218,7 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
 
     }
 
-    // line 53
+    // line 54
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -221,7 +228,7 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 54
+        // line 55
         echo "        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -231,7 +238,7 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
 
     }
 
-    // line 56
+    // line 57
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -241,7 +248,7 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 57
+        // line 58
         echo "            <footer class=\"footer-distributed\">
                 <div class=\"footer-left\">
                     <p class=\"footer-links\">
@@ -277,7 +284,7 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
 
     }
 
-    // line 85
+    // line 86
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -287,7 +294,7 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 86
+        // line 87
         echo "            <script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>
             <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3\" crossorigin=\"anonymous\"></script>
             <script src=\"/public/javascripts/sweetalert2.all.min.js\"></script>
@@ -312,7 +319,7 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  291 => 86,  281 => 85,  245 => 57,  235 => 56,  225 => 54,  215 => 53,  201 => 47,  196 => 45,  191 => 44,  183 => 40,  181 => 39,  169 => 29,  159 => 28,  138 => 14,  128 => 13,  109 => 6,  96 => 90,  94 => 85,  91 => 84,  89 => 56,  86 => 55,  84 => 53,  81 => 52,  79 => 28,  75 => 26,  73 => 13,  70 => 12,  67 => 11,  64 => 10,  61 => 9,  56 => 6,  49 => 1,);
+        return array (  298 => 87,  288 => 86,  252 => 58,  242 => 57,  232 => 55,  222 => 54,  208 => 48,  203 => 46,  198 => 45,  192 => 43,  186 => 41,  183 => 40,  181 => 39,  169 => 29,  159 => 28,  138 => 14,  128 => 13,  109 => 6,  96 => 91,  94 => 86,  91 => 85,  89 => 57,  86 => 56,  84 => 54,  81 => 53,  79 => 28,  75 => 26,  73 => 13,  70 => 12,  67 => 11,  64 => 10,  61 => 9,  56 => 6,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -356,9 +363,10 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
                     <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">
                         <div class=\"navbar-nav ms-auto\">
                             {% if is_granted(\"IS_AUTHENTICATED_REMEMBERED\") %}
-                                <a class=\"nav-link\" href=\"{{ path('app_logout') }}\">
-                                    Cerrar sesión
-                                </a>
+                                {% if (hide_user_nav is defined) %}
+                                    <a class=\"nav-link\" href=\"{{ path('app_logout')}}\">Cerrar sesión</a>
+                                {% endif %}
+                                <a class=\"nav-link\" href=\"{{ path('app_logout') }}\">Cerrar sesión</a>
                             {% else %}
                                 <a class=\"nav-link\" href=\"{{ path('app_login') }}\">Iniciar sesión</a>
                                 <a class=\"nav-link\" href=\"{{ path('app_register') }}\">Registrar</a>

@@ -27,11 +27,15 @@ class Tutor
     #[ORM\OneToMany(mappedBy: 'tutor', targetEntity: Calendar::class)]
     private Collection $calendars;
 
+    #[ORM\ManyToOne(inversedBy: 'tutor')]
+    private ?Servicios $servicios = null;
+
     public function __construct()
     {
         $this->reserva = new ArrayCollection();
         $this->citas = new ArrayCollection();
         $this->calendars = new ArrayCollection();
+        $this->servicio = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -122,4 +126,17 @@ class Tutor
 
         return $this;
     }
+
+    public function getServicios(): ?Servicios
+    {
+        return $this->servicios;
+    }
+
+    public function setServicios(?Servicios $servicios): self
+    {
+        $this->servicios = $servicios;
+
+        return $this;
+    }
+    
 }

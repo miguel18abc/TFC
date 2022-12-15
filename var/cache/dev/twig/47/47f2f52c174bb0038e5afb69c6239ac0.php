@@ -26,6 +26,7 @@ class __TwigTemplate_c27195818a901317b165ac032f958fa9 extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
+            'menu' => [$this, 'block_menu'],
             'body' => [$this, 'block_body'],
             'javascripts' => [$this, 'block_javascripts'],
         ];
@@ -76,6 +77,76 @@ class __TwigTemplate_c27195818a901317b165ac032f958fa9 extends Template
     }
 
     // line 5
+    public function block_menu($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "menu"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "menu"));
+
+        // line 6
+        echo "    ";
+        $context["hide_user_nav"] = true;
+        // line 7
+        echo "        <nav class=\"navbar navbar-dark navbar-expand\">
+            <div class=\"container-fluid\">
+                <a href=\"https://www.iesjoseplanes.es/\" target=\"_blank\">
+                    <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
+                </a>
+                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+                    <span class=\"navbar-toggler-icon\"></span>
+                </button>
+                <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">
+                    <div class=\"navbar-nav ms-auto\">
+                        ";
+        // line 17
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 18
+            echo "                            ";
+            if (array_key_exists("hide_user_nav", $context)) {
+                // line 19
+                echo "                                <a class=\"nav-link\" href=\"/familia/";
+                echo twig_escape_filter($this->env, (isset($context["trabajador"]) || array_key_exists("trabajador", $context) ? $context["trabajador"] : (function () { throw new RuntimeError('Variable "trabajador" does not exist.', 19, $this->source); })()), "html", null, true);
+                echo "/";
+                echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 19, $this->source); })()), "html", null, true);
+                echo "/consulta/";
+                echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 19, $this->source); })()), "html", null, true);
+                echo "\">Consulta</a>
+                            ";
+            }
+            // line 21
+            echo "                            <a class=\"nav-link\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\">Cerrar sesión</a>
+                        ";
+        } else {
+            // line 23
+            echo "                            <a class=\"nav-link\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Iniciar sesión</a>
+                            <a class=\"nav-link\" href=\"";
+            // line 24
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+            echo "\">Registrar</a>
+                        ";
+        }
+        // line 26
+        echo "                    </div>
+                </div>
+            </div>
+        </nav>
+";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 32
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -85,14 +156,14 @@ class __TwigTemplate_c27195818a901317b165ac032f958fa9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 33
         echo "
     <div id=\"calendar\">
     </div>
 
 
     ";
-        // line 38
+        // line 65
         echo "    
     ";
         
@@ -103,7 +174,7 @@ class __TwigTemplate_c27195818a901317b165ac032f958fa9 extends Template
 
     }
 
-    // line 71
+    // line 98
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -113,7 +184,7 @@ class __TwigTemplate_c27195818a901317b165ac032f958fa9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 72
+        // line 99
         echo "    <script src=\"/public/javascripts/moment.min.js\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js\" integrity=\"sha256-7PzqE1MyWa/IV5vZumk1CVO6OQbaJE4ns7vmxuUP/7g=\" crossorigin=\"anonymous\"></script>
     <script src=\"/public/javascripts/es.js\"></script>
@@ -126,37 +197,37 @@ class __TwigTemplate_c27195818a901317b165ac032f958fa9 extends Template
                 initialView: 'dayGridMonth',
                 firstDay: 1,
                 timeZone: 'Europe/Madrid',
-                customButtons: {
+                /*customButtons: {
                     consulta: {
                         themeIcon: \"refresh\",
                         text: \"Consulta\",
                         click: function(){
                             window.open(`/familia/";
-        // line 89
-        echo twig_escape_filter($this->env, (isset($context["trabajador"]) || array_key_exists("trabajador", $context) ? $context["trabajador"] : (function () { throw new RuntimeError('Variable "trabajador" does not exist.', 89, $this->source); })()), "html", null, true);
+        // line 116
+        echo twig_escape_filter($this->env, (isset($context["trabajador"]) || array_key_exists("trabajador", $context) ? $context["trabajador"] : (function () { throw new RuntimeError('Variable "trabajador" does not exist.', 116, $this->source); })()), "html", null, true);
         echo "/";
-        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 89, $this->source); })()), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 116, $this->source); })()), "html", null, true);
         echo "/consulta/";
-        echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 89, $this->source); })()), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["username"]) || array_key_exists("username", $context) ? $context["username"] : (function () { throw new RuntimeError('Variable "username" does not exist.', 116, $this->source); })()), "html", null, true);
         echo "`,\"_self\")
                         }
                     },
-                },
+                },*/
                 headerToolbar: {
-                    start: 'prev,next,consulta,today',
+                    start: 'prev,next,today',
                     center: 'title',
                     end: 'dayGridMonth,timeGridWeek,listWeek',
                 },
                 events: ";
-        // line 98
-        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 98, $this->source); })());
+        // line 125
+        echo (isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 125, $this->source); })());
         echo ",
                 eventClick: function(e) {
                     window.open(`/familia/";
-        // line 100
-        echo twig_escape_filter($this->env, (isset($context["trabajador"]) || array_key_exists("trabajador", $context) ? $context["trabajador"] : (function () { throw new RuntimeError('Variable "trabajador" does not exist.', 100, $this->source); })()), "html", null, true);
+        // line 127
+        echo twig_escape_filter($this->env, (isset($context["trabajador"]) || array_key_exists("trabajador", $context) ? $context["trabajador"] : (function () { throw new RuntimeError('Variable "trabajador" does not exist.', 127, $this->source); })()), "html", null, true);
         echo "/";
-        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 100, $this->source); })()), "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["servicio"]) || array_key_exists("servicio", $context) ? $context["servicio"] : (function () { throw new RuntimeError('Variable "servicio" does not exist.', 127, $this->source); })()), "html", null, true);
         echo "/\${e.event.id}`,\"_self\") 
                 },
                 /*
@@ -199,7 +270,7 @@ class __TwigTemplate_c27195818a901317b165ac032f958fa9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  157 => 100,  152 => 98,  136 => 89,  117 => 72,  107 => 71,  96 => 38,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  228 => 127,  223 => 125,  207 => 116,  188 => 99,  178 => 98,  167 => 65,  160 => 33,  150 => 32,  136 => 26,  131 => 24,  126 => 23,  120 => 21,  110 => 19,  107 => 18,  105 => 17,  93 => 7,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -207,6 +278,33 @@ class __TwigTemplate_c27195818a901317b165ac032f958fa9 extends Template
         return new Source("{% extends 'base.html.twig' %}
 
 {% block title %}Hello FamiliaController!{% endblock %}
+
+{% block menu %}
+    {% set hide_user_nav = true %}
+        <nav class=\"navbar navbar-dark navbar-expand\">
+            <div class=\"container-fluid\">
+                <a href=\"https://www.iesjoseplanes.es/\" target=\"_blank\">
+                    <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
+                </a>
+                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+                    <span class=\"navbar-toggler-icon\"></span>
+                </button>
+                <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">
+                    <div class=\"navbar-nav ms-auto\">
+                        {% if is_granted(\"IS_AUTHENTICATED_REMEMBERED\") %}
+                            {% if (hide_user_nav is defined) %}
+                                <a class=\"nav-link\" href=\"/familia/{{trabajador}}/{{servicio}}/consulta/{{username}}\">Consulta</a>
+                            {% endif %}
+                            <a class=\"nav-link\" href=\"{{ path('app_logout') }}\">Cerrar sesión</a>
+                        {% else %}
+                            <a class=\"nav-link\" href=\"{{ path('app_login') }}\">Iniciar sesión</a>
+                            <a class=\"nav-link\" href=\"{{ path('app_register') }}\">Registrar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+{% endblock %}
 
 {% block body %}
 
@@ -287,7 +385,7 @@ class __TwigTemplate_c27195818a901317b165ac032f958fa9 extends Template
                 initialView: 'dayGridMonth',
                 firstDay: 1,
                 timeZone: 'Europe/Madrid',
-                customButtons: {
+                /*customButtons: {
                     consulta: {
                         themeIcon: \"refresh\",
                         text: \"Consulta\",
@@ -295,9 +393,9 @@ class __TwigTemplate_c27195818a901317b165ac032f958fa9 extends Template
                             window.open(`/familia/{{trabajador}}/{{servicio}}/consulta/{{username}}`,\"_self\")
                         }
                     },
-                },
+                },*/
                 headerToolbar: {
-                    start: 'prev,next,consulta,today',
+                    start: 'prev,next,today',
                     center: 'title',
                     end: 'dayGridMonth,timeGridWeek,listWeek',
                 },

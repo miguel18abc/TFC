@@ -21,10 +21,14 @@ class Servicios
     #[ORM\OneToMany(mappedBy: 'servicios', targetEntity: Calendar::class)]
     private Collection $calendars;
 
+    #[ORM\OneToMany(mappedBy: 'servicios', targetEntity: Tutor::class)]
+    private Collection $tutor;
+
     public function __construct()
     {
         $this->citas = new ArrayCollection();
         $this->calendars = new ArrayCollection();
+        $this->tutor = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -73,4 +77,35 @@ class Servicios
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Tutor>
+     */
+    public function getTutor(): Collection
+    {
+        return $this->tutor;
+    }
+
+    public function addTutor(Tutor $tutor): self
+    {
+        if (!$this->tutor->contains($tutor)) {
+            $this->tutor->add($tutor);
+            $tutor->setServicios($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTutor(Tutor $tutor): self
+    {
+        if ($this->tutor->removeElement($tutor)) {
+            // set the owning side to null (unless already changed)
+            if ($tutor->getServicios() === $this) {
+                $tutor->setServicios(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

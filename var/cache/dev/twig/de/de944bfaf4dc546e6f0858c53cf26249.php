@@ -85,9 +85,12 @@ class __TwigTemplate_7ccd5c5034eb5b7007d272bd1ee5cf53 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    ";
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 6, $this->source); })()), 'form');
+        echo "<div id=\"aniadirCitas\">
+    ";
+        // line 7
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 7, $this->source); })()), 'form');
         echo "
+<div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -109,7 +112,7 @@ class __TwigTemplate_7ccd5c5034eb5b7007d272bd1ee5cf53 extends Template
 
     public function getDebugInfo()
     {
-        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -119,7 +122,9 @@ class __TwigTemplate_7ccd5c5034eb5b7007d272bd1ee5cf53 extends Template
 {% block title %}Plantilla{% endblock %}
 
 {% block body %}
+<div id=\"aniadirCitas\">
     {{form(form)}}
+<div>
 {% endblock %}
 ", "plantilla/formularioCita.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\plantilla\\formularioCita.html.twig");
     }

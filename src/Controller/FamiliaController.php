@@ -56,8 +56,10 @@ class FamiliaController extends AbstractController
     //CÓDIGO DE TUTORÍA
 
     #[Route('/familia/tutor', name: 'showTutores')]
-    public function listadoTutoria(Request $request): Response
+    public function listadoTutoria(Request $request,ManagerRegistry $doctrine): Response
     {
+        $tutorRepository = new TutorRepository($doctrine);
+        
         $form = $this->createFormBuilder()
                     ->add('Tutor', EntityType::class, ['label' => 'Seleccione tutor ', 'class' => Tutor::class, 'choice_label' => 'username'])
                     ->add('Elegir', SubmitType::class)
