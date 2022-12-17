@@ -44,7 +44,7 @@ class Calendar
     #[ORM\ManyToOne(inversedBy: 'calendars')]
     private ?Tutor $tutor = null;
 
-    #[ORM\OneToOne(mappedBy: 'calendar', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'calendar', cascade: ['persist'])]
     private ?Reserva $reserva = null;
 
     #[ORM\Column]

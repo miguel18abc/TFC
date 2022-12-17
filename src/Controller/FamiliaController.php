@@ -3,13 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Reserva;
-use App\Entity\Tutor;
 use App\Repository\CalendarRepository;
 use App\Repository\ReservaRepository;
 use App\Repository\TutorRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -45,7 +43,7 @@ class FamiliaController extends AbstractController
         $calendar = $reserva->getCalendar();
         $calendar->setDisabled(false);
         $em = $doctrine->getManager();
-        $em->remove($calendar);
+        $em->remove($reserva);
         $em->flush();
         $session = $this->requestStack->getSession();
         $session->start();
@@ -59,9 +57,9 @@ class FamiliaController extends AbstractController
     public function listadoTutoria(Request $request,ManagerRegistry $doctrine): Response
     {
         $tutorRepository = new TutorRepository($doctrine);
-        
+        $tutores = $tutorRepository->findBy(['servicios' => 3]);
         $form = $this->createFormBuilder()
-                    ->add('Tutor', EntityType::class, ['label' => 'Seleccione tutor ', 'class' => Tutor::class, 'choice_label' => 'username'])
+                    // ->add('Tutor', EntityType::class, ['label' => 'Seleccione tutor ', 'class' => Tutor::class, 'choice_label' => $tutores])
                     ->add('Elegir', SubmitType::class)
                     ->getForm();
         $form->handleRequest($request);
@@ -70,10 +68,10 @@ class FamiliaController extends AbstractController
 
             $session = $this->requestStack->getSession();
             $session->start();
-            $session->set('tutor', $data['Tutor']->getId());
+            $session->set('tutor', $_POST['selectTutores']);
             return $this->redirectToRoute('tutoria');
         }
-        return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView()]);
+        return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView(),'tutores' => $tutores]);
     }
 
 
@@ -104,9 +102,6 @@ class FamiliaController extends AbstractController
         $session->start();
         $session->set('servicio','Tutoría');
         $session->set('trabajador','tutor');
-        // $servicio = $session->get('servicio');
-        // $idTutor = $session->get('tutor');
-        // $error = $authenticationUtils->getLastAuthenticationError();
 
         return $this->render('familia/index.html.twig', ['data' => $data->getContent(),'username' => $lastUsername,'events' => $calendar,'servicio' => 'Tutoría','trabajador' => $session->get('trabajador')]);
     }
@@ -157,10 +152,12 @@ class FamiliaController extends AbstractController
     //CÓDIGO DE ORIENTACIÓN
 
     #[Route('/familia/orientador', name: 'showOrientacion')]
-    public function listadoOrientacion(Request $request): Response
+    public function listadoOrientacion(Request $request,ManagerRegistry $doctrine): Response
     {
+        $tutorRepository = new TutorRepository($doctrine);
+        $orientadores = $tutorRepository->findBy(['servicios' => 1]);
         $form = $this->createFormBuilder()
-                    ->add('Orientador', EntityType::class, ['label' => 'Seleccione orientador/ora ', 'class' => Tutor::class, 'choice_label' => 'username'])
+                    // ->add('Orientador', EntityType::class, ['label' => 'Seleccione orientador/ora ', 'class' => Tutor::class, 'choice_label' => 'username'])
                     ->add('Elegir', SubmitType::class)
                     ->getForm();
         $form->handleRequest($request);
@@ -169,10 +166,11 @@ class FamiliaController extends AbstractController
 
             $session = $this->requestStack->getSession();
             $session->start();
-            $session->set('orientador', $data['Orientador']->getId());
+            var_dump($_POST['selectTutores']);
+            $session->set('orientador', $_POST['selectTutores']);
             return $this->redirectToRoute('orientacion');
         }
-        return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView()]);
+        return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView(),'tutores' => $orientadores]);
     }
 
     #[Route('/familia/orientador/Orientación', name: 'orientacion')]
@@ -253,10 +251,12 @@ class FamiliaController extends AbstractController
     //CÓDIGO DE SECRETARÍA
 
     #[Route('/familia/secretario', name: 'showSecretaria')]
-    public function listadoSecretaria(Request $request): Response
+    public function listadoSecretaria(Request $request,ManagerRegistry $doctrine): Response
     {
+        $tutorRepository = new TutorRepository($doctrine);
+        $secretarios = $tutorRepository->findBy(['servicios' => 2]);
         $form = $this->createFormBuilder()
-                    ->add('Secretario', EntityType::class, ['label' => 'Seleccione secretario/a ', 'class' => Tutor::class, 'choice_label' => 'username'])
+                    // ->add('Secretario', EntityType::class, ['label' => 'Seleccione secretario/a ', 'class' => Tutor::class, 'choice_label' => 'username'])
                     ->add('Elegir', SubmitType::class)
                     ->getForm();
         $form->handleRequest($request);
@@ -265,10 +265,10 @@ class FamiliaController extends AbstractController
 
             $session = $this->requestStack->getSession();
             $session->start();
-            $session->set('secretaria', $data['Secretario']->getId());
+            $session->set('secretaria', $_POST['selectTutores']);
             return $this->redirectToRoute('secretaria');
         }
-        return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView()]);
+        return $this->render('familia/listarTutores.html.twig', ['form' => $form->createView(),'tutores' => $secretarios]);
     }
 
 
@@ -299,9 +299,6 @@ class FamiliaController extends AbstractController
         $session->start();
         $session->set('servicio','Secretaría');
         $session->set('trabajador','secretario');
-        // $servicio = $session->get('servicio');
-        // $idTutor = $session->get('tutor');
-        // $error = $authenticationUtils->getLastAuthenticationError();
 
         return $this->render('familia/index.html.twig', ['data' => $data->getContent(),'username' => $lastUsername,'events' => $calendar,'servicio' => 'Secretaría','trabajador' => $session->get('trabajador')]);
     }

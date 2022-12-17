@@ -90,8 +90,38 @@ class __TwigTemplate_74faf424a9b8d502d1c18ec52166d197 extends Template
         // line 17
         echo "    <div id=\"desplegarTutores\">
         ";
-        // line 18
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 18, $this->source); })()), 'form');
+        // line 19
+        echo "        ";
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), 'form_start');
+        echo "
+            <label for=\"tutor\">Elige un tutor</label>
+            <select id=\"selectTutores\" name=\"selectTutores\">
+                ";
+        // line 22
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["tutores"]) || array_key_exists("tutores", $context) ? $context["tutores"] : (function () { throw new RuntimeError('Variable "tutores" does not exist.', 22, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["tutor"]) {
+            // line 23
+            echo "                    <option value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tutor"], "id", [], "any", false, false, false, 23), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tutor"], "username", [], "any", false, false, false, 23), "html", null, true);
+            echo "</option>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tutor'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 24
+        echo " 
+            </select>
+            ";
+        // line 26
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), "Elegir", [], "any", false, false, false, 26), 'row');
+        echo "
+        ";
+        // line 27
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), 'form_end');
         echo "
     </div>
     
@@ -117,7 +147,7 @@ class __TwigTemplate_74faf424a9b8d502d1c18ec52166d197 extends Template
 
     public function getDebugInfo()
     {
-        return array (  94 => 18,  91 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  124 => 27,  120 => 26,  116 => 24,  105 => 23,  101 => 22,  94 => 19,  91 => 17,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -139,7 +169,16 @@ class __TwigTemplate_74faf424a9b8d502d1c18ec52166d197 extends Template
     </div>
     {% endfor %} #}
     <div id=\"desplegarTutores\">
-        {{ form(form) }}
+        {# {{ form(form) }} #}
+        {{ form_start(form) }}
+            <label for=\"tutor\">Elige un tutor</label>
+            <select id=\"selectTutores\" name=\"selectTutores\">
+                {% for tutor in tutores %}
+                    <option value=\"{{tutor.id}}\">{{tutor.username}}</option>
+                {% endfor %} 
+            </select>
+            {{ form_row(form.Elegir) }}
+        {{ form_end(form) }}
     </div>
     
     

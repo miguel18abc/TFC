@@ -67,10 +67,10 @@ class Calendar extends \App\Entity\Calendar implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'start', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'end', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'servicios', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'tutor', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'disabled'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'start', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'end', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'background_color', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'border_color', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'text_color', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'servicios', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'tutor', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'disabled'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'start', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'end', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'servicios', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'tutor', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'disabled'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'title', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'start', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'end', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'background_color', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'border_color', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'text_color', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'servicios', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'tutor', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Calendar' . "\0" . 'disabled'];
     }
 
     /**
@@ -278,6 +278,72 @@ class Calendar extends \App\Entity\Calendar implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getBackgroundColor(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBackgroundColor', []);
+
+        return parent::getBackgroundColor();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setBackgroundColor(string $background_color): \App\Entity\Calendar
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBackgroundColor', [$background_color]);
+
+        return parent::setBackgroundColor($background_color);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getBorderColor(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBorderColor', []);
+
+        return parent::getBorderColor();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setBorderColor(string $border_color): \App\Entity\Calendar
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBorderColor', [$border_color]);
+
+        return parent::setBorderColor($border_color);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTextColor(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTextColor', []);
+
+        return parent::getTextColor();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTextColor(string $text_color): \App\Entity\Calendar
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTextColor', [$text_color]);
+
+        return parent::setTextColor($text_color);
     }
 
     /**

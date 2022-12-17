@@ -3,8 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Calendar;
-use App\Entity\Servicios;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -21,7 +19,6 @@ class CalendarType extends AbstractType
             ->add('start',DateTimeType::class,['label' => 'Inicio','model_timezone' => 'Europe/Madrid','widget' => 'single_text','required' => true])
             ->add('end',DateTimeType::class,['label' => 'Fin','model_timezone' => 'Europe/Madrid','widget' => 'single_text','required' => true])
             ->add('description',TextType::class,['label' => 'Descripción','required' => true])
-            ->add('servicios',EntityType::class,['label' => 'Servicio','required' => true,'class' => Servicios::class,'choice_label' => 'Nombre'])
             ->add('submit',SubmitType::class, ['label' => 'Enviar']);
     }
 

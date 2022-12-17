@@ -15,7 +15,16 @@
     </div>
     {% endfor %} #}
     <div id="desplegarTutores">
-        {{ form(form) }}
+        {# {{ form(form) }} #}
+        {{ form_start(form) }}
+            <label for="tutor">Elige un tutor</label>
+            <select id="selectTutores" name="selectTutores">
+                {% for tutor in tutores %}
+                    <option value="{{tutor.id}}">{{tutor.username}}</option>
+                {% endfor %} 
+            </select>
+            {{ form_row(form.Elegir) }}
+        {{ form_end(form) }}
     </div>
     
     

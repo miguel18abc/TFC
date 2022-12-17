@@ -19,7 +19,7 @@ class Reserva
     #[ORM\ManyToOne(inversedBy: 'Reserva')]
     private ?Tutor $tutor = null;
 
-    #[ORM\OneToOne(inversedBy: 'reserva', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'reserva', cascade: ['persist'])]
     private ?Calendar $calendar = null;
 
     public function getId(): ?int

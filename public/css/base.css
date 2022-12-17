@@ -64,9 +64,9 @@ body{
 /* The footer is fixed to the bottom of the page */
 
 footer{
-	position: fixed;
+	position:fixed;
 	bottom: 0;
-	height: 157px;
+	height: 190px;
 }
 
 @media (max-height:800px){
@@ -82,7 +82,7 @@ footer{
 	text-align: left;
 	font: bold 16px sans-serif;
 	padding: 50px 50px 60px 50px;
-	margin-top: 80px;
+	margin-top: 340px;
 }
 
 .footer-distributed .footer-left,

@@ -38,7 +38,7 @@ class PlantillaController extends AbstractController
             $event->setStart($form->get('start')->getData());
             $event->setEnd($form->get('end')->getData());
             $event->setDescription($form->get('description')->getData());
-            $event->setServicios($form->get('servicios')->getData());
+            $event->setServicios($tutor->getServicios());
             $event->setBackgroundColor('#37a8ec');
             $event->setTextColor('#000000');
             $event->setBorderColor('#000000');

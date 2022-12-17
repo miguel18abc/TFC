@@ -23,7 +23,8 @@
 #mainbodyBlock{
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 24.045407636738908vh);
+    height: calc(100vh - 27.45098039215686vh);
+    -moz-height: calc(100vh - 27.45098039215686vh);
     width: 100vw;
     flex-wrap: wrap;
 }
@@ -31,6 +32,7 @@
 #containerCards{
     display: flex;
     height: calc(100vh - 28.99587203302374vh);
+    -moz-height: calc(100vh - 28.99587203302374vh);
     justify-content:space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -44,5 +46,6 @@
 @media (max-width: 768px) {
     #mainbodyBlock{
         min-height: 100vh;
+        -moz-min-height: 100vh;
     }
 }

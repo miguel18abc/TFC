@@ -88,11 +88,11 @@ class __TwigTemplate_12cb47e21984c7ad8047d9a55f9b48e4 extends Template
         echo "    La cita ";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 6, $this->source); })()), "title", [], "any", false, false, false, 6), "html", null, true);
         echo " se ha reservado para ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 6, $this->source); })()), "start", [], "any", false, false, false, 6), "m/d/Y"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 6, $this->source); })()), "start", [], "any", false, false, false, 6), "d/m/Y"), "html", null, true);
         echo " a las ";
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 6, $this->source); })()), "start", [], "any", false, false, false, 6), "H:i:s"), "html", null, true);
         echo " hasta ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 6, $this->source); })()), "end", [], "any", false, false, false, 6), "m/d/Y"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 6, $this->source); })()), "end", [], "any", false, false, false, 6), "d/m/Y"), "html", null, true);
         echo " a las ";
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["event"]) || array_key_exists("event", $context) ? $context["event"] : (function () { throw new RuntimeError('Variable "event" does not exist.', 6, $this->source); })()), "end", [], "any", false, false, false, 6), "H:i:s"), "html", null, true);
         echo "
@@ -127,7 +127,7 @@ class __TwigTemplate_12cb47e21984c7ad8047d9a55f9b48e4 extends Template
 {% block title %}Tutoría{% endblock %}
 
 {% block body %}
-    La cita {{event.title}} se ha reservado para {{event.start|date(\"m/d/Y\")}} a las {{event.start|date(\"H:i:s\")}} hasta {{event.end|date(\"m/d/Y\")}} a las {{event.end|date(\"H:i:s\")}}
+    La cita {{event.title}} se ha reservado para {{event.start|date(\"d/m/Y\")}} a las {{event.start|date(\"H:i:s\")}} hasta {{event.end|date(\"d/m/Y\")}} a las {{event.end|date(\"H:i:s\")}}
 {% endblock %}", "confirmacion/tutoria.html.twig", "C:\\Users\\migue\\Desktop\\TFC1\\templates\\confirmacion\\tutoria.html.twig");
     }
 }

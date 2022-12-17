@@ -110,7 +110,7 @@ class __TwigTemplate_fa6c3df76d0fb04a6fd52d3936961817 extends Template
             <label for=\"password\">Password:</label>
             <input type=\"password\" id=\"password\" name=\"_password\"/>
         </div>
-        <button type=\"submit\">login</button>
+        <button type=\"submit\">Login</button>
 
         <p style=\"font-size: 12px; margin-top: 5px;\">¿No tienes cuenta?
 \t\t\t\t<a href=\"";
@@ -163,7 +163,7 @@ class __TwigTemplate_fa6c3df76d0fb04a6fd52d3936961817 extends Template
             <label for=\"password\">Password:</label>
             <input type=\"password\" id=\"password\" name=\"_password\"/>
         </div>
-        <button type=\"submit\">login</button>
+        <button type=\"submit\">Login</button>
 
         <p style=\"font-size: 12px; margin-top: 5px;\">¿No tienes cuenta?
 \t\t\t\t<a href=\"{{ path( \"app_register\") }}\">Regístrate</a>
