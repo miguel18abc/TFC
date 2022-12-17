@@ -24,19 +24,19 @@
 }
 
 #cardfamily1 div.slide.slide1{
-    background-image:linear-gradient(rgba(148, 183, 130, 0.5),rgba(148, 183, 130, 0.5)),url(/img/tutoria.jpg);
+    background-image:linear-gradient(rgba(148, 183, 130, 0.5),rgba(148, 183, 130, 0.5)),url(/public/img/tutoria.jpg);
     height: 200px;
     width: 300px;
 }
 
 #cardfamily2 div.slide.slide1{
-    background-image: linear-gradient(rgba(148, 183, 130, 0.5),rgba(148, 183, 130, 0.5)),url(/img/secretaria.jpg);
+    background-image: linear-gradient(rgba(148, 183, 130, 0.5),rgba(148, 183, 130, 0.5)),url(/public/img/secretaria.jpg);
     height: 200px;
     width: 300px;
 }
 
 #cardfamily3 div.slide.slide1{
-    background-image: linear-gradient(rgba(148, 183, 130, 0.5),rgba(148, 183, 130, 0.5)),url(/img/orientacion.jpg);
+    background-image: linear-gradient(rgba(148, 183, 130, 0.5),rgba(148, 183, 130, 0.5)),url(/public/img/orientacion.jpg);
     height: 200px;
     width: 300px;
 }
