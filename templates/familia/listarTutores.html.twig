@@ -4,16 +4,6 @@
 
 {% block body %}
 
-    {# {% for tutor in tutores %}
-    <div class="card" style="width: 18rem;">
-        <a href="{{path('aniadir_citas')}}">
-            <img src="..." class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-            <p class="card-text">{{tutor.user.username}}</p>
-        </div>
-    </div>
-    {% endfor %} #}
     <div id="desplegarTutores">
         {# {{ form(form) }} #}
         {{ form_start(form) }}
@@ -26,6 +16,5 @@
             {{ form_row(form.Elegir) }}
         {{ form_end(form) }}
     </div>
-    
-    
+
 {% endblock %}
