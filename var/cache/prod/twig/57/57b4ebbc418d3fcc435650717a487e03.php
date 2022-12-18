@@ -26,6 +26,7 @@ class __TwigTemplate_1b7aa58e5fc9aaba002c85d22d52a40f extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
+            'menu' => [$this, 'block_menu'],
             'body' => [$this, 'block_body'],
             'javascripts' => [$this, 'block_javascripts'],
         ];
@@ -52,26 +53,84 @@ class __TwigTemplate_1b7aa58e5fc9aaba002c85d22d52a40f extends Template
     }
 
     // line 5
-    public function block_body($context, array $blocks = [])
+    public function block_menu($context, array $blocks = [])
     {
         $macros = $this->macros;
         // line 6
+        echo "    ";
+        $context["hide_user_nav"] = true;
+        // line 7
+        echo "        <nav class=\"navbar navbar-dark navbar-expand\">
+            <div class=\"container-fluid\">
+                <a href=\"https://www.iesjoseplanes.es/\" target=\"_blank\">
+                    <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
+                </a>
+                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+                    <span class=\"navbar-toggler-icon\"></span>
+                </button>
+                <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">
+                    <div class=\"navbar-nav ms-auto\">
+                        ";
+        // line 17
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 18
+            echo "                            ";
+            if (array_key_exists("hide_user_nav", $context)) {
+                // line 19
+                echo "                                <a class=\"nav-link\" href=\"/familia/";
+                echo twig_escape_filter($this->env, ($context["trabajador"] ?? null), "html", null, true);
+                echo "/";
+                echo twig_escape_filter($this->env, ($context["servicio"] ?? null), "html", null, true);
+                echo "/consulta/";
+                echo twig_escape_filter($this->env, ($context["username"] ?? null), "html", null, true);
+                echo "\">Consulta</a>
+                            ";
+            }
+            // line 21
+            echo "                            <a class=\"nav-link\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\">Cerrar sesión</a>
+                        ";
+        } else {
+            // line 23
+            echo "                            <a class=\"nav-link\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Iniciar sesión</a>
+                            <a class=\"nav-link\" href=\"";
+            // line 24
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+            echo "\">Registrar</a>
+                        ";
+        }
+        // line 26
+        echo "                    </div>
+                </div>
+            </div>
+        </nav>
+";
+    }
+
+    // line 32
+    public function block_body($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        // line 33
         echo "
     <div id=\"calendar\">
     </div>
 
 
     ";
-        // line 38
+        // line 65
         echo "    
     ";
     }
 
-    // line 71
+    // line 98
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 72
+        // line 99
         echo "    <script src=\"/public/javascripts/moment.min.js\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js\" integrity=\"sha256-7PzqE1MyWa/IV5vZumk1CVO6OQbaJE4ns7vmxuUP/7g=\" crossorigin=\"anonymous\"></script>
     <script src=\"/public/javascripts/es.js\"></script>
@@ -84,13 +143,13 @@ class __TwigTemplate_1b7aa58e5fc9aaba002c85d22d52a40f extends Template
                 initialView: 'dayGridMonth',
                 firstDay: 1,
                 timeZone: 'Europe/Madrid',
-                customButtons: {
+                /*customButtons: {
                     consulta: {
                         themeIcon: \"refresh\",
                         text: \"Consulta\",
                         click: function(){
                             window.open(`/familia/";
-        // line 89
+        // line 116
         echo twig_escape_filter($this->env, ($context["trabajador"] ?? null), "html", null, true);
         echo "/";
         echo twig_escape_filter($this->env, ($context["servicio"] ?? null), "html", null, true);
@@ -99,19 +158,19 @@ class __TwigTemplate_1b7aa58e5fc9aaba002c85d22d52a40f extends Template
         echo "`,\"_self\")
                         }
                     },
-                },
+                },*/
                 headerToolbar: {
-                    start: 'prev,next,consulta,today',
+                    start: 'prev,next,today',
                     center: 'title',
                     end: 'dayGridMonth,timeGridWeek,listWeek',
                 },
                 events: ";
-        // line 98
+        // line 125
         echo ($context["data"] ?? null);
         echo ",
                 eventClick: function(e) {
                     window.open(`/familia/";
-        // line 100
+        // line 127
         echo twig_escape_filter($this->env, ($context["trabajador"] ?? null), "html", null, true);
         echo "/";
         echo twig_escape_filter($this->env, ($context["servicio"] ?? null), "html", null, true);
@@ -151,7 +210,7 @@ class __TwigTemplate_1b7aa58e5fc9aaba002c85d22d52a40f extends Template
 
     public function getDebugInfo()
     {
-        return array (  115 => 100,  110 => 98,  94 => 89,  75 => 72,  71 => 71,  66 => 38,  59 => 6,  55 => 5,  48 => 3,  37 => 1,);
+        return array (  174 => 127,  169 => 125,  153 => 116,  134 => 99,  130 => 98,  125 => 65,  118 => 33,  114 => 32,  106 => 26,  101 => 24,  96 => 23,  90 => 21,  80 => 19,  77 => 18,  75 => 17,  63 => 7,  60 => 6,  56 => 5,  49 => 3,  38 => 1,);
     }
 
     public function getSourceContext()

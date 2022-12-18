@@ -60,8 +60,38 @@ class __TwigTemplate_bc1332d65846c84a8bf7e825479dc52c extends Template
         // line 17
         echo "    <div id=\"desplegarTutores\">
         ";
-        // line 18
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? null), 'form');
+        // line 19
+        echo "        ";
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? null), 'form_start');
+        echo "
+            <label for=\"tutor\">Elige un tutor</label>
+            <select id=\"selectTutores\" name=\"selectTutores\">
+                ";
+        // line 22
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["tutores"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["tutor"]) {
+            // line 23
+            echo "                    <option value=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tutor"], "id", [], "any", false, false, false, 23), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tutor"], "username", [], "any", false, false, false, 23), "html", null, true);
+            echo "</option>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tutor'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 24
+        echo " 
+            </select>
+            ";
+        // line 26
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "Elegir", [], "any", false, false, false, 26), 'row');
+        echo "
+        ";
+        // line 27
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? null), 'form_end');
         echo "
     </div>
     
@@ -81,7 +111,7 @@ class __TwigTemplate_bc1332d65846c84a8bf7e825479dc52c extends Template
 
     public function getDebugInfo()
     {
-        return array (  64 => 18,  61 => 17,  58 => 6,  54 => 5,  47 => 3,  36 => 1,);
+        return array (  94 => 27,  90 => 26,  86 => 24,  75 => 23,  71 => 22,  64 => 19,  61 => 17,  58 => 6,  54 => 5,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()

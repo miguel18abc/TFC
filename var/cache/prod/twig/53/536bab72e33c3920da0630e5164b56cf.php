@@ -55,9 +55,12 @@ class __TwigTemplate_5c9f07221113aa9b1e27da32d5bd9053 extends Template
     {
         $macros = $this->macros;
         // line 6
-        echo "    ";
+        echo "<div id=\"aniadirCitas\">
+    ";
+        // line 7
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? null), 'form');
         echo "
+<div>
 ";
     }
 
@@ -73,7 +76,7 @@ class __TwigTemplate_5c9f07221113aa9b1e27da32d5bd9053 extends Template
 
     public function getDebugInfo()
     {
-        return array (  58 => 6,  54 => 5,  47 => 3,  36 => 1,);
+        return array (  61 => 7,  58 => 6,  54 => 5,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()

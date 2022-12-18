@@ -71,22 +71,22 @@ class __TwigTemplate_403fbc3ab3a193a2b90c08ccaa0a11f4 extends Template
         ";
         // line 28
         $this->displayBlock('menu', $context, $blocks);
-        // line 52
-        echo "
-        ";
         // line 53
+        echo "
+        ";
+        // line 54
         $this->displayBlock('body', $context, $blocks);
-        // line 55
-        echo "
-        ";
         // line 56
-        $this->displayBlock('footer', $context, $blocks);
-        // line 84
         echo "
         ";
+        // line 57
+        $this->displayBlock('footer', $context, $blocks);
         // line 85
+        echo "
+        ";
+        // line 86
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 90
+        // line 91
         echo "    </body>
 </html>
 
@@ -105,13 +105,13 @@ class __TwigTemplate_403fbc3ab3a193a2b90c08ccaa0a11f4 extends Template
     {
         $macros = $this->macros;
         // line 14
-        echo "            <link href=\"/css/base.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/calendar.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/calendario.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/cards.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/family.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/login.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/main.css\" rel=\"stylesheet\" type=\"text/css\">
+        echo "            <link href=\"../public/css/base.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/calendar.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/calendario.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/cards.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/family.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/login.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/main.css\" rel=\"stylesheet\" type=\"text/css\">
             <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css\" integrity=\"sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=\" crossorigin=\"anonymous\">
             <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
             <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
@@ -127,7 +127,7 @@ class __TwigTemplate_403fbc3ab3a193a2b90c08ccaa0a11f4 extends Template
         echo "            <nav class=\"navbar navbar-dark navbar-expand\">
                 <div class=\"container-fluid\">
                     <a href=\"https://www.iesjoseplanes.es/\" target=\"_blank\">
-                        <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
+                        <img id=\"icon\" src=\"/public/svg/logoPlanesSinFondo.svg\" type=\"img/svg\">
                     </a>
                     <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                         <span class=\"navbar-toggler-icon\"></span>
@@ -138,24 +138,31 @@ class __TwigTemplate_403fbc3ab3a193a2b90c08ccaa0a11f4 extends Template
         // line 39
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
             // line 40
+            echo "                                ";
+            if (array_key_exists("hide_user_nav", $context)) {
+                // line 41
+                echo "                                    <a class=\"nav-link\" href=\"";
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+                echo "\">Cerrar sesión</a>
+                                ";
+            }
+            // line 43
             echo "                                <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-            echo "\">
-                                    Cerrar sesión
-                                </a>
+            echo "\">Cerrar sesión</a>
                             ";
         } else {
-            // line 44
+            // line 45
             echo "                                <a class=\"nav-link\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Iniciar sesión</a>
                                 <a class=\"nav-link\" href=\"";
-            // line 45
+            // line 46
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
             echo "\">Registrar</a>
                             ";
         }
-        // line 47
+        // line 48
         echo "                        </div>
                     </div>
                 </div>
@@ -163,19 +170,19 @@ class __TwigTemplate_403fbc3ab3a193a2b90c08ccaa0a11f4 extends Template
         ";
     }
 
-    // line 53
+    // line 54
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 54
+        // line 55
         echo "        ";
     }
 
-    // line 56
+    // line 57
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 57
+        // line 58
         echo "            <footer class=\"footer-distributed\">
                 <div class=\"footer-left\">
                     <p class=\"footer-links\">
@@ -205,11 +212,11 @@ class __TwigTemplate_403fbc3ab3a193a2b90c08ccaa0a11f4 extends Template
         ";
     }
 
-    // line 85
+    // line 86
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 86
+        // line 87
         echo "            <script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>
             <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3\" crossorigin=\"anonymous\"></script>
             <script src=\"/public/javascripts/sweetalert2.all.min.js\"></script>
@@ -228,7 +235,7 @@ class __TwigTemplate_403fbc3ab3a193a2b90c08ccaa0a11f4 extends Template
 
     public function getDebugInfo()
     {
-        return array (  213 => 86,  209 => 85,  179 => 57,  175 => 56,  171 => 54,  167 => 53,  159 => 47,  154 => 45,  149 => 44,  141 => 40,  139 => 39,  127 => 29,  123 => 28,  108 => 14,  104 => 13,  97 => 6,  90 => 90,  88 => 85,  85 => 84,  83 => 56,  80 => 55,  78 => 53,  75 => 52,  73 => 28,  69 => 26,  67 => 13,  64 => 12,  61 => 11,  58 => 10,  55 => 9,  50 => 6,  43 => 1,);
+        return array (  220 => 87,  216 => 86,  186 => 58,  182 => 57,  178 => 55,  174 => 54,  166 => 48,  161 => 46,  156 => 45,  150 => 43,  144 => 41,  141 => 40,  139 => 39,  127 => 29,  123 => 28,  108 => 14,  104 => 13,  97 => 6,  90 => 91,  88 => 86,  85 => 85,  83 => 57,  80 => 56,  78 => 54,  75 => 53,  73 => 28,  69 => 26,  67 => 13,  64 => 12,  61 => 11,  58 => 10,  55 => 9,  50 => 6,  43 => 1,);
     }
 
     public function getSourceContext()

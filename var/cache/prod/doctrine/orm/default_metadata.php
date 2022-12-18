@@ -16,7 +16,7 @@ return [[
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
-            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+            clone ($p['Doctrine\\ORM\\Id\\SequenceGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\SequenceGenerator')),
         ],
         null,
         [
@@ -39,7 +39,7 @@ return [[
                     ],
                 ],
                 'generatorType' => [
-                    4,
+                    2,
                 ],
                 'fieldMappings' => [
                     [
@@ -273,14 +273,13 @@ return [[
                             'inversedBy' => null,
                             'cascade' => [
                                 'persist',
-                                'remove',
                             ],
                             'orphanRemoval' => false,
                             'fetch' => 2,
                             'type' => 1,
                             'isOwningSide' => false,
                             'sourceEntity' => 'App\\Entity\\Calendar',
-                            'isCascadeRemove' => true,
+                            'isCascadeRemove' => false,
                             'isCascadePersist' => true,
                             'isCascadeRefresh' => false,
                             'isCascadeMerge' => false,
@@ -291,17 +290,29 @@ return [[
                 'idGenerator' => [
                     $o[1],
                 ],
+                'sequenceGeneratorDefinition' => [
+                    [
+                        'sequenceName' => 'calendar_id_seq',
+                        'allocationSize' => '1',
+                        'initialValue' => '1',
+                    ],
+                ],
             ],
         ],
         $o[0],
-        []
+        [
+            -1 => [
+                'allocationSize' => 1,
+                'sequenceName' => 'calendar_id_seq',
+            ],
+        ]
     );
 },
 1 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
-            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+            clone ($p['Doctrine\\ORM\\Id\\SequenceGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\SequenceGenerator')),
         ],
         null,
         [
@@ -324,7 +335,7 @@ return [[
                     ],
                 ],
                 'generatorType' => [
-                    4,
+                    2,
                 ],
                 'fieldMappings' => [
                     [
@@ -416,14 +427,13 @@ return [[
                             'inversedBy' => 'reserva',
                             'cascade' => [
                                 'persist',
-                                'remove',
                             ],
                             'orphanRemoval' => false,
                             'fetch' => 2,
                             'type' => 1,
                             'isOwningSide' => true,
                             'sourceEntity' => 'App\\Entity\\Reserva',
-                            'isCascadeRemove' => true,
+                            'isCascadeRemove' => false,
                             'isCascadePersist' => true,
                             'isCascadeRefresh' => false,
                             'isCascadeMerge' => false,
@@ -443,17 +453,29 @@ return [[
                 'idGenerator' => [
                     $o[1],
                 ],
+                'sequenceGeneratorDefinition' => [
+                    [
+                        'sequenceName' => 'reserva_id_seq',
+                        'allocationSize' => '1',
+                        'initialValue' => '1',
+                    ],
+                ],
             ],
         ],
         $o[0],
-        []
+        [
+            -1 => [
+                'allocationSize' => 1,
+                'sequenceName' => 'reserva_id_seq',
+            ],
+        ]
     );
 },
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
-            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+            clone ($p['Doctrine\\ORM\\Id\\SequenceGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\SequenceGenerator')),
         ],
         null,
         [
@@ -476,7 +498,7 @@ return [[
                     ],
                 ],
                 'generatorType' => [
-                    4,
+                    2,
                 ],
                 'fieldMappings' => [
                     [
@@ -539,22 +561,51 @@ return [[
                             'isCascadeMerge' => false,
                             'isCascadeDetach' => false,
                         ],
+                        'tutor' => [
+                            'fieldName' => 'tutor',
+                            'mappedBy' => 'servicios',
+                            'targetEntity' => 'App\\Entity\\Tutor',
+                            'cascade' => [],
+                            'orphanRemoval' => false,
+                            'fetch' => 2,
+                            'type' => 4,
+                            'inversedBy' => null,
+                            'isOwningSide' => false,
+                            'sourceEntity' => 'App\\Entity\\Servicios',
+                            'isCascadeRemove' => false,
+                            'isCascadePersist' => false,
+                            'isCascadeRefresh' => false,
+                            'isCascadeMerge' => false,
+                            'isCascadeDetach' => false,
+                        ],
                     ],
                 ],
                 'idGenerator' => [
                     $o[1],
                 ],
+                'sequenceGeneratorDefinition' => [
+                    [
+                        'sequenceName' => 'servicios_id_seq',
+                        'allocationSize' => '1',
+                        'initialValue' => '1',
+                    ],
+                ],
             ],
         ],
         $o[0],
-        []
+        [
+            -1 => [
+                'allocationSize' => 1,
+                'sequenceName' => 'servicios_id_seq',
+            ],
+        ]
     );
 },
 3 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
-            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+            clone ($p['Doctrine\\ORM\\Id\\SequenceGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\SequenceGenerator')),
         ],
         null,
         [
@@ -577,7 +628,7 @@ return [[
                     ],
                 ],
                 'generatorType' => [
-                    4,
+                    2,
                 ],
                 'fieldMappings' => [
                     [
@@ -693,22 +744,66 @@ return [[
                             'isCascadeMerge' => false,
                             'isCascadeDetach' => false,
                         ],
+                        'servicios' => [
+                            'fieldName' => 'servicios',
+                            'joinColumns' => [
+                                [
+                                    'name' => 'servicios_id',
+                                    'referencedColumnName' => 'id',
+                                ],
+                            ],
+                            'cascade' => [],
+                            'inversedBy' => 'tutor',
+                            'targetEntity' => 'App\\Entity\\Servicios',
+                            'fetch' => 2,
+                            'type' => 2,
+                            'mappedBy' => null,
+                            'isOwningSide' => true,
+                            'sourceEntity' => 'App\\Entity\\Tutor',
+                            'isCascadeRemove' => false,
+                            'isCascadePersist' => false,
+                            'isCascadeRefresh' => false,
+                            'isCascadeMerge' => false,
+                            'isCascadeDetach' => false,
+                            'sourceToTargetKeyColumns' => [
+                                'servicios_id' => 'id',
+                            ],
+                            'joinColumnFieldNames' => [
+                                'servicios_id' => 'servicios_id',
+                            ],
+                            'targetToSourceKeyColumns' => [
+                                'id' => 'servicios_id',
+                            ],
+                            'orphanRemoval' => false,
+                        ],
                     ],
                 ],
                 'idGenerator' => [
                     $o[1],
                 ],
+                'sequenceGeneratorDefinition' => [
+                    [
+                        'sequenceName' => 'tutor_id_seq',
+                        'allocationSize' => '1',
+                        'initialValue' => '1',
+                    ],
+                ],
             ],
         ],
         $o[0],
-        []
+        [
+            -1 => [
+                'allocationSize' => 1,
+                'sequenceName' => 'tutor_id_seq',
+            ],
+        ]
     );
 },
 4 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
-            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+            clone ($p['Doctrine\\ORM\\Id\\SequenceGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\SequenceGenerator')),
         ],
         null,
         [
@@ -731,7 +826,7 @@ return [[
                     ],
                 ],
                 'generatorType' => [
-                    4,
+                    2,
                 ],
                 'fieldMappings' => [
                     [
@@ -827,10 +922,22 @@ return [[
                 'idGenerator' => [
                     $o[1],
                 ],
+                'sequenceGeneratorDefinition' => [
+                    [
+                        'sequenceName' => 'user_id_seq',
+                        'allocationSize' => '1',
+                        'initialValue' => '1',
+                    ],
+                ],
             ],
         ],
         $o[0],
-        []
+        [
+            -1 => [
+                'allocationSize' => 1,
+                'sequenceName' => 'user_id_seq',
+            ],
+        ]
     );
 },
 

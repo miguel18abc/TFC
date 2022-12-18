@@ -80,7 +80,7 @@ class __TwigTemplate_f0b97738cac5f9f289a17afddd90a6e3 extends Template
             <label for=\"password\">Password:</label>
             <input type=\"password\" id=\"password\" name=\"_password\"/>
         </div>
-        <button type=\"submit\">login</button>
+        <button type=\"submit\">Login</button>
 
         <p style=\"font-size: 12px; margin-top: 5px;\">¿No tienes cuenta?
 \t\t\t\t<a href=\"";

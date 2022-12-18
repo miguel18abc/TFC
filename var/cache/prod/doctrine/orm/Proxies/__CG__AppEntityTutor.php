@@ -67,10 +67,10 @@ class Tutor extends \App\Entity\Tutor implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'calendars'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'calendars', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'servicios'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'calendars'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'user', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'reserva', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'calendars', '' . "\0" . 'App\\Entity\\Tutor' . "\0" . 'servicios'];
     }
 
     /**
@@ -300,6 +300,28 @@ class Tutor extends \App\Entity\Tutor implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeCalendar', [$calendar]);
 
         return parent::removeCalendar($calendar);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getServicios(): ?\App\Entity\Servicios
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getServicios', []);
+
+        return parent::getServicios();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setServicios(?\App\Entity\Servicios $servicios): \App\Entity\Tutor
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setServicios', [$servicios]);
+
+        return parent::setServicios($servicios);
     }
 
 }

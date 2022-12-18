@@ -67,10 +67,10 @@ class Servicios extends \App\Entity\Servicios implements \Doctrine\ORM\Proxy\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'Nombre', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'calendars'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'Nombre', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'calendars', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'tutor'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'Nombre', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'calendars'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'Nombre', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'calendars', '' . "\0" . 'App\\Entity\\Servicios' . "\0" . 'tutor'];
     }
 
     /**
@@ -245,6 +245,39 @@ class Servicios extends \App\Entity\Servicios implements \Doctrine\ORM\Proxy\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeCalendar', [$calendar]);
 
         return parent::removeCalendar($calendar);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTutor(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTutor', []);
+
+        return parent::getTutor();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addTutor(\App\Entity\Tutor $tutor): \App\Entity\Servicios
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addTutor', [$tutor]);
+
+        return parent::addTutor($tutor);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeTutor(\App\Entity\Tutor $tutor): \App\Entity\Servicios
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeTutor', [$tutor]);
+
+        return parent::removeTutor($tutor);
     }
 
 }

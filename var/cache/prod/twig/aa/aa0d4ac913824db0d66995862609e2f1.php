@@ -93,7 +93,7 @@ class __TwigTemplate_48e25b33ff937062bc2d55d5e6dafe36 extends Template
         // line 31
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("plantilla");
         echo "\" class=\"content\">
-                    <h3>Plantilla</h3>
+                    <h3>Personal del centro</h3>
                 </a>
             </div>
         </div>

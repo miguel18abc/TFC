@@ -58,11 +58,11 @@ class __TwigTemplate_cf682e3ae5a2c05c3d0ee673b5c77223 extends Template
         echo "    La cita ";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["event"] ?? null), "title", [], "any", false, false, false, 6), "html", null, true);
         echo " se ha reservado para ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["event"] ?? null), "start", [], "any", false, false, false, 6), "m/d/Y"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["event"] ?? null), "start", [], "any", false, false, false, 6), "d/m/Y"), "html", null, true);
         echo " a las ";
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["event"] ?? null), "start", [], "any", false, false, false, 6), "H:i:s"), "html", null, true);
         echo " hasta ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["event"] ?? null), "end", [], "any", false, false, false, 6), "m/d/Y"), "html", null, true);
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["event"] ?? null), "end", [], "any", false, false, false, 6), "d/m/Y"), "html", null, true);
         echo " a las ";
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["event"] ?? null), "end", [], "any", false, false, false, 6), "H:i:s"), "html", null, true);
         echo "
