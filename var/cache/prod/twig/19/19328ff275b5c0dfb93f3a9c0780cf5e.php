@@ -47,7 +47,7 @@ class __TwigTemplate_bc1332d65846c84a8bf7e825479dc52c extends Template
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
-        echo "Tutores";
+        echo "Familia";
     }
 
     // line 5
@@ -55,47 +55,42 @@ class __TwigTemplate_bc1332d65846c84a8bf7e825479dc52c extends Template
     {
         $macros = $this->macros;
         // line 6
-        echo "
-    ";
-        // line 17
         echo "    <div id=\"desplegarTutores\">
         ";
-        // line 19
+        // line 8
         echo "        ";
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? null), 'form_start');
         echo "
             <label for=\"tutor\">Elige un tutor</label>
             <select id=\"selectTutores\" name=\"selectTutores\">
                 ";
-        // line 22
+        // line 11
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["tutores"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["tutor"]) {
-            // line 23
+            // line 12
             echo "                    <option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tutor"], "id", [], "any", false, false, false, 23), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tutor"], "id", [], "any", false, false, false, 12), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tutor"], "username", [], "any", false, false, false, 23), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["tutor"], "username", [], "any", false, false, false, 12), "html", null, true);
             echo "</option>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tutor'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 24
+        // line 13
         echo " 
             </select>
             ";
-        // line 26
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "Elegir", [], "any", false, false, false, 26), 'row');
+        // line 15
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "Elegir", [], "any", false, false, false, 15), 'row');
         echo "
         ";
-        // line 27
+        // line 16
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? null), 'form_end');
         echo "
     </div>
-    
-    
 ";
     }
 
@@ -111,7 +106,7 @@ class __TwigTemplate_bc1332d65846c84a8bf7e825479dc52c extends Template
 
     public function getDebugInfo()
     {
-        return array (  94 => 27,  90 => 26,  86 => 24,  75 => 23,  71 => 22,  64 => 19,  61 => 17,  58 => 6,  54 => 5,  47 => 3,  36 => 1,);
+        return array (  91 => 16,  87 => 15,  83 => 13,  72 => 12,  68 => 11,  61 => 8,  58 => 6,  54 => 5,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()

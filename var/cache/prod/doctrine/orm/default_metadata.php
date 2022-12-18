@@ -16,7 +16,7 @@ return [[
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
-            clone ($p['Doctrine\\ORM\\Id\\SequenceGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\SequenceGenerator')),
+            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
         ],
         null,
         [
@@ -39,7 +39,7 @@ return [[
                     ],
                 ],
                 'generatorType' => [
-                    2,
+                    4,
                 ],
                 'fieldMappings' => [
                     [
@@ -290,29 +290,17 @@ return [[
                 'idGenerator' => [
                     $o[1],
                 ],
-                'sequenceGeneratorDefinition' => [
-                    [
-                        'sequenceName' => 'calendar_id_seq',
-                        'allocationSize' => '1',
-                        'initialValue' => '1',
-                    ],
-                ],
             ],
         ],
         $o[0],
-        [
-            -1 => [
-                'allocationSize' => 1,
-                'sequenceName' => 'calendar_id_seq',
-            ],
-        ]
+        []
     );
 },
 1 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
-            clone ($p['Doctrine\\ORM\\Id\\SequenceGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\SequenceGenerator')),
+            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
         ],
         null,
         [
@@ -335,7 +323,7 @@ return [[
                     ],
                 ],
                 'generatorType' => [
-                    2,
+                    4,
                 ],
                 'fieldMappings' => [
                     [
@@ -453,29 +441,17 @@ return [[
                 'idGenerator' => [
                     $o[1],
                 ],
-                'sequenceGeneratorDefinition' => [
-                    [
-                        'sequenceName' => 'reserva_id_seq',
-                        'allocationSize' => '1',
-                        'initialValue' => '1',
-                    ],
-                ],
             ],
         ],
         $o[0],
-        [
-            -1 => [
-                'allocationSize' => 1,
-                'sequenceName' => 'reserva_id_seq',
-            ],
-        ]
+        []
     );
 },
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
-            clone ($p['Doctrine\\ORM\\Id\\SequenceGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\SequenceGenerator')),
+            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
         ],
         null,
         [
@@ -498,7 +474,7 @@ return [[
                     ],
                 ],
                 'generatorType' => [
-                    2,
+                    4,
                 ],
                 'fieldMappings' => [
                     [
@@ -583,29 +559,17 @@ return [[
                 'idGenerator' => [
                     $o[1],
                 ],
-                'sequenceGeneratorDefinition' => [
-                    [
-                        'sequenceName' => 'servicios_id_seq',
-                        'allocationSize' => '1',
-                        'initialValue' => '1',
-                    ],
-                ],
             ],
         ],
         $o[0],
-        [
-            -1 => [
-                'allocationSize' => 1,
-                'sequenceName' => 'servicios_id_seq',
-            ],
-        ]
+        []
     );
 },
 3 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
-            clone ($p['Doctrine\\ORM\\Id\\SequenceGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\SequenceGenerator')),
+            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
         ],
         null,
         [
@@ -628,7 +592,7 @@ return [[
                     ],
                 ],
                 'generatorType' => [
-                    2,
+                    4,
                 ],
                 'fieldMappings' => [
                     [
@@ -781,29 +745,17 @@ return [[
                 'idGenerator' => [
                     $o[1],
                 ],
-                'sequenceGeneratorDefinition' => [
-                    [
-                        'sequenceName' => 'tutor_id_seq',
-                        'allocationSize' => '1',
-                        'initialValue' => '1',
-                    ],
-                ],
             ],
         ],
         $o[0],
-        [
-            -1 => [
-                'allocationSize' => 1,
-                'sequenceName' => 'tutor_id_seq',
-            ],
-        ]
+        []
     );
 },
 4 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
             clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
-            clone ($p['Doctrine\\ORM\\Id\\SequenceGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\SequenceGenerator')),
+            clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
         ],
         null,
         [
@@ -826,7 +778,7 @@ return [[
                     ],
                 ],
                 'generatorType' => [
-                    2,
+                    4,
                 ],
                 'fieldMappings' => [
                     [
@@ -922,22 +874,10 @@ return [[
                 'idGenerator' => [
                     $o[1],
                 ],
-                'sequenceGeneratorDefinition' => [
-                    [
-                        'sequenceName' => 'user_id_seq',
-                        'allocationSize' => '1',
-                        'initialValue' => '1',
-                    ],
-                ],
             ],
         ],
         $o[0],
-        [
-            -1 => [
-                'allocationSize' => 1,
-                'sequenceName' => 'user_id_seq',
-            ],
-        ]
+        []
     );
 },
 
