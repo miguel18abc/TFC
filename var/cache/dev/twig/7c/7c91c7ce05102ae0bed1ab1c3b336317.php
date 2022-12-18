@@ -135,13 +135,13 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 14
-        echo "            <link href=\"/css/base.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/calendar.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/calendario.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/cards.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/family.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/login.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/main.css\" rel=\"stylesheet\" type=\"text/css\">
+        echo "            <link href=\"../public/css/base.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/calendar.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/calendario.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/cards.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/family.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/login.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/main.css\" rel=\"stylesheet\" type=\"text/css\">
             <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css\" integrity=\"sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=\" crossorigin=\"anonymous\">
             <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
             <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
@@ -169,7 +169,7 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
         echo "            <nav class=\"navbar navbar-dark navbar-expand\">
                 <div class=\"container-fluid\">
                     <a href=\"https://www.iesjoseplanes.es/\" target=\"_blank\">
-                        <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
+                        <img id=\"icon\" src=\"/public/svg/logoPlanesSinFondo.svg\" type=\"img/svg\">
                     </a>
                     <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                         <span class=\"navbar-toggler-icon\"></span>
@@ -337,13 +337,13 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
         {% endif %}
 
         {% block stylesheets %}
-            <link href=\"/css/base.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/calendar.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/calendario.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/cards.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/family.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/login.css\" rel=\"stylesheet\" type=\"text/css\">
-            <link href=\"/css/main.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/base.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/calendar.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/calendario.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/cards.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/family.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/login.css\" rel=\"stylesheet\" type=\"text/css\">
+            <link href=\"../public/css/main.css\" rel=\"stylesheet\" type=\"text/css\">
             <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css\" integrity=\"sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=\" crossorigin=\"anonymous\">
             <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi\" crossorigin=\"anonymous\">
             <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
@@ -355,7 +355,7 @@ class __TwigTemplate_0f5b89f45cd663306bcee28566c8f4d9 extends Template
             <nav class=\"navbar navbar-dark navbar-expand\">
                 <div class=\"container-fluid\">
                     <a href=\"https://www.iesjoseplanes.es/\" target=\"_blank\">
-                        <img id=\"icon\" src=\"/svg/logoPlanesSinFondo.svg\">
+                        <img id=\"icon\" src=\"/public/svg/logoPlanesSinFondo.svg\" type=\"img/svg\">
                     </a>
                     <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                         <span class=\"navbar-toggler-icon\"></span>

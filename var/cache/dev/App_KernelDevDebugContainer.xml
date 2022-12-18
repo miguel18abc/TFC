@@ -11,7 +11,6 @@
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
-      <parameter key="DoctrineMigrationsBundle">Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="TwigBundle">Symfony\Bundle\TwigBundle\TwigBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
@@ -30,10 +29,6 @@
       <parameter key="DoctrineBundle" type="collection">
         <parameter key="path">C:\Users\migue\Desktop\TFC1\vendor\doctrine\doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
-      </parameter>
-      <parameter key="DoctrineMigrationsBundle" type="collection">
-        <parameter key="path">C:\Users\migue\Desktop\TFC1\vendor\doctrine\doctrine-migrations-bundle</parameter>
-        <parameter key="namespace">Doctrine\Bundle\MigrationsBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="path">C:\Users\migue\Desktop\TFC1\vendor\symfony\debug-bundle</parameter>
@@ -205,8 +200,6 @@
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.proxy_dir">C:\Users\migue\Desktop\TFC1\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
-    <parameter key="doctrine.migrations.preferred_em">null</parameter>
-    <parameter key="doctrine.migrations.preferred_connection">null</parameter>
     <parameter key="env(VAR_DUMPER_SERVER)">127.0.0.1:9912</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
@@ -306,10 +299,6 @@
       <parameter key="data_collector.doctrine" type="collection">
         <parameter>db</parameter>
         <parameter>@Doctrine/Collector/db.html.twig</parameter>
-      </parameter>
-      <parameter key="doctrine_migrations.migrations_collector" type="collection">
-        <parameter>doctrine_migrations</parameter>
-        <parameter>@DoctrineMigrations/Collector/migrations.html.twig</parameter>
       </parameter>
       <parameter key="data_collector.dump" type="collection">
         <parameter>dump</parameter>
@@ -1967,7 +1956,6 @@
           <argument>C:\Users\migue\Desktop\TFC1/translations</argument>
           <argument>C:\Users\migue\Desktop\TFC1\vendor\symfony\framework-bundle/translations</argument>
           <argument>C:\Users\migue\Desktop\TFC1\vendor\doctrine\doctrine-bundle/translations</argument>
-          <argument>C:\Users\migue\Desktop\TFC1\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
           <argument>C:\Users\migue\Desktop\TFC1\vendor\symfony\debug-bundle/translations</argument>
           <argument>C:\Users\migue\Desktop\TFC1\vendor\symfony\twig-bundle/translations</argument>
           <argument>C:\Users\migue\Desktop\TFC1\vendor\symfony\web-profiler-bundle/translations</argument>
@@ -1986,7 +1974,6 @@
             <argument>translations</argument>
             <argument>C:\Users\migue\Desktop\TFC1\vendor\symfony\framework-bundle/translations</argument>
             <argument>C:\Users\migue\Desktop\TFC1\vendor\doctrine\doctrine-bundle/translations</argument>
-            <argument>C:\Users\migue\Desktop\TFC1\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
             <argument>C:\Users\migue\Desktop\TFC1\vendor\symfony\debug-bundle/translations</argument>
             <argument>C:\Users\migue\Desktop\TFC1\vendor\symfony\twig-bundle/translations</argument>
             <argument>C:\Users\migue\Desktop\TFC1\vendor\symfony\web-profiler-bundle/translations</argument>
@@ -3893,9 +3880,6 @@
         <argument type="service" id="data_collector.doctrine"/>
       </call>
       <call method="add">
-        <argument type="service" id="doctrine_migrations.migrations_collector"/>
-      </call>
-      <call method="add">
         <argument type="service" id="data_collector.dump"/>
       </call>
       <call method="add">
@@ -4545,175 +4529,6 @@
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument>null</argument>
     </service>
-    <service id="doctrine.migrations.dependency_factory" class="Doctrine\Migrations\DependencyFactory">
-      <argument type="service" id="doctrine.migrations.configuration_loader"/>
-      <argument type="service" id="doctrine.migrations.entity_manager_registry_loader"/>
-      <argument type="service" id="monolog.logger" on-invalid="null"/>
-      <call method="setDefinition">
-        <argument>Doctrine\Migrations\Version\MigrationFactory</argument>
-        <argument type="service_closure" id="doctrine.migrations.container_aware_migrations_factory"/>
-      </call>
-      <factory class="Doctrine\Migrations\DependencyFactory" method="fromEntityManager"/>
-    </service>
-    <service id="doctrine.migrations.configuration_loader" class="Doctrine\Migrations\Configuration\Migration\ExistingConfiguration">
-      <argument type="service" id="doctrine.migrations.configuration"/>
-    </service>
-    <service id="doctrine.migrations.connection_loader" class="Doctrine\Migrations\Configuration\Connection\ExistingConnection"/>
-    <service id="doctrine.migrations.em_loader" class="Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager"/>
-    <service id="doctrine.migrations.entity_manager_registry_loader" class="Doctrine\Migrations\Configuration\EntityManager\ManagerRegistryEntityManager">
-      <argument type="service" id="doctrine"/>
-      <factory class="Doctrine\Migrations\Configuration\EntityManager\ManagerRegistryEntityManager" method="withSimpleDefault"/>
-    </service>
-    <service id="doctrine.migrations.connection_registry_loader" class="Doctrine\Migrations\Configuration\Connection\ConnectionRegistryConnection">
-      <argument type="service" id="doctrine"/>
-      <factory class="Doctrine\Migrations\Configuration\Connection\ConnectionRegistryConnection" method="withSimpleDefault"/>
-    </service>
-    <service id="doctrine.migrations.configuration" class="Doctrine\Migrations\Configuration\Configuration">
-      <call method="addMigrationsDirectory">
-        <argument>DoctrineMigrations</argument>
-        <argument>C:\Users\migue\Desktop\TFC1/migrations</argument>
-      </call>
-      <call method="setAllOrNothing">
-        <argument>false</argument>
-      </call>
-      <call method="setCheckDatabasePlatform">
-        <argument>true</argument>
-      </call>
-      <call method="setTransactional">
-        <argument>true</argument>
-      </call>
-      <call method="setMetadataStorageConfiguration">
-        <argument type="service" id="doctrine.migrations.storage.table_storage"/>
-      </call>
-    </service>
-    <service id="doctrine.migrations.container_aware_migrations_factory" class="Doctrine\Bundle\MigrationsBundle\MigrationsFactory\ContainerAwareMigrationFactory">
-      <argument type="service" id="doctrine.migrations.container_aware_migrations_factory.inner"/>
-      <argument type="service" id="service_container"/>
-    </service>
-    <service id="doctrine_migrations.diff_command" class="Doctrine\Migrations\Tools\Console\Command\DiffCommand">
-      <tag name="console.command" command="doctrine:migrations:diff"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:diff</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:diff</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.sync_metadata_command" class="Doctrine\Migrations\Tools\Console\Command\SyncMetadataCommand">
-      <tag name="console.command" command="doctrine:migrations:sync-metadata-storage"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:sync-metadata-storage</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:sync-metadata-storage</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.versions_command" class="Doctrine\Migrations\Tools\Console\Command\ListCommand">
-      <tag name="console.command" command="doctrine:migrations:list"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:versions</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:list</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.current_command" class="Doctrine\Migrations\Tools\Console\Command\CurrentCommand">
-      <tag name="console.command" command="doctrine:migrations:current"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:current</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:current</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.dump_schema_command" class="Doctrine\Migrations\Tools\Console\Command\DumpSchemaCommand">
-      <tag name="console.command" command="doctrine:migrations:dump-schema"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:dump-schema</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:dump-schema</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.execute_command" class="Doctrine\Migrations\Tools\Console\Command\ExecuteCommand">
-      <tag name="console.command" command="doctrine:migrations:execute"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:execute</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:execute</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.generate_command" class="Doctrine\Migrations\Tools\Console\Command\GenerateCommand">
-      <tag name="console.command" command="doctrine:migrations:generate"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:generate</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:generate</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.latest_command" class="Doctrine\Migrations\Tools\Console\Command\LatestCommand">
-      <tag name="console.command" command="doctrine:migrations:latest"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:latest</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:latest</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.migrate_command" class="Doctrine\Migrations\Tools\Console\Command\MigrateCommand">
-      <tag name="console.command" command="doctrine:migrations:migrate"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:migrate</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:migrate</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.rollup_command" class="Doctrine\Migrations\Tools\Console\Command\RollupCommand">
-      <tag name="console.command" command="doctrine:migrations:rollup"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:rollup</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:rollup</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.status_command" class="Doctrine\Migrations\Tools\Console\Command\StatusCommand">
-      <tag name="console.command" command="doctrine:migrations:status"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:status</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:status</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.up_to_date_command" class="Doctrine\Migrations\Tools\Console\Command\UpToDateCommand">
-      <tag name="console.command" command="doctrine:migrations:up-to-date"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:up-to-date</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:up-to-date</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.version_command" class="Doctrine\Migrations\Tools\Console\Command\VersionCommand">
-      <tag name="console.command" command="doctrine:migrations:version"/>
-      <tag name="container.no_preload"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument>doctrine:migrations:version</argument>
-      <call method="setName">
-        <argument>doctrine:migrations:version</argument>
-      </call>
-    </service>
-    <service id="doctrine_migrations.migrations_flattener" class="Doctrine\Bundle\MigrationsBundle\Collector\MigrationsFlattener"/>
-    <service id="doctrine_migrations.migrations_collector" class="Doctrine\Bundle\MigrationsBundle\Collector\MigrationsCollector">
-      <tag name="data_collector" template="@DoctrineMigrations/Collector/migrations.html.twig" id="doctrine_migrations" priority="249"/>
-      <argument type="service" id="doctrine.migrations.dependency_factory"/>
-      <argument type="service" id="doctrine_migrations.migrations_flattener"/>
-    </service>
-    <service id="doctrine.migrations.storage.table_storage" class="Doctrine\Migrations\Metadata\Storage\TableMetadataStorageConfiguration"/>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
@@ -4980,14 +4795,6 @@
       <call method="addPath">
         <argument>C:\Users\migue\Desktop\TFC1\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>!Doctrine</argument>
-      </call>
-      <call method="addPath">
-        <argument>C:\Users\migue\Desktop\TFC1\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
-        <argument>DoctrineMigrations</argument>
-      </call>
-      <call method="addPath">
-        <argument>C:\Users\migue\Desktop\TFC1\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
-        <argument>!DoctrineMigrations</argument>
       </call>
       <call method="addPath">
         <argument>C:\Users\migue\Desktop\TFC1\vendor\symfony\debug-bundle/Resources/views</argument>
@@ -7584,9 +7391,6 @@
         <argument type="service" id="debug.argument_resolver.not_tagged_controller"/>
       </argument>
     </service>
-    <service id="doctrine.migrations.container_aware_migrations_factory.inner" class="Doctrine\Migrations\Version\MigrationFactory">
-      <factory service="doctrine.migrations.dependency_factory" method="getMigrationFactory"/>
-    </service>
     <service id="var_dumper.contextualized_cli_dumper.inner" class="Symfony\Component\VarDumper\Dumper\CliDumper">
       <argument>null</argument>
       <argument>UTF-8</argument>
@@ -8137,7 +7941,7 @@
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
-      <argument type="service" id=".service_locator.SyWePfB"/>
+      <argument type="service" id=".service_locator.ppLidjn"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -8197,19 +8001,6 @@
         <argument key="doctrine:schema:update">doctrine.schema_update_command</argument>
         <argument key="doctrine:schema:validate">doctrine.schema_validate_command</argument>
         <argument key="doctrine:mapping:import">doctrine.mapping_import_command</argument>
-        <argument key="doctrine:migrations:diff">doctrine_migrations.diff_command</argument>
-        <argument key="doctrine:migrations:sync-metadata-storage">doctrine_migrations.sync_metadata_command</argument>
-        <argument key="doctrine:migrations:list">doctrine_migrations.versions_command</argument>
-        <argument key="doctrine:migrations:current">doctrine_migrations.current_command</argument>
-        <argument key="doctrine:migrations:dump-schema">doctrine_migrations.dump_schema_command</argument>
-        <argument key="doctrine:migrations:execute">doctrine_migrations.execute_command</argument>
-        <argument key="doctrine:migrations:generate">doctrine_migrations.generate_command</argument>
-        <argument key="doctrine:migrations:latest">doctrine_migrations.latest_command</argument>
-        <argument key="doctrine:migrations:migrate">doctrine_migrations.migrate_command</argument>
-        <argument key="doctrine:migrations:rollup">doctrine_migrations.rollup_command</argument>
-        <argument key="doctrine:migrations:status">doctrine_migrations.status_command</argument>
-        <argument key="doctrine:migrations:up-to-date">doctrine_migrations.up_to_date_command</argument>
-        <argument key="doctrine:migrations:version">doctrine_migrations.version_command</argument>
         <argument key="server:dump">var_dumper.command.server_dump</argument>
         <argument key="server:log">monolog.command.server_log</argument>
         <argument key="debug:twig">twig.command.debug</argument>
@@ -8244,7 +8035,7 @@
         <argument key="make:stimulus-controller">maker.auto_command.make_stimulus_controller</argument>
       </argument>
     </service>
-    <service id=".service_locator.SyWePfB" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.ppLidjn" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service_closure" id=".console.command.about.lazy"/>
@@ -8304,19 +8095,6 @@
         <argument key="doctrine.schema_update_command" type="service_closure" id="doctrine.schema_update_command"/>
         <argument key="doctrine.schema_validate_command" type="service_closure" id="doctrine.schema_validate_command"/>
         <argument key="doctrine.mapping_import_command" type="service_closure" id="doctrine.mapping_import_command"/>
-        <argument key="doctrine_migrations.diff_command" type="service_closure" id="doctrine_migrations.diff_command"/>
-        <argument key="doctrine_migrations.sync_metadata_command" type="service_closure" id="doctrine_migrations.sync_metadata_command"/>
-        <argument key="doctrine_migrations.versions_command" type="service_closure" id="doctrine_migrations.versions_command"/>
-        <argument key="doctrine_migrations.current_command" type="service_closure" id="doctrine_migrations.current_command"/>
-        <argument key="doctrine_migrations.dump_schema_command" type="service_closure" id="doctrine_migrations.dump_schema_command"/>
-        <argument key="doctrine_migrations.execute_command" type="service_closure" id="doctrine_migrations.execute_command"/>
-        <argument key="doctrine_migrations.generate_command" type="service_closure" id="doctrine_migrations.generate_command"/>
-        <argument key="doctrine_migrations.latest_command" type="service_closure" id="doctrine_migrations.latest_command"/>
-        <argument key="doctrine_migrations.migrate_command" type="service_closure" id="doctrine_migrations.migrate_command"/>
-        <argument key="doctrine_migrations.rollup_command" type="service_closure" id="doctrine_migrations.rollup_command"/>
-        <argument key="doctrine_migrations.status_command" type="service_closure" id="doctrine_migrations.status_command"/>
-        <argument key="doctrine_migrations.up_to_date_command" type="service_closure" id="doctrine_migrations.up_to_date_command"/>
-        <argument key="doctrine_migrations.version_command" type="service_closure" id="doctrine_migrations.version_command"/>
         <argument key="var_dumper.command.server_dump" type="service_closure" id=".var_dumper.command.server_dump.lazy"/>
         <argument key="monolog.command.server_log" type="service_closure" id=".monolog.command.server_log.lazy"/>
         <argument key="twig.command.debug" type="service_closure" id=".twig.command.debug.lazy"/>
@@ -8563,7 +8341,6 @@
     <service id="doctrine.orm.default_query_cache" alias="cache.doctrine.orm.default.query"/>
     <service id="Doctrine\ORM\EntityManagerInterface $defaultEntityManager" alias="doctrine.orm.default_entity_manager"/>
     <service id="doctrine.orm.default_entity_manager.event_manager" alias="doctrine.dbal.default_connection.event_manager"/>
-    <service id="doctrine.migrations.metadata_storage" alias="doctrine.migrations.storage.table_storage"/>
     <service id="Twig_Environment" alias="twig"/>
     <service id="Twig\Environment" alias="twig"/>
     <service id="Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface" alias="security.authorization_checker"/>
@@ -8648,7 +8425,6 @@
     <service id="controller_resolver" alias="debug.controller_resolver"/>
     <service id="argument_resolver" alias="debug.argument_resolver"/>
     <service id="translator.data_collector.inner" alias="translator.default"/>
-    <service id="doctrine.migrations.migrations_factory" alias="doctrine.migrations.container_aware_migrations_factory"/>
     <service id="var_dumper.cli_dumper" alias="var_dumper.contextualized_cli_dumper"/>
     <service id="twig.error_renderer.html.inner" alias="error_handler.error_renderer.html"/>
     <service id="security.access.decision_manager" alias="debug.security.access.decision_manager"/>

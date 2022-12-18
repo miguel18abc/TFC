@@ -123,7 +123,7 @@ class __TwigTemplate_1a58522c3ba11f394fd9ab15f583fcbf extends Template
         // line 31
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("plantilla");
         echo "\" class=\"content\">
-                    <h3>Plantilla</h3>
+                    <h3>Personal del centro</h3>
                 </a>
             </div>
         </div>
@@ -186,7 +186,7 @@ class __TwigTemplate_1a58522c3ba11f394fd9ab15f583fcbf extends Template
             </div>
             <div class=\"slide slide2\">
                 <a href=\"{{path('plantilla')}}\" class=\"content\">
-                    <h3>Plantilla</h3>
+                    <h3>Personal del centro</h3>
                 </a>
             </div>
         </div>
